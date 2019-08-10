@@ -1,0 +1,326 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="ServicesNested.master.cs" Inherits="CleaningApplication.ServicesNested" %>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+	<form runat="server">
+	<section class="page-title" style="background-image:url(images/background/3.jpg)">
+		<div class="auto-container">
+	
+				<h2><asp:Label ID="lblname"  runat="server" ></asp:Label></h2>
+			
+		</div>
+	</section>
+		
+	  <section class="sidebar-page-container">
+		<div class="auto-container">
+			<div class="row clearfix">
+				
+				<!--Content Side-->
+				<div class="content-side col-lg-8 col-md-12 col-sm-12">
+					<div class="services-single">
+						<div class="inner-box">
+							
+								<h3>Services/<asp:Label ID="lblname2"  runat="server" ></asp:Label></h3>
+							
+							
+							<div class="text">
+								
+									<p> <asp:label runat="server" id="lblDesc"></asp:label></p>
+						
+								
+								<%--<div class="row clearfix">
+									
+									<!--Services Single Block-->
+									<div class="services-single-block col-lg-6 col-md-6 col-xs-12">
+										<div class="inner-box">
+											<div class="image">
+												<img src="images/resource/services-7.jpg" alt="" />
+												<div class="overlay-box">
+													<div class="overlay-inner">
+														<div class="content">
+															<h3><a href="case-single.html">Grout Cleaning</a></h3>
+														</div>
+													</div>
+												</div>
+												<a href="#" class="case-studies">Case Studies</a>
+											</div>
+										</div>
+									</div>
+									
+									<!--Services Single Block-->
+									<div class="services-single-block col-lg-6 col-md-6 col-xs-12">
+										<div class="inner-box">
+											<div class="image">
+												<img src="images/resource/services-8.jpg" alt="" />
+												<div class="overlay-box">
+													<div class="overlay-inner">
+														<div class="content">
+															<h3><a href="case-single.html">Grout Cleaning</a></h3>
+														</div>
+													</div>
+												</div>
+												<a href="#" class="case-studies">Case Studies</a>
+											</div>
+										</div>
+									</div>
+									
+								</div>--%>
+								<%--<div class="bold-text">
+
+									<asp:label runat="server"  id="lblDetailedDesc"></asp:label>
+								</div>--%>
+							</div>
+						   
+								<asp:Image ID="img" height="250px" runat="server" class="form-control"/>
+						   
+							<%--<ul class="list-style-two">
+								<li>To prevent injuries due to tripping or slipping</li>
+								<li>To remove grit and sand which scratch and wear down the surface.</li>
+								<li>To prevent wear to the surface & remove allergens</li>
+								<li>To maintain an optimum traction (e.g. for dance floors).</li>
+							</ul>--%>
+							<!--Title Section-->
+							<%--<div class="tiles-section">
+								<div class="sec-title medium">
+									<h2>Vehicle Cleaning</h2>
+									<div class="separator"></div>
+								</div>
+								
+								<div class="single-item-carousel owl-carousel owl-theme">
+								
+									<!--Tile Block-->
+									<div class="tile-block">
+										<div class="tile-inner clearfix">
+											<!--Image Column-->
+											<div class="image-column" style="background-image:url(images/resource/image-4.jpg)">
+												<div class="inner-column">
+													<a href="https://www.youtube.com/watch?v=kxPCFljwJws" class="lightbox-image play-btn"><span class="flaticon-play-arrow"></span></a>
+												</div>
+											</div>
+											<!--Content Column-->
+											<div class="content-column">
+												<div class="inner-column">
+													<h3 class="tile-title">Types of Tiles We Clean:</h3>
+													<h2 class="tile-name"><a href="#">Ceramic</a></h2>
+													<div class="tile-text">Right to find fault with a man who all chooses to enjoy a pleasure that has consequences.</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									
+									<!--Tile Block-->
+									<div class="tile-block">
+										<div class="tile-inner clearfix">
+											<!--Image Column-->
+											<div class="image-column" style="background-image:url(images/resource/image-4.jpg)">
+												<div class="inner-column">
+													<a href="https://www.youtube.com/watch?v=kxPCFljwJws" class="lightbox-image play-btn"><span class="flaticon-play-arrow"></span></a>
+												</div>
+											</div>
+											<!--Content Column-->
+											<div class="content-column">
+												<div class="inner-column">
+													<h3 class="tile-title">Types of Tiles We Clean:</h3>
+													<h2 class="tile-name"><a href="#">Ceramic</a></h2>
+													<div class="tile-text">Right to find fault with a man who all chooses to enjoy a pleasure that has consequences.</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									
+									<!--Tile Block-->
+									<div class="tile-block">
+										<div class="tile-inner clearfix">
+											<!--Image Column-->
+											<div class="image-column" style="background-image:url(images/resource/image-4.jpg)">
+												<div class="inner-column">
+													<a href="https://www.youtube.com/watch?v=kxPCFljwJws" class="lightbox-image play-btn"><span class="flaticon-play-arrow"></span></a>
+												</div>
+											</div>
+											<!--Content Column-->
+											<div class="content-column">
+												<div class="inner-column">
+													<h3 class="tile-title">Types of Tiles We Clean:</h3>
+													<h2 class="tile-name"><a href="#">Ceramic</a></h2>
+													<div class="tile-text">Right to find fault with a man who all chooses to enjoy a pleasure that has consequences.</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									
+								</div>
+								
+							</div>--%>
+							<!--End Title Section-->
+			
+							<!--Buckets Section-->
+							<div class="buckets-section">
+								<div class="sec-title medium">
+									<h2>
+										<asp:Label ID="lblcustomize" runat="server" Text="Customize the options to see the exact price: "></asp:Label></h2>
+									<div class="separator"></div>
+								</div>
+
+								<div class="blocks-outer">
+									<asp:ContentPlaceHolder runat="server" id="MainContent">
+
+									</asp:ContentPlaceHolder>
+									<!--Bucket Block-->
+								<%--	<div class="buckets-block">
+										<div class="inner-box">
+											<div class="icon-outer">
+												<div class="block-number">01</div>
+												<div class="icon-box">
+													<span class="icon flaticon-clock"></span>
+												</div>
+											</div>
+											<h3><a href="carpet-cleaning.html">Faster Dry Times</a></h3>
+											<div class="text">Sed quia non numquam eius modi tempora incidunt labore et dolore voluptatem ut enim ad minima veniam.</div>
+										</div>
+									</div>
+									
+									<!--Bucket Block-->
+									<div class="buckets-block">
+										<div class="inner-box">
+											<div class="icon-outer">
+												<div class="block-number">02</div>
+												<div class="icon-box">
+													<span class="icon flaticon-light-bulb-on"></span>
+												</div>
+											</div>
+											<h3><a href="carpet-cleaning.html">Unbeatable clean & shine</a></h3>
+											<div class="text">Inventore veritatis quasi architecto beata vitae dicta sunt explicabo nemo enim ipsam voluptatem.</div>
+										</div>
+									</div>
+									
+									<!--Bucket Block-->
+									<div class="buckets-block">
+										<div class="inner-box">
+											<div class="icon-outer">
+												<div class="block-number">03</div>
+												<div class="icon-box">
+													<span class="icon flaticon-inflamable"></span>
+												</div>
+											</div>
+											<h3><a href="carpet-cleaning.html">Non Flammable</a></h3>
+											<div class="text">Aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos ratione voluptatem sequi nesciunt porro quisquam.</div>
+										</div>
+									</div>--%>
+									
+								</div>
+							</div>
+							<!--End Buckets Section-->
+							
+							<!--Services Pricing Section-->
+							<%--<div class="services-pricing-section">
+								<div class="sec-title medium">
+									<h2>Pricing Plan</h2>
+									<div class="separator"></div>
+								</div>
+								<ul class="service-price-list">
+									<li class="clearfix">Cleaning Services<span>Valuable Prices</span></li>
+									<li class="clearfix">Bathroom Floors<span>$06 / Hr - 2 Persons</span></li>
+									<li class="clearfix">Showers and Tubs<span>$08 / Hr  - 2 Persons</span></li>
+									<li class="clearfix">Kitchen Floors<span>$10 / Hr - 3 Persons</span></li>
+									<li class="clearfix">Entryways & Hallways<span>$15 / Hr - 3 Persons</span></li>
+								</ul>
+							</div>--%>
+							
+						</div>
+					</div>
+				</div>
+				
+				<!--Sidebar Side-->
+				<div class="sidebar-side col-lg-4 col-md-12 col-sm-12">
+					<aside class="sidebar">
+						
+						<!-- Services Widget -->
+						<div class="sidebar-widget services-widget">
+							<div class="widget-content">
+								<div class="sidebar-title">
+									<h2>Product Search</h2>
+									<div class="separator"></div>
+								</div>
+								<ul>
+									<asp:Repeater id="repeaterCatg" runat="server">
+										<HeaderTemplate>
+
+										</HeaderTemplate>
+										<ItemTemplate>
+											<li>  <a href="ServiceDetails.aspx?categoryid=<%#Eval("categoryid") %>"><asp:Label runat="server" id="lblServiceName" Text='<%#Eval("categoryName") %>'></asp:Label></a></li>
+										</ItemTemplate>
+										<FooterTemplate>
+
+										</FooterTemplate>
+									</asp:Repeater>
+									<%--<li><a href="#">Carpet Cleaning</a></li>
+									<li><a href="#">Tile and Grout</a></li>
+									<li><a href="#">Window  Cleaning</a></li>
+									<li><a href="#">Laundry Service</a></li>
+									<li><a href="#">House Keeping</a></li>
+									<li><a href="#">Vehicle Cleaning</a></li>--%>
+								</ul>
+							</div>
+						</div>
+						
+						<!-- Broucher Widget -->
+						<%--<div class="sidebar-widget broucher-widget">
+							<div class="widget-content">
+								<div class="sidebar-title">
+									<h2>Our Brochures</h2>
+									<div class="separator"></div>
+								</div>
+								<ul class="branch-lists">
+									<li><span class="icon flaticon-word-file"></span><a href="#">Last Year Growth <span class="mb">1.25 MB</span></a></li>
+									<li><span class="icon flaticon-pdf"></span><a href="#">Company Profile <span class="mb">2.30 MB</span></a></li>
+								</ul>
+							</div>
+						</div>--%>
+						
+						<!-- Booking Widget -->
+						<div class="sidebar-widget booking-widget">
+							<div class="widget-content" style="background-image:url(images/resource/image-3.jpg)">
+								<div class="sidebar-title">
+									<h2>Get a Free Quote</h2>
+									<div class="separator"></div>
+								</div>
+								
+								<!--Booking Form-->
+								<div class="booking-form">
+								
+										<div class="form-group">
+											<asp:TextBox runat="server" ID="txtname" type="text"  placeholder="Enter your name" />
+										</div>
+										
+										<div class="form-group">
+											<asp:TextBox runat="server" ID="txtemail" type="email"  placeholder="Enter your Email" />
+										</div>
+										
+										<div class="form-group">
+											<asp:TextBox runat="server" ID="txtPhoneNo" type="text"  placeholder="Enter your Phone No" />
+										</div>
+										
+										<div class="form-group">
+											<asp:TextBox runat="server" ID="txtMessage" type="text"  placeholder="Enter your Message" />
+										</div>
+										
+										<div class="form-group">
+											<asp:Button runat="server" id="btnsubmit" type="submit" class="theme-btn book-btn" Text="Get a Quote" OnClick="btnsubmit_Click"></asp:Button>
+											<br />
+											<asp:Label ID="lblmessage" runat="server" Font-Bold="True" ForeColor="White" ></asp:Label>
+										</div>                               
+									</div>
+								
+								<!--End Booking Form-->
+								
+							</div>
+						</div>
+						
+					</aside>
+				</div>
+				
+			</div>
+		</div>
+	</section>
+	<!--End Faq Page Section-->
+	  </form>
+</asp:Content>

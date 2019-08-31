@@ -35,7 +35,7 @@ namespace CleaningApplication
         {
 
             conn = new SqlConnection(connectionString);
-            string query = "select phoneNo, companyAddress, timings from tbPanel";
+            string query = "select phoneNo, companyAddress, timings, companyEmail, phoneNo2 from tbPanel";
             conn.Open();
             SqlCommand cmd = new SqlCommand(query, conn);
             
@@ -45,9 +45,11 @@ namespace CleaningApplication
             {
                 while (reader.Read())
                 {
-                    lblPhone.Text = reader.GetString(0);
+                    lblPhone.Text = "(p)" + reader.GetString(0);
                     lblAddress.Text = reader.GetString(1);
                     lblTimings.Text = reader.GetString(2);
+                    lblEmail.Text = reader.GetString(3);
+                    lblphone2.Text = reader.GetString(4);
 
                 }
             }
@@ -98,7 +100,7 @@ namespace CleaningApplication
                 smtp.EnableSsl = true;
                 NetworkCredential nc = new NetworkCredential();
                 nc.UserName = "aastha2150@gmail.com";
-                nc.Password = "Goyal0412aastha";
+                nc.Password = "Goyal0412Aa$h1";
                 smtp.UseDefaultCredentials = true;
                 smtp.Credentials = nc;
                 smtp.Port = 587;

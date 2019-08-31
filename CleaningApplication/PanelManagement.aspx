@@ -17,8 +17,11 @@
         <asp:FileUpload ID="fpLogo" runat="server" />
         <br />
          <br />
-    Phone No:
+    Phone No (primary):
       <asp:TextBox class="form-control" width="100%" height="40px" Enabled="False" ID="txtphoneno" runat="server" ></asp:TextBox>
+        <br />
+        Phone No (secondary):
+         <asp:TextBox class="form-control" width="100%" height="40px" Enabled="False" ID="txtphoneno2" runat="server" ></asp:TextBox>
         <br />
     Street Address:
       <asp:TextBox class="form-control" width="100%" height="40px" Enabled="False" ID="txtstreetAddress" runat="server" ></asp:TextBox>

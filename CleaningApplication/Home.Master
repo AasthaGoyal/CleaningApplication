@@ -173,10 +173,10 @@
 									  </ul>--%>
 									
 								</li>
-								<li ><a href="Process.aspx">How does it work?</a>
+								<li ><a href="Process.aspx">Process</a>
 									
 								</li>
-								<li ><a href="WhyUs.aspx">Why us?</a>
+								<li ><a href="WhyUs.aspx">About Us</a>
 									
 								</li>
 								<li class="dropdown"><a href="Reviews.aspx">Reviews</a>
@@ -187,6 +187,7 @@
 									</ul>
 								</li>
 								<li><a href="ContactUs.aspx">Contact us</a></li>
+                                <li> <a href="OurStories.aspx"> Stories</a></li>
 							</ul>
 						</div>
 					</nav>
@@ -283,10 +284,10 @@
 									 
 								
 								
-								<li ><a href="Process.aspx">How does it work?</a>
+								<li ><a href="Process.aspx">Process</a>
 									
 								</li>
-								<li ><a href="WhyUs.aspx">Why to choose us?</a>
+								<li ><a href="WhyUs.aspx">About Us</a>
 									
 								</li>
 								<li class="dropdown"><a href="Reviews.aspx">Our Reviews</a>
@@ -297,6 +298,7 @@
 									</ul>
 								</li>
 								<li><a href="ContactUs.aspx">Contact us</a></li>
+                                <li> <a href="OurStories.aspx"> Our Stories</a></li>
 							</ul>
 							</div>
 					</nav><!-- Main Menu End-->
@@ -393,7 +395,7 @@
 									<ul class="footer-links">
 										<li><a href="Default.aspx">Home</a></li>
 										<li><a href="AboutUs.aspx">About Us</a></li>
-										<li><a href="Process.aspx">How does it work?</a></li>
+										<li><a href="Process.aspx">Our Process</a></li>
 										<li><a href="Reviews.aspx">Our Reviews</a></li>
 										<li><a href="ContactUs.aspx">Contact us</a></li>
 										<li> <a href="LoginPage.aspx">Admin access</a></li>

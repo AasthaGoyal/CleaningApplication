@@ -10,24 +10,15 @@
 namespace CleaningApplication {
     
     
-    public partial class WebForm5 {
+    public partial class WebForm22 {
         
         /// <summary>
-        /// ScriptManager1 control.
+        /// lblamount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
-        
-        /// <summary>
-        /// rpReviews control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rpReviews;
+        protected global::System.Web.UI.WebControls.Label lblamount;
     }
 }

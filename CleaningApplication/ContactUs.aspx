@@ -33,6 +33,7 @@
 						<ul>
 							<li>
 								<asp:Label ID="lblPhone" runat="server" ></asp:Label></li>
+							<li> <asp:Label ID="lblphone2" runat="server"></asp:Label></li>
 							<li>
 								<asp:Label ID="lblEmail" runat="server" ></asp:Label></li>
 						</ul>

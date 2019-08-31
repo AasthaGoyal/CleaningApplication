@@ -47,10 +47,10 @@
       <HintPath>..\packages\AjaxControlToolkit.19.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.3.0-preview6-19304-03\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.3.0-preview7-19363-02\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.3.0-preview6-19304-03\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.3.0-preview7-19363-02\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
@@ -144,9 +144,12 @@
     <Content Include="images\background\4.jpg" />
     <Content Include="images\background\5.jpg" />
     <Content Include="images\background\arrow.png" />
+    <Content Include="images\background\emptyStar.png" />
+    <Content Include="images\background\filledStar.png" />
     <Content Include="images\background\golden_star.jpg" />
     <Content Include="images\background\pattern-1.png" />
     <Content Include="images\background\pattern-2.jpg" />
+    <Content Include="images\background\redStar.png" />
     <Content Include="images\background\star.jpg" />
     <Content Include="images\background\w3.png" />
     <Content Include="images\background\wp1.png" />
@@ -339,7 +342,10 @@
     <Content Include="js\script.js" />
     <Content Include="js\validate.js" />
     <Content Include="js\wow.js" />
-    <Content Include="Web.config" />
+    <Content Include="NavigationBar.css" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Default.aspx" />
     <Content Include="Services.aspx" />
     <Content Include="ContactUs.aspx" />
@@ -349,7 +355,6 @@
     <Content Include="Process.aspx" />
     <Content Include="ServiceDetails.aspx" />
     <Content Include="LoginPage.aspx" />
-    <Content Include="Review2.aspx" />
     <Content Include="ProcessManagement.aspx" />
     <Content Include="ReviewManagement.aspx" />
     <Content Include="PanelManagement.aspx" />
@@ -358,7 +363,9 @@
     <Content Include="registerUser.aspx" />
     <Content Include="StaffManagement.aspx" />
     <Content Include="BookServices.aspx" />
-    <Content Include="WebForm9.aspx" />
+    <Content Include="ClientManagement.aspx" />
+    <Content Include="OurStories.aspx" />
+    <Content Include="AboutUsManagement.aspx" />
     <Content Include="WhyUs.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -392,7 +399,6 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Reviews.cs" />
     <Compile Include="Services.aspx.cs">
       <DependentUpon>Services.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -456,13 +462,6 @@
     <Compile Include="LoginPage.aspx.designer.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Review2.aspx.cs">
-      <DependentUpon>Review2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Review2.aspx.designer.cs">
-      <DependentUpon>Review2.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ProcessManagement.aspx.cs">
       <DependentUpon>ProcessManagement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -519,12 +518,26 @@
     <Compile Include="BookServices.aspx.designer.cs">
       <DependentUpon>BookServices.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm9.aspx.cs">
-      <DependentUpon>WebForm9.aspx</DependentUpon>
+    <Compile Include="ClientManagement.aspx.cs">
+      <DependentUpon>ClientManagement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm9.aspx.designer.cs">
-      <DependentUpon>WebForm9.aspx</DependentUpon>
+    <Compile Include="ClientManagement.aspx.designer.cs">
+      <DependentUpon>ClientManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OurStories.aspx.cs">
+      <DependentUpon>OurStories.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OurStories.aspx.designer.cs">
+      <DependentUpon>OurStories.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AboutUsManagement.aspx.cs">
+      <DependentUpon>AboutUsManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AboutUsManagement.aspx.designer.cs">
+      <DependentUpon>AboutUsManagement.aspx</DependentUpon>
     </Compile>
     <Compile Include="WhyUs.aspx.cs">
       <DependentUpon>WhyUs.aspx</DependentUpon>
@@ -605,7 +618,9 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.3.0-preview7-19363-02\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0-preview7-19363-02\build\EntityFramework.targets'))" />
   </Target>
+  <Import Project="..\packages\EntityFramework.6.3.0-preview7-19363-02\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.3.0-preview7-19363-02\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

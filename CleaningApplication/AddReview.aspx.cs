@@ -22,12 +22,12 @@ namespace CleaningApplication
             {
                 if(txtname.Text != "")
                 {
-                    dao.addReview(txtname.Text, txtHeading.Text, txtReview.Text, Convert.ToInt32(dpStars.SelectedItem.Text));
+                    dao.addReview(txtname.Text, txtHeading.Text, txtReview.Text, Rating1.CurrentRating);
 
                 }
                 else
                 {
-                    dao.addReview("Anoynomous Customer", txtHeading.Text, txtReview.Text, Convert.ToInt32(dpStars.SelectedItem.Text));
+                    dao.addReview("Anoynomous Customer", txtHeading.Text, txtReview.Text, Rating1.CurrentRating);
 
                 }
                 lblMessage.Text = "Thanks for your feedback!";

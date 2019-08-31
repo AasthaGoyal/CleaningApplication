@@ -26,6 +26,7 @@ namespace CleaningApplication
             {
 
                 loadReviews();
+                
             }
 
         }
@@ -34,10 +35,11 @@ namespace CleaningApplication
         {
             con.Open();
 
-            cmd = new SqlCommand("Select * from tbreviews", con);
+            cmd = new SqlCommand("Select customerName, heading, review ,stars from tbreviews", con);
             DataSet ds = new DataSet();
             da = new SqlDataAdapter(cmd);
             da.Fill(ds);
+          
             rpReviews.DataSource = ds;
             rpReviews.DataBind();
             con.Close();

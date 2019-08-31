@@ -130,11 +130,21 @@ namespace CleaningApplication
 
         }
 
-        public void updatePanel(string name, string phoneNo, string address, string timings , string aboutUs, string email, string logo, string suburb)
+        public void updatePanel(string name, string phoneNo, string address, string timings , string aboutUs, string email, string logo, string suburb, string phoneno2)
         {
             openConnection();
 
-            string query = "update tbpanel set companyName ='" + name + "', phoneNo='" + phoneNo + "',companyAddress='" + address + "', timings ='" + timings + "',aboutUs='" + aboutUs + "',companyEmail='" + email + "',logo='" + logo + "',suburb='" + suburb + "' where panelid =1";
+            string query = "update tbpanel set companyName ='" + name + "', phoneNo='" + phoneNo + "',companyAddress='" + address + "', timings ='" + timings + "',aboutUs='" + aboutUs + "',companyEmail='" + email + "',logo='" + logo + "',suburb='" + suburb + "',phoneNo2 ='" + phoneno2 + "' where panelid =1";
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            cmd.ExecuteNonQuery();
+        }
+
+        public void updateAboutus(string tagline, string line1, string line2, string core, string mission, string vision)
+        {
+            openConnection();
+
+            string query = "update tbaboutUs set tagline='" + tagline + "', line1='" + line1 + "',line2='" + line2 + "', coreValues ='" + core + "',mission='" + mission + "',vision='" + vision + "' where aboutusid=1";
             SqlCommand cmd = new SqlCommand(query, connection);
 
             cmd.ExecuteNonQuery();

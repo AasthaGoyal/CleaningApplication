@@ -24,10 +24,37 @@ namespace CleaningApplication
 
             if (!IsPostBack)
             {
-
+                fillData();
                 FillStaffData();
                 loadReviews();
             }
+        }
+
+        public void fillData()
+        {
+            conn = new SqlConnection(connectionString);
+
+            conn.Open();
+           
+            string query = "select * from tbaboutUs";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            if(reader.HasRows)
+            {
+                while(reader.Read())
+                {
+                    lbltagline.Text = reader.GetString(1);
+                    lblline1.Text = reader.GetString(2);
+                    lblline2.Text = reader.GetString(3);
+                    lblvalues.Text = reader.GetString(4);
+                    lblmission.Text = reader.GetString(5);
+                    lblvision.Text = reader.GetString(6);
+                }
+            }
+
+            conn.Close();
+
         }
 
          public void FillStaffData()

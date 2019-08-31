@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="WhyUs.aspx.cs" Inherits="CleaningApplication.WebForm10" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-	<form runat="server">
+    <form runat="server">
 		 <section class="page-title" style="background-image:url(images/background/3.jpg)">
 		<div class="auto-container">
 			<h2>About Us</h2>
@@ -51,12 +51,14 @@
 								<div class="icon-box">
 									<span class="icon flaticon-broom"></span>
 								</div>
-								<h2>We have spent more than 60 <br> years getting to know every kind <br> of client.</h2>
-								<div class="separator"></div>
+								<h2>
+                                    <asp:Label ID="lbltagline" runat="server" ></asp:Label></h2>
+								<div class="separator"></div>   
 							</div>
-							<div class="text">
-								<p>The Cleaning Authority is widely recognized for our commitment to serving our customers while staying friendly to the environment. We have a history of excellence.</p>
-								<p>We dedication to our clients through providing professional and high-quality cleaning services across france.</p>
+							<div class="text" >
+								<p style="color: #000000">
+                                    <asp:Label ID="lblline1" runat="server" ></asp:Label></p>
+								<p style="color: #000000"> <asp:Label ID="lblline2" runat="server" ></asp:Label></p>
 							</div>
 						</div>
 					</div>
@@ -72,7 +74,8 @@
 					<div class="services-block-three col-lg-4 col-md-6 col-sm-12">
 						<div class="inner-box">
 							<h3><a href="carpet-cleaning.html">Our Core Values</a></h3>
-							<div class="text">Will be the leading provider of cleaning services by creating a positive impact on the quality of customer life.</div>
+							<div class="text">
+                                <asp:Label ID="lblvalues" runat="server" ></asp:Label></div>
 						</div>
 					</div>
 					
@@ -80,7 +83,8 @@
 					<div class="services-block-three col-lg-4 col-md-6 col-sm-12">
 						<div class="inner-box">
 							<h3><a href="carpet-cleaning.html">Our Mission</a></h3>
-							<div class="text">Will be the leading provider of cleaning services by creating a positive impact on the quality of customer life.</div>
+							<div class="text">
+                                <asp:Label ID="lblmission" runat="server" ></asp:Label></div>
 						</div>
 					</div>
 					
@@ -88,7 +92,8 @@
 					<div class="services-block-three col-lg-4 col-md-6 col-sm-12">
 						<div class="inner-box">
 							<h3><a href="carpet-cleaning.html">Our Vision</a></h3>
-							<div class="text">Across the world our vision is same, To be the dominant residential cleaning franchise in our markets.</div>
+							<div class="text">
+                                <asp:Label ID="lblvision" runat="server" ></asp:Label></div>
 						</div>
 					</div>
 					

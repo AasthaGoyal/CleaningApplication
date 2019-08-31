@@ -518,6 +518,29 @@
 	</section>
 	<!--End Feedback Section-->
 
+		<section class="feedback-section">
+		<div class="auto-container">
+			<!--Sec Title-->
+			<div class="sec-title centered">
+				<div class="icon-box">
+					<span class="icon flaticon-broom"></span>
+				</div>
+				<h2>Our Clients</h2>
+				<div class="separator"></div>
+			</div>
+
+			<asp:DataList ID="dlClients" runat="server" DataSourceID="SqlDataSource1" RepeatColumns="6">
+				<ItemTemplate>
+					<asp:Image ID="Image1" runat="server" Height="202px" Width="271px" />
+					<asp:Label ID="clientNameLabel" runat="server" Font-Bold="True" Font-Size="Medium" ForeColor="#000066" Text='<%# Eval("clientName") %>' />
+					<br />
+					<br />
+				</ItemTemplate>
+			</asp:DataList>
+			<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbcleaningConnectionString %>" SelectCommand="SELECT [clientLogo], [clientName] FROM [tbclient]"></asp:SqlDataSource>
+			</div>
+			</section>
+
 
 		</form>
 

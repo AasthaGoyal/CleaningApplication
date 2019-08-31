@@ -1,8 +1,34 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="AddReview.aspx.cs" Inherits="CleaningApplication.WebForm6" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form runat="server">
+        <style>
 
+        .starRating
+        {
+            width:50px;
+            height:50px;
+            cursor:pointer;
+            background-repeat:no-repeat;
+            display:block;
+            background-size:cover;
+        }
+
+        .FilledStars{
+            background-image:url("images/background/filledStar.png");
+
+        }
+
+        .WaitingStars{
+            background-image:url("images/background/redStar.png");
+        }
+
+
+        .EmptyStars{
+            background-image:url("images/background/emptyStar.png");
+        }
+    </style>
    
       <section class="page-title" style="background-image:url(images/background/3.jpg)">
     	<div class="auto-container">
@@ -21,14 +47,22 @@
        Your Review:
        <asp:TextBox ID="txtReview" runat="server" CssClass="form-control"></asp:TextBox>
        <br />
-       How many stars would you rate us?
-       <asp:DropDownList ID="dpStars" runat="server" CssClass="form-control">
-           <asp:ListItem>1</asp:ListItem>
-           <asp:ListItem>2</asp:ListItem>
-           <asp:ListItem>3</asp:ListItem>
-           <asp:ListItem>4</asp:ListItem>
-           <asp:ListItem>5</asp:ListItem>
-       </asp:DropDownList>
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+        </asp:ScriptManager>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+                <cc1:Rating ID="Rating1" runat="server"
+                    StarCssClass="starRating" 
+                    FilledStarCssClass="FilledStars"
+                    EmptyStarCssClass="EmptyStars"
+                    WaitingStarCssClass="WaitingStars"></cc1:Rating>
+                <br />
+                
+               
+            </ContentTemplate>
+        </asp:UpdatePanel>
+        <br />
+      <br />
        <br />
        <asp:Button ID="btnsubmit" runat="server" Text="Submit" class="btn-primary form-control" OnClick="btnsubmit_Click"/>
        <br />

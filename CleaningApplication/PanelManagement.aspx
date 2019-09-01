@@ -1,7 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="PanelManagement.aspx.cs" Inherits="CleaningApplication.WebForm17" %>
+<%@ MasterType VirtualPath="~/Admin.Master" %> 
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form runat="server">
-        
+        <div class="container form-control">
 
     
     <h2> Panel Managemrnt</h2>
@@ -46,7 +48,7 @@
         <asp:Button ID="btnUpdate" class="btn-success" width="200px" height="50px" runat="server" Text="Update" OnClick="btnUpdate_Click" />
       
       
-    
+    </div>
    </form>
    
    

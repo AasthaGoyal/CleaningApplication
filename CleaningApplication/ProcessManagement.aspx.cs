@@ -19,6 +19,7 @@ namespace CleaningApplication
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.Master.process = System.Drawing.Color.DeepSkyBlue;
             if(!IsPostBack)
             {
                 populateData();

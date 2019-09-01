@@ -148,10 +148,11 @@
 						
 						<div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
 							<ul class="navigation clearfix">
-								<li id="currentNav" class="current" ><a href="Default.aspx">Home</a>
+								<li><a href="Default.aspx">
+                                    <asp:Label ID="navhome" runat="server" Text="Home"></asp:Label></a>
 									
 								</li>
-								<li><a href="Services.aspx">Services</a>
+								<li><a href="Services.aspx"> <asp:Label ID="navServices" runat="server" Text="Services"></asp:Label></a>
 									  <%--<ul>
 										<%--<li><a href="ServiceDetails?categoryid=1"> End of tenancy cleaning</a></li>
 									   <li><a href="ServiceDetails?categoryid=1"> End of tenancy cleaning</a></li>
@@ -173,21 +174,21 @@
 									  </ul>--%>
 									
 								</li>
-								<li ><a href="Process.aspx">Process</a>
+								<li ><a href="Process.aspx"> <asp:Label ID="navprocess" runat="server" Text="Process"></asp:Label></a>
 									
 								</li>
-								<li ><a href="WhyUs.aspx">About Us</a>
+								<li ><a href="WhyUs.aspx"> <asp:Label ID="navabtus" runat="server" Text="About Us"></asp:Label></a>
 									
 								</li>
-								<li class="dropdown"><a href="Reviews.aspx">Reviews</a>
+								<li class="dropdown"><a href="Reviews.aspx"> <asp:Label ID="navreviews" runat="server" Text="Reviews"></asp:Label></a>
 									<ul>
 										<li><a href="AddReview.aspx">Add a review</a></li>
 										<li><a href="Reviews.aspx">See all reviews</a></li>
 									  
 									</ul>
 								</li>
-								<li><a href="ContactUs.aspx">Contact us</a></li>
-                                <li> <a href="OurStories.aspx"> Stories</a></li>
+								<li><a href="ContactUs.aspx"> <asp:Label ID="navcntus" runat="server" Text="Contact us"></asp:Label></a></li>
+								<li> <a href="OurStories.aspx">  <asp:Label ID="navstories" runat="server" Text="Stories"></asp:Label></a></li>
 							</ul>
 						</div>
 					</nav>
@@ -298,7 +299,7 @@
 									</ul>
 								</li>
 								<li><a href="ContactUs.aspx">Contact us</a></li>
-                                <li> <a href="OurStories.aspx"> Our Stories</a></li>
+								<li> <a href="OurStories.aspx"> Our Stories</a></li>
 							</ul>
 							</div>
 					</nav><!-- Main Menu End-->

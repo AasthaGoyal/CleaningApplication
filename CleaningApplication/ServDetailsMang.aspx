@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="ServDetailsMang.aspx.cs" Inherits="CleaningApplication.WebForm11" %>
+<%@ MasterType VirtualPath="~/Admin.Master" %> 
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form runat="server">
+        <div class="container form-control">
         <link href="css/bootstrap.css" rel="stylesheet" />
 <link href="css/style.css" rel="stylesheet"/>
 <link href="css/responsive.css" rel="stylesheet"/>
@@ -111,7 +114,7 @@
        
 
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbcleaningConnectionString %>" SelectCommand="SELECT [categoryName] FROM [tbcategory]"></asp:SqlDataSource>
-        
+        </div>
     </form>
   
 </asp:Content>

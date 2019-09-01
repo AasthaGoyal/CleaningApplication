@@ -16,7 +16,7 @@ namespace CleaningApplication
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            this.Master.aboutus = System.Drawing.Color.DeepSkyBlue;
 
             if (!IsPostBack)
             {

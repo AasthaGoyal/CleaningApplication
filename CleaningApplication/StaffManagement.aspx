@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="StaffManagement.aspx.cs" Inherits="CleaningApplication.WebForm20" %>
+<%@ MasterType VirtualPath="~/Admin.Master" %> 
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server">
+        <div class="container form-control">
         
     <h3> Select a staff to Edit or Delete</h3>
 <br />
@@ -52,7 +55,7 @@
         <asp:Button ID="btnDelete" class="btn-danger " width="200px" height="50px" runat="server" Text="Delete" OnClick="btnDelete_Click" />
       <br />
         <br />
-        <asp:GridView width="100%" ID="gdStaff" class="form-control" runat="server" AutoGenerateColumns="False"  BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical" OnSelectedIndexChanged="gdStaff_SelectedIndexChanged"  >
+        <asp:GridView width="100%" ID="gdStaff"  runat="server" AutoGenerateColumns="False"  BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical" OnSelectedIndexChanged="gdStaff_SelectedIndexChanged"  >
         <AlternatingRowStyle BackColor="#DCDCDC" />
         <Columns>
             <asp:CommandField ButtonType="Image" SelectImageUrl="~/images/background/arrow.png" ShowSelectButton="True">
@@ -85,5 +88,6 @@
         <SortedDescendingCellStyle BackColor="#CAC9C9" />
         <SortedDescendingHeaderStyle BackColor="#000065" />
         </asp:GridView>
+            </div>
           </form>
 </asp:Content>

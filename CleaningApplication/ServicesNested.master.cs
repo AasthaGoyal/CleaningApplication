@@ -25,6 +25,7 @@ namespace CleaningApplication
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.Master.services = System.Drawing.Color.DeepSkyBlue;
              id = Convert.ToInt32(Request.QueryString["categoryid"]);
              connection = new SqlConnection(connectionString);
 
@@ -39,7 +40,9 @@ namespace CleaningApplication
             
         }
 
-     
+      
+
+
 
         public void categoryDetails()
         {

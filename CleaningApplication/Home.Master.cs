@@ -22,6 +22,98 @@ namespace CleaningApplication
 
         }
 
+        public System.Drawing.Color home
+        {
+            get
+            {
+                return navhome.ForeColor;
+            }
+
+            set
+            {
+                navhome.ForeColor = value;
+            }
+        }
+
+
+        public System.Drawing.Color services
+        {
+            get
+            {
+                return navServices.ForeColor;
+            }
+
+            set
+            {
+                navServices.ForeColor = value;
+            }
+        }
+
+        public System.Drawing.Color process
+        {
+            get
+            {
+                return navprocess.ForeColor;
+            }
+
+            set
+            {
+                navprocess.ForeColor = value;
+            }
+        }
+
+        public System.Drawing.Color reviews
+        {
+            get
+            {
+                return navreviews.ForeColor;
+            }
+
+            set
+            {
+                navreviews.ForeColor = value;
+            }
+        }
+
+        public System.Drawing.Color stories
+        {
+            get
+            {
+                return navstories.ForeColor;
+            }
+
+            set
+            {
+                navstories.ForeColor = value;
+            }
+        }
+
+        public System.Drawing.Color aboutus
+        {
+            get
+            {
+                return navabtus.ForeColor;
+            }
+
+            set
+            {
+                navabtus.ForeColor = value;
+            }
+        }
+
+        public System.Drawing.Color contactus
+        {
+            get
+            {
+                return navcntus.ForeColor;
+            }
+
+            set
+            {
+                navcntus.ForeColor = value;
+            }
+        }
+
         public void FillContactData()
         {
             SqlConnection conn = new SqlConnection(connectionString);

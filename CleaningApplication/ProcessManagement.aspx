@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="ProcessManagement.aspx.cs" Inherits="CleaningApplication.WebForm16" %>
+<%@ MasterType VirtualPath="~/Admin.Master" %> 
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server">
+        <div class="container form-control">
          
     <h1> Process Management</h1>
     <br />
@@ -49,7 +52,7 @@
             <SortedDescendingCellStyle BackColor="#CAC9C9" />
             <SortedDescendingHeaderStyle BackColor="#000065" />
         </asp:GridView>
-        
+        </div>
             
            </form>
 

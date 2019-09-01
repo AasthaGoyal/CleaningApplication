@@ -4,149 +4,426 @@
 
 <html>
 <head runat="server">
-	<title></title>
-   <style type="text/css">
-		ul{
-			list-style-type:none;
-			margin:0;
-			padding:0;
-			overflow:hidden;
-			background-color:#333;
+
+	<meta charset="utf-8">
+<title>Administrator Access</title>
+<!-- Stylesheets -->
+<link href="css/bootstrap.css" rel="stylesheet" />
+<link href="css/style.css" rel="stylesheet"/>
+<link href="css/responsive.css" rel="stylesheet"/>
+<!--<link href="css/color.css" rel="stylesheet">-->
+
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon"/>
+<link rel="icon" href="images/favicon.png" type="image/x-icon"/>
+
+<!-- Responsive -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+	<style type="text/css">
+		.auto-style1 {
+			width: 132px;
+			height: 123px;
 		}
-
-		li{
-			float:left;
-		}
-
-		li a, dropbtn{
-			display:inline-block;
-			color:white;
-			text-align:center;
-			padding: 14px 16px;
-			text-decoration:none;
-		}
-
-		li a:hover, dropdown:hover, dropbtn{
-			background-color:red;
-		}
-
-		li.dropdown
-		{
-			display:inline-block;
-		}
-
-		.dropdown-content{
-			display:none;
-			position:absolute;
-			background-color: #f9f9f9;
-			min-width:160px;
-			box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);
-		}
-
-		dropdown-content a{
-			color:black;
-			padding: 12px 16px;
-			text-decoration:none;
-			display:none;
-			text-align:center;
-		}
-
-		.dropdown-content a:hover{
-			background-color: #f1f1f1;
-		}
-
-		.dropdown:hover .dropdown-content{
-			display:block;
-
-		}
-
-		ul.topnav li a.active{
-			background-color:#4caf50;
-		}
-
-		li.right{
-			float:right;
-			background-color:red;
-		}
-
-		a.active{
-			background-color:#4CAF50;
-		}
-
-
-
 	</style>
+	<%--<asp:ContentPlaceHolder runat="server" ID="head">
+
+	</asp:ContentPlaceHolder>--%>
 </head>
 <body>
+	<div class="page-wrapper">
 	
-	  
+	<!-- Preloader -->
+	<div class="preloader"></div>
+	
+	<!-- Main Header-->
 
-  <%--  <div class="navbar">
-		 <a href="ProcessManagement.aspx">Process management</a>
-  <a href="ReviewManagement.aspx">Review manegement</a>
-	<div class="dropdown">
-  <button class="dropbtn">Panel Management</button>
-  <div class="dropdown-content">
-	<a href="PanelManagement.aspx">Home page</a>
-	<a href="AboutUsManagement.aspx">About us page</a>
-   
-  </div>
-</div>
-		<a href="ServicesManagement.aspx"> Services Management</a>
-	<a href="ServDetailsMang.aspx"> Services Details Management</a>
-	<a href="StaffManagement.aspx"> Staff Management</a>
-  
-	<a href="Default.aspx" style="font-style: italic; color: #FF0000"> Back to Website </a>
-		</div>--%>
-<%--<div class="navbar">
-  <a href="ProcessManagement.aspx">Process management</a>
-  <a href="ReviewManagement.aspx">Review manegement</a>
-   <div class="dropdown">
-  <button class="dropbtn" onclick="myFunction()">Panel management
-	<i class="fa fa-caret-down"></i>
-  </button>
-  <div class="dropdown-content" id="myDropdown">
-	<a href="PanelManagement.aspx">Home page panel</a>
-	<a href="AboutUsManagement.aspx">About us panel</a>
 	
-  </div>
-  </div>--%>
- 
+	<header class="main-header">
 	
- <%-- <div class="dropdown">
-  <button class="dropbtn" onclick="myFunction()">Services management
-	<i class="fa fa-caret-down"></i>
-  </button>
-  <div class="dropdown-content" id="myDropdown">
-	<a href="#">Add a new service</a>
-	<a href="#">Update/Delete a service</a>
-	
-  </div>
-  </div> --%>
-
-
-	<ul>
-		<li> <a class="active" href="#">Home</a></li>
-		<li> <a href="#"> Books</a></li>
-		<li class="dropdown">
-			<a href="javascript:void(0)" class="dropbtn"> Subjects</a>
-			<div class="dropdown-content">
-				<a href="#"> Link1</a>
-				<a href="#"> Link2</a>
-				<a href="#"> Link3</a>
-				<a href="#"> Link4</a>
-				<a href="#"> Link5</a>
+		<!--Header Top-->
+		<div class="header-top">
+			<div class="auto-container">
+				<div class="clearfix">
+					<!--Top Left-->
+					<div class="top-left pull-left">
+						
+						<ul class="social-nav">
+							<li><a href="https://www.facebook.com/swaach.shah.5"><span class="fa fa-facebook-f"></span></a></li>
+							<li><a href="https://instagram.com/swaachclean9?igshid=1axkv4h53820d"><span class="fa fa-instagram"></span></a></li>
+							<li><a href="https://twitter.com/CleaningSwaach"><span class="fa fa-twitter"></span></a></li>
+							<%--<li><a href="#"><span class="fa fa-youtube"></span></a></li>--%>
+						</ul>
+					</div>
+					<!--Top Right-->
+					<div class="top-right pull-right">
+						<a href="mailto:swaachclean@gmail.com" class="mail-us"><span class="icon flaticon-interface-1"></span> Mail Us</a>
+						<!--Search Box-->
+						<div class="search-box-outer">
+							<button class="search-box-btn dropdown" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fa fa-search"></span></button>
+							<ul class="dropdown-menu pull-right search-panel" aria-labelledby="dropdownMenu1">
+								<li class="panel-outer">
+									<div class="form-container">
+											<div class="form-group">
+												<input type="search" name="field-name" value="" placeholder="Search Here" required>
+												<button type="submit" class="search-btn"><span class="fa fa-search"></span></button>
+											</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+						
+					</div>
+				</div>
 			</div>
-		</li>
-		<li class="right" > <a href="#about"> About us</a></li>
-	</ul>
+		</div>
 	
+				<!--Header-Upper-->
+	
+				<!--Header Lower-->
+		<div class="header-lower">
+			
+			<div class="auto-container">
+				<div class="nav-outer clearfix">
+					<!-- Main Menu -->
+					<nav class="main-menu navbar-expand-md">
+						<div class="navbar-header">
+							<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						</div>
+						
+						<div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
+							<ul class="navigation clearfix">
+								<li><a  href="PanelManagement.aspx">
+                                    <asp:Label  ID="navpanel" runat="server" Text="Panel mang"></asp:Label></a>
+									
+								</li>
+								<li><a href="AboutUsManagement.aspx"> <asp:Label  ID="navabtus" runat="server" Text="About us mang"></asp:Label></a>
+									  <%--<ul>
+										<%--<li><a href="ServiceDetails?categoryid=1"> End of tenancy cleaning</a></li>
+									   <li><a href="ServiceDetails?categoryid=1"> End of tenancy cleaning</a></li>
+											<asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1">
+												
+											<ItemTemplate>
+											  
+													<li>
+													 <a href="ServiceDetails?categoryid='<%#Eval("categoryid") %>">
+													
+													<asp:Label ID="categoryNameLabel" runat="server" Text='<%# Eval("categoryName") %>' />
+													</a></li>
+								  
+												   
+												</ItemTemplate>
+											
+											</asp:DataList>
+											
+									  </ul>--%>
+									
+								</li>
+								<li ><a href="ProcessManagement.aspx"> <asp:Label  ID="navProcess" runat="server" Text="Process mang"></asp:Label></a>
+									
+								</li>
+								<li ><a href="ReviewManagement.aspx"> <asp:Label  ID="navReview" runat="server" Text="Review mang"></asp:Label></a>
+									
+								</li>
+								<li class="dropdown"><a href="#"> <asp:Label  ID="navservices" runat="server" Text="Services mang"></asp:Label></a>
+									<ul>
+										<li><a href="AddReview.aspx">Add a new service</a></li>
+										
+										<li><a href="ServicesManagement.aspx">Manage services</a></li>
+										<li><a href="ServDetailsMang.aspx">Manage services details</a></li>
+									  
+									</ul>
+								</li>
+                                <li class="dropdown"><a href="#"> <asp:Label  ID="navStaff" runat="server" Text="Staff mang"></asp:Label></a>
+									<ul>
+										<li><a href="AddStaffManagement.aspx">Add a new staff</a></li>
+										<li><a href="StaffManagement.aspx">Edit or delete staff</a></li>
+									  
+									</ul>
+								</li>
+                                <li class="dropdown"><a href="#"> <asp:Label  ID="navClient" runat="server" Text="Client mang"></asp:Label></a>
+									<ul>
+										<li><a href="AddClientManagement.aspx">Add a new client</a></li>
+										<li><a href="ClientManagement.aspx">Edit or delet clients</a></li>
+									  
+									</ul>
+								</li>   
+                                <li class="dropdown"><a href="#"> <asp:Label  ID="navStories" runat="server" Text="Stories mang"></asp:Label></a>
+									<ul>
+									    <li><a href="AddStory.aspx">Add a story</a></li>
+										<li><a href="StoryManagement.aspx">Edit or delete stories</a></li>
+									  
+									</ul>
+								</li>
+							
+							</ul>
+						</div>
+					</nav>
+					<!-- Main Menu End-->
+					<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbcleaningConnectionString %>" SelectCommand="SELECT [categoryid],[categoryName] FROM [tbcategory]"></asp:SqlDataSource>
+											
+					
+				</div>
+			</div>
+		</div>
+		<!--End Header Lower-->
+		
+		<%--<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+		<div class="container">
+			<div class="modal fade" id="mymodal" role="dialog">
+				<div class="model-dialog">
+					<div class="modal-header">
+						<h4 class="modal-title"> Request a Quote <button type="button" class="close" data-dismiss="modal">&time;</button></h4>
+					</div>
+					<div class="modal-body">
+						<asp:UpdatePanel id="UpdatePanel1" runat="server">
+							<ContentTemplate>
+								<asp:TextBox ID="txtcname" runat="server" placeholder="Your name"></asp:TextBox>
+								<br />
+								<asp:TextBox ID="txtcemail" runat="server" placeholder="Your email id"></asp:TextBox>
+								<br />
+								<asp:TextBox ID="txtmessage" runat="server" placeholder="Your Message"></asp:TextBox>
+								<br />
+								<asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn-primary" />
+							</ContentTemplate>
+						</asp:UpdatePanel>
+					</div>
+				</div>
+			</div>
+		</div>--%>
+		<!--End Header Upper-->
+	   
+		
+		
+		<!--Sticky Header-->
+		<div class="sticky-header">
+			<div class="auto-container clearfix">
+				<!--Logo-->
+				<div class="logo pull-left">
+					<a href="index.html" class="img-responsive"><img src="images/main-slider/leg.png" style="width:280px; height:70px"></a>
+				</div>
+				
+				<!--Right Col-->
+				<div class="right-col pull-right">
+					<!-- Main Menu -->
+					<nav class="main-menu navbar-expand-md">
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						
+						<div class="navbar-collapse collapse clearfix" id="navbarSupportedContent1">
+							<ul class="navigation clearfix">
+								<li ><a href="Default.aspx">Home</a>
+								   
+								</li>
+								<li ><a href="Services.aspx">Services</a>
+									<%--<ul>
+									   
+											<asp:DataList ID="DataList2" runat="server" DataSourceID="SqlDataSource1">
+												
+											<ItemTemplate>
+											  
+													<li>
+													 <a href="ServiceDetails?categoryid='<%#Eval("categoryid") %>">
+													
+													<asp:Label ID="categoryNameLabel" runat="server" Text='<%# Eval("categoryName") %>' />
+													</a></li>
+								  
+												   
+												</ItemTemplate>
+											
+											</asp:DataList>
+											
+									  </ul>--%>
+									 
+								
+								
+								<li ><a href="Process.aspx">Process</a>
+									
+								</li>
+								<li ><a href="WhyUs.aspx">About Us</a>
+									
+								</li>
+								<li class="dropdown"><a href="Reviews.aspx">Our Reviews</a>
+									<ul>
+										<li><a href="AddReview.aspx">Add a review</a></li>
+										<li><a href="Reviews.aspx">See all reviews</a></li>
+									  
+									</ul>
+								</li>
+								<li><a href="ContactUs.aspx">Contact us</a></li>
+								<li> <a href="OurStories.aspx"> Our Stories</a></li>
+							</ul>
+							</div>
+					</nav><!-- Main Menu End-->
+				</div>
+				
+			</div>
+		</div>
+		<!--End Sticky Header-->
+	
+	</header>
+	<!--End Main Header -->
+		
+		
 			<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
 			</asp:ContentPlaceHolder>
-
-</body>
-	
 		
 	
+   <br />
 
+	 <footer class="main-footer">
+		<%--<div class="footer-upper-box">
+			<div class="auto-container">
+				<div class="clearfix">
+					
+					<!--Expert Box-->
+					<div class="expert-box">
+						<div class="inner-box">
+							<div class="icon-box">
+								<a href="about.html"><span class="icon flaticon-laborers"></span></a>
+							</div>
+							<h3><a href="about.html">Meet Our Experts</a></h3>
+						</div>
+					</div>
+					
+					<div class="left-column pull-left">
+						<div class="content">
+							<a href="contact.html"><span class="arrow-box flaticon-next-5"></span></a><h3><a href="contact.html">Find Our Nearest Office</a></h3><a href="contact.html"><span class="icon-box flaticon-trip"></span></a>
+						</div>
+					</div>
+					<div class="right-column pull-right">
+						<div class="content">
+							<a href="appointment.html"><span class="icon-box flaticon-24-hours"></span></a><h3><a href="appointment.html">Emergency Restoration</a></h3><a href="appointment.html"><span class="arrow-box flaticon-next-5"></span></a>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>--%>
+		<!--Widgets Section-->
+		<div class="widgets-section">
+			<div class="auto-container">
+				<div class="row clearfix">
+					
+					<!--big column-->
+					<div class="big-column col-lg-6 col-md-12 col-sm-12">
+						<div class="row clearfix">
+						
+							<!--Footer Column-->
+							<div class="footer-column col-md-7 col-sm-6">
+								<div class="footer-widget we-are-widget">
+									<h2>About Us</h2>
+									<div class="text">
+										<asp:Label ID="lblAboutus" runat="server" ></asp:Label></div>
+									<a href="#" class="read-more">Read more</a>
+								</div>
+							</div>
+							
+							<!--Footer Column-->
+							<div class="footer-column col-md-5 col-sm-6">
+								<div class="footer-widget links-widget">
+									<h2>Services</h2>
+									<ul class="footer-links">
+										<li><a href="ServiceDetails?categoryid=1">End of Tenancy Cleaning</a></li>
+										<li><a href="ServiceDetails?categoryid=2">House Cleaning</a></li>
+										<li><a href="ServiceDetails?categoryid=3">Garage Cleaning</a></li>
+										<li><a href="ServiceDetails?categoryid=4">Window Cleaning</a></li>
+										<li><a href="ServiceDetails?categoryid=5">Oven Cleaning</a></li>
+										<li><a href="ServiceDetails?categoryid=6">Commercial Cleaning</a></li>
+									</ul>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+					
+					<!--big column-->
+					<div class="big-column col-lg-6 col-md-12 col-sm-12">
+						<div class="row clearfix">
+							
+							<!--Footer Column-->
+							<div class="footer-column col-md-6 col-sm-6">
+								<div class="footer-widget links-widget">
+									<h2>Information</h2>
+									<ul class="footer-links">
+										<li><a href="Default.aspx">Home</a></li>
+										<li><a href="AboutUs.aspx">About Us</a></li>
+										<li><a href="Process.aspx">Our Process</a></li>
+										<li><a href="Reviews.aspx">Our Reviews</a></li>
+										<li><a href="ContactUs.aspx">Contact us</a></li>
+										<li> <a href="LoginPage.aspx">Admin access</a></li>
+									</ul>
+								</div>
+							</div>
+							
+							<!--Footer Column-->
+							<div class="footer-column col-md-6 col-sm-6">
+								<div class="footer-widget links-widget">
+									<h2 class="alternate">
+										<asp:Label ID="lblfphone" runat="server" ></asp:Label></h2>
+									<ul class="contact-list">
+										<li>
+											<asp:Label ID="lblfemail" runat="server" ></asp:Label></li>
+										<li>
+											<asp:Label ID="lblfaddress" runat="server" ></asp:Label></li>
+									</ul>
+									<ul class="social-icon-one">
+										<li><a href="#"><span class="fa fa-facebook-f"></span></a></li>
+										<li><a href="#"><span class="fa fa-twitter"></span></a></li>
+										<li><a href="#"><span class="fa fa-google-plus"></span></a></li>
+										<li><a href="#"><span class="fa fa-youtube"></span></a></li>
+									</ul>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		
+		<!--Footer Bottom-->
+		<div class="footer-bottom">
+			
+			<div class="auto-container">
+				<div class="clearfix">
+					
+					<div class="logo-box">
+						<a href="index.html"><asp:image runat="server" id="footerImage" alt="" /></a>
+					</div>
+					
+					<div class="pull-left">
+						<div class="copyright"> &copy; All rights reserved <br> Certified cleaning company.</div>
+					</div>
+					<div class="pull-right">
+						<!--Scroll to top-->
+			<div class="scroll-to-top scroll-to-target" data-target="html"><span class="flaticon-next-5"></span></div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</footer>
+	
+</div>
+<!--End pagewrapper-->
+
+<script type="text/javaScript"  src="js/jquery.js"></script>
+<script type="text/javaScript" src="js/popper.min.js"></script>
+<script type="text/javaScript"  src="js/bootstrap.min.js"></script>
+<script type="text/javaScript" src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javaScript" src="js/jquery.fancybox.js"></script>
+<script type="text/javaScript" src="js/appear.js"></script>
+<script type="text/javaScript" src="js/owl.js"></script>
+<script type="text/javaScript"  src="js/wow.js"></script>
+<script type="text/javaScript" src="js/jquery-ui.js"></script>
+<script type="text/javaScript" src="js/script.js"></script>
+</body>
 </html>

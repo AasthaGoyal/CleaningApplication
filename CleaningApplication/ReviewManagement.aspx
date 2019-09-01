@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="ReviewManagement.aspx.cs" Inherits="CleaningApplication.WebForm15" %>
+<%@ MasterType VirtualPath="~/Admin.Master" %> 
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server">
+        <div class="container form-control">
         
     <h2> Review Management</h2>
     <br />
@@ -50,5 +53,6 @@
         <SortedDescendingCellStyle BackColor="#CAC9C9" />
         <SortedDescendingHeaderStyle BackColor="#000065" />
         </asp:GridView>
+            </div>
          </form>
 </asp:Content>

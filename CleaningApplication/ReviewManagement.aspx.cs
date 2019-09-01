@@ -18,6 +18,7 @@ namespace CleaningApplication
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.Master.review = System.Drawing.Color.DeepSkyBlue;
             if(!IsPostBack)
             {
                 populateData();

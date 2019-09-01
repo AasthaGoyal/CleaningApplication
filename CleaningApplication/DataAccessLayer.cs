@@ -199,5 +199,26 @@ namespace CleaningApplication
 
             cmd.ExecuteNonQuery();
         }
+
+        public void updateClient(int clientid, string photo, string name)
+        {
+            openConnection();
+
+            string query = "update tbclient set clientLogo='" + photo + "',clientName='" + name + "' where clientid='" + clientid + "'";
+
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            cmd.ExecuteNonQuery();
+        }
+
+        public void deleteClient(int id)
+        {
+            openConnection();
+
+            string query = "delete from tbclient where clientid =" + id;
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            cmd.ExecuteNonQuery();
+        }
     }
 }

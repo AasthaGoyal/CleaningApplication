@@ -47,6 +47,45 @@ namespace CleaningApplication
 
         }
 
+        protected void btnConfirm_Click(object sender, EventArgs e)
+        {
+            string body = "<h1> Hello admin </h1> <br/>";
+            body += "<br/>You have received a new message regarding 'Swaach Cleaning Services'. The details are as follows: <br/>";
+            body += "<br/> Customer Name: " + txtname2.Text + "<br/>";
+            body += "<br/> Email Id: " + txtemailid.Text + "<br/>";
+            body += "<br/> Phone No: " + txtphone2.Text + "<br/>";
+            body += "<br/> Message: " + txtmessage.Text + ".";
+
+
+           
+
+            try
+            {
+                MailMessage message = new MailMessage();
+                message.To.Add("swaachclean@gmail.com");
+                message.From = new MailAddress("aastha2150@gmail.com");
+                message.Subject = "A new 'Request for Quote' received!";
+                message.Body = body;
+                message.IsBodyHtml = true;
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = "smtp.gmail.com";
+                smtp.EnableSsl = true;
+                NetworkCredential nc = new NetworkCredential();
+                nc.UserName = "aastha2150@gmail.com";
+                nc.Password = "Goyal0412aastha";
+                smtp.UseDefaultCredentials = true;
+                smtp.Credentials = nc;
+                smtp.Port = 587;
+                smtp.Send(message);
+
+                lblmessage2.Text = "* We have received your query and would be in contact shortly";
+            }
+            catch (Exception ex)
+            {
+                lblmessage2.Text = "* Error! " + ex.Message;
+            }
+        }
+
         protected void btnfinish_Click(object sender, EventArgs e)
         {
             string body = "<h1> Hello admin </h1> <br/>";

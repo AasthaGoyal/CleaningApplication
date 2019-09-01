@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="ServicesManagement.aspx.cs" Inherits="CleaningApplication.WebForm18" %>
+<%@ MasterType VirtualPath="~/Admin.Master" %> 
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server">
+        <div class="container form-control">
    
     <h2> Services Management</h2>
     <br />
@@ -59,6 +62,6 @@
         </asp:GridView>
 
      <%--   <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbcleaningConnectionString %>" SelectCommand="SELECT * FROM [tbcategory]"></asp:SqlDataSource>--%>
-
+        </div>
   </form>
 </asp:Content>

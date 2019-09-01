@@ -17,8 +17,10 @@ namespace CleaningApplication
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.Master.panel = System.Drawing.Color.DeepSkyBlue;
             if(!IsPostBack)
             {
+
                 loadData();
             }
         }

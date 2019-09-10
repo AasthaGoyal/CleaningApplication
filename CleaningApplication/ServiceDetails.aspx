@@ -1,4 +1,5 @@
 ﻿ <%@ Page Title="" Language="C#" MasterPageFile="~/ServicesNested.master" AutoEventWireup="true" CodeBehind="ServiceDetails.aspx.cs" Inherits="CleaningApplication.WebForm3" %>
+<%@ MasterType VirtualPath="~/ServicesNested.Master" %> 
 
 <%--<asp:Content ID="Content1" ContentPlaceHolderID="Cont1" runat="server">
 	<h2>
@@ -141,7 +142,7 @@
 					
 
 				</div>
-                 <asp:ScriptManager ID="ScriptManager2" runat="server"></asp:ScriptManager>
+                
                     <asp:UpdatePanel ID="UpdatePanel2" runat="server">
 		<ContentTemplate>
 				<div class="modal-footer">

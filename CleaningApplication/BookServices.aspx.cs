@@ -37,7 +37,7 @@ namespace CleaningApplication
                     myTable.Rows.Add(row1);
                 }
                 lblTotal.Text = t;
-
+               
                 this.Master.statusheading = "Book Service and payment";
 
                 Session.Remove("column1");
@@ -131,7 +131,20 @@ namespace CleaningApplication
                 lblmessage.Text = "* Error! " + ex.Message;
             }
 
-            Response.Redirect("PaymentPage.aspx");
+           
+        }
+
+        protected string labelProperty
+        {
+            get
+            {
+                return hidden.Value;
+            }
+
+            set
+            {
+                hidden.Value = value;
+            }
         }
     }
 }

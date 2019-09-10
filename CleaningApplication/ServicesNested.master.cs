@@ -40,7 +40,18 @@ namespace CleaningApplication
             
         }
 
-      
+        public bool customize
+        {
+            get
+            {
+                return pncustomize.Visible;
+            }
+
+            set
+            {
+                pncustomize.Visible = value;
+            }
+        }
 
 
 

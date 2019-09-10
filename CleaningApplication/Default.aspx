@@ -1,9 +1,36 @@
-﻿	<%@ Page Title="" Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="CleaningApplication.WebForm1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="CleaningApplication.WebForm1" %>
 <%@ MasterType VirtualPath="~/Home.Master" %> 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 	<form runat="server">
+         <style>
 
+		.starRating
+		{
+			width:50px;
+			height:50px;
+			cursor:pointer;
+			background-repeat:no-repeat;
+			display:block;
+			background-size:cover;
+		}
+
+		.FilledStars{
+			background-image:url("images/background/filledStar.png");
+
+		}
+
+		.WaitingStars{
+			background-image:url("images/background/redStar.png");
+		}
+
+
+		.EmptyStars{
+			background-image:url("images/background/emptyStar.png");
+		}
+	</style>
 
 		
 	<section class="main-slider">
@@ -16,7 +43,7 @@
 						<div class="title">Referred for a reason.</div>
 						<h2>Clean Home. <br> Professional Service. <br> Fair Price.</h2>
 						<a href="ContactUs.aspx" class="theme-btn btn-style-one">Contact Us</a>
-					</div>
+					</div>  
 				</div>
 			</div>
 			
@@ -235,7 +262,7 @@
 						<div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
 							<div class="icon-box">
 								<span class="icon ">
-									<img src="images/background/wp1.png" height="80px" width="80px" /></span>
+									<img src="images/background/wp1.png" style="height:80px; width:80px" /></span>
 							</div>
 							<div class="number-line">
 								<div class="number">1</div>
@@ -263,7 +290,7 @@
 						<div class="inner-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
 							<div class="icon-box">
 								<span class="icon ">
-									<img src="images/background/w3.png" height="80px" width="80px"/>
+									<img src="images/background/w3.png" style="height:80px; width:80px"/>
 								</span>
 							</div>
 							<div class="number-line">
@@ -489,48 +516,70 @@
 				<div class="icon-box">
 					<span class="icon flaticon-broom"></span>
 				</div>
-				<h2>Customers Feedback</h2>
+				<h2>Customers Testimonials</h2>
 				<div class="separator"></div>
 			</div>
 			
-		 <div class="feedback-carousel owl-carousel owl-theme">
-				<asp:Repeater ID="rpReviews" runat="server" >
-					<HeaderTemplate>
-
-					</HeaderTemplate>
-					<ItemTemplate>
-						  <div class="feedback-block">
-					<div class="inner-box">
-						<div class="image">
-							<a href="carpet-cleaning.html"><img src="images/resource/feedback-1.jpg" alt="" /></a>
-						</div>
-						<div class="lower-content">
-							<div class="quote-icon">
-								<span class="icon flaticon-two-quotes"></span>
-							</div>
-							<h3><a href="carpet-cleaning.html">
-								<asp:Label ID="lblname" runat="server" Text='<%#Eval("customerName") %>'></asp:Label></a></h3>
-							<%--<div class="rating">
-								<span class="fa fa-star-o"></span>
-								<span class="fa fa-star-o"></span>
-								<span class="fa fa-star-o"></span>
-								<span class="fa fa-star-o"></span>
-								<span class="fa fa-star-o"></span>
-							</div>--%>
-							<div class="text">
-								<asp:Label ID="lblheading" runat="server" Text='<%#Eval("heading") %>'></asp:Label>
-								<asp:Label ID="lblReview" runat="server" Text='<%#Eval("review") %>'></asp:Label></div>
-						</div>
-					</div>
-				</div>
-					</ItemTemplate>
-					<FooterTemplate>
-
-					</FooterTemplate>
-				</asp:Repeater>
-			
+		
+		
+					<div class=" row clearfix">
 				
-			</div>
+
+			  
+				<!--Testimonial Block Three-->
+				 <asp:Repeater runat="server" ID="rpReviews" >
+							   <HeaderTemplate>
+
+							   </HeaderTemplate>
+							   <ItemTemplate>
+                                   
+				<!--Testimonial Block Three-->
+				<div class="testimonial-block-three masonry-item col-lg-4 col-md-6 col-sm-12">
+					<div class="inner-box">
+						<div class="quote-icon">
+							<span class="icon flaticon-two-quotes"></span>
+						</div>
+						
+							
+							
+									<cc1:Rating ID="Rating1" runat="server"
+					StarCssClass="starRating" 
+					FilledStarCssClass="FilledStars"
+					EmptyStarCssClass="EmptyStars"
+					WaitingStarCssClass="WaitingStars"
+					 CurrentRating='<%# (int) Eval("stars")%>'
+				   ></cc1:Rating>
+                            <br />
+							
+		<br />
+						
+						<br />
+                        <br />
+						<h3>
+							<asp:Label ID="lblname" runat="server" Text='<%#Eval("heading")%>'></asp:Label></h3>
+                         
+						<div class="text">
+							 <asp:Label ID="lblreview" runat="server" Text='<%#Eval("review") %>'></asp:Label></div>
+						
+                        <hr />
+                        <asp:Label ID="Label2" runat="server" style="color:red; font-weight:bold" Text="by -"></asp:Label>
+                         <asp:Label ID="Label1" runat="server" style="color:red; font-weight:bold" Text='<%#Eval("customerName") %>'></asp:Label>
+                    
+					
+					</div>
+					 </div>
+				
+				
+			 </ItemTemplate>
+							   <FooterTemplate>
+
+							   </FooterTemplate>
+						   </asp:Repeater>
+
+				</div>
+		  <div class="text-right">
+            <asp:Button ID="btnShowReviews" class="btn-primary" width="200px" height="31px" runat="server" Text="See more" OnClick="btnShowReviews_Click"   />
+		  </div>
 			
 		</div>
 	</section>
@@ -552,12 +601,14 @@
 					<asp:Image ID="Image1" runat="server" Height="202px" Width="271px" ImageUrl='<%# Eval("clientLogo") %>'/>
 					<br />
 					<center>
+                      
 					<asp:Label ID="clientNameLabel" runat="server" Font-Bold="True" Font-Size="Large" ForeColor="#000066" Text='<%# Eval("clientName") %>' />
 					</center>
 						
 				</ItemTemplate>
 			</asp:DataList>
 			<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbcleaningConnectionString %>" SelectCommand="SELECT [clientLogo], [clientName] FROM [tbclient]"></asp:SqlDataSource>
+
 			</div>
 			</section>
 

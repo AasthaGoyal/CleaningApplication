@@ -1,8 +1,37 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="WhyUs.aspx.cs" Inherits="CleaningApplication.WebForm10" %>
 <%@ MasterType VirtualPath="~/Home.Master" %> 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form runat="server">
+         <style>
+
+		.starRating
+		{
+			width:50px;
+			height:50px;
+			cursor:pointer;
+			background-repeat:no-repeat;
+			display:block;
+			background-size:cover;
+		}
+
+		.FilledStars{
+			background-image:url("images/background/filledStar.png");
+
+		}
+
+		.WaitingStars{
+			background-image:url("images/background/redStar.png");
+		}
+
+
+		.EmptyStars{
+			background-image:url("images/background/emptyStar.png");
+		}
+	</style>
+
 		 <section class="page-title" style="background-image:url(images/background/3.jpg)">
 		<div class="auto-container">
 			<h2>About Us</h2>
@@ -345,19 +374,18 @@
 			   
 				<div class="text">“See what our customers say and how did they find our services”</div>
 			</div>
-			   </div>
-		   </section>
-
-		<section class="testimonial-page-section">
-		<div class="auto-container">
+			 
 			<div class=" row clearfix">
 				
+
+			  
 				<!--Testimonial Block Three-->
 				 <asp:Repeater runat="server" ID="rpReviews" >
 							   <HeaderTemplate>
 
 							   </HeaderTemplate>
 							   <ItemTemplate>
+                                   
 				<!--Testimonial Block Three-->
 				<div class="testimonial-block-three masonry-item col-lg-4 col-md-6 col-sm-12">
 					<div class="inner-box">
@@ -365,26 +393,46 @@
 							<span class="icon flaticon-two-quotes"></span>
 						</div>
 						
+							
+							
+									<cc1:Rating ID="Rating1" runat="server"
+					StarCssClass="starRating" 
+					FilledStarCssClass="FilledStars"
+					EmptyStarCssClass="EmptyStars"
+					WaitingStarCssClass="WaitingStars"
+					 CurrentRating='<%# (int) Eval("stars")%>'
+				   ></cc1:Rating>
+                            <br />
+							
+		<br />
+						
 						<br />
+                        <br />
 						<h3>
 							<asp:Label ID="lblname" runat="server" Text='<%#Eval("heading")%>'></asp:Label></h3>
+                         
 						<div class="text">
 							 <asp:Label ID="lblreview" runat="server" Text='<%#Eval("review") %>'></asp:Label></div>
-						<br />
-						 - <b><asp:Label ID="lblHeading" runat="server" Text='<%#Eval("customerName")%>'></asp:Label></b>  
-						 
-
-					</div>
+						
+                        <hr />
+                        <asp:Label ID="Label2" runat="server" style="color:red; font-weight:bold" Text="by -"></asp:Label>
+                         <asp:Label ID="Label1" runat="server" style="color:red; font-weight:bold" Text='<%#Eval("customerName") %>'></asp:Label>
+                    
 					
-				</div>
+					</div>
+					 </div>
+				
 				
 			 </ItemTemplate>
 							   <FooterTemplate>
 
 							   </FooterTemplate>
 						   </asp:Repeater>
-				
-		   </div>
+
+				</div>
+		  <div class="text-right">
+            <asp:Button ID="btnShowReviews" class="btn-primary" width="200px" height="31px" runat="server" Text="See more" OnClick="btnShowReviews_Click"   />
+		  </div>
 		 </div>
 	</section>
 	</form>

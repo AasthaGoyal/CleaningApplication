@@ -1,12 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="registerUser.aspx.cs" Inherits="CleaningApplication.WebForm19" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="AddNewStaff.aspx.cs" Inherits="CleaningApplication.WebForm19" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form runat="server">
          <link href="css/bootstrap.css" rel="stylesheet" />
 <link href="css/style.css" rel="stylesheet"/>
 <link href="css/responsive.css" rel="stylesheet"/>
         
-       
-        <h3 class="text-center"> Register a new Staff</h3>
+       <div class="container form-control">
+        <h3 > Register a new Staff:</h3>
         <br />
         Enter Full name:  <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*Full name required" ControlToValidate="txtname" ValidationGroup="adduser" ForeColor="#CC0000"></asp:RequiredFieldValidator>
       
@@ -42,5 +42,6 @@
         <asp:Button ID="btnSubmit" class="form-control btn-success" ValidationGroup="addUser" runat="server" Text="Add Staff" OnClick="btnSubmit_Click" />
         <br />
         <asp:Label ID="lblmessage" runat="server" Font-Bold="True" ForeColor="#CC0000" ></asp:Label>
-    </form>
+   </div>
+           </form>
 </asp:Content>

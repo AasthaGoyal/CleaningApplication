@@ -443,8 +443,12 @@
 					
 					<div class="pull-left">
 						<div class="copyright"> &copy; All rights reserved <br> Certified cleaning company.</div>
-					</div>
+					  <asp:Label ID="Label9" runat="server" Text="Developed By - Aastha Goyal" ForeColor="DeepSkyBlue" Font-Bold="True"></asp:Label>
+				
+                    </div>
 					<div class="pull-right">
+                       
+					
 						<!--Scroll to top-->
 			<div class="scroll-to-top scroll-to-target" data-target="html"><span class="flaticon-next-5"></span></div>
 					</div>

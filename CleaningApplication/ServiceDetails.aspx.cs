@@ -79,7 +79,7 @@ namespace CleaningApplication
             }
             else
             {
-                
+                this.Master.customize = false;
                 //remove the heading of customizing
             }
         }

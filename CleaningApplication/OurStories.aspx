@@ -3,7 +3,68 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form runat="server">
-         <div class="container">
+        <header>
+        	<meta charset="utf-8">
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<link href="css/responsive.css" rel="stylesheet">
+<!--<link href="css/color.css" rel="stylesheet">-->
+
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+<link rel="icon" href="images/favicon.png" type="image/x-icon">
+
+<!-- Responsive -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+	</header>
+
+	<section class="page-title" style="background-image:url(images/background/3.jpg)">
+		<div class="auto-container">
+			<h2>Our Stories</h2>
+		</div>
+	</section>
+
+        <section class="services-section">
+		<div class="auto-container">
+			<div class="row clearfix">
+				<asp:Repeater  ID="RepterDetails"  runat="server">
+					<HeaderTemplate>
+
+					</HeaderTemplate>
+					<ItemTemplate>
+						 <div class="services-block-four col-lg-4 col-md-6 col-sm-12">
+					<div class="inner-box">
+						<div class="upper-content">
+                             <h3><a href="StoryDetails.aspx?storyid=<%#Eval("storyid") %>">
+								<asp:Label ID="Label1" runat="server" Text='<%#Eval("storyName") %>'></asp:Label></a></h3>
+							<%--<div class="text"><asp:Label ID="Label2" runat="server" Text='<%#Eval("storyDesc") %>'></asp:Label></div>
+							--%><div class="icon-box">
+								<span class="icon flaticon-shining"></span>
+							</div>
+								
+						</div>
+						<div class="lower-content">
+                           <div class="image">
+								<a  href="StoryDetails.aspx?storyid=<%#Eval("storyid") %>"><img src='<%#Eval("imagePhoto") %>' alt="" style="width:370px; height:198px"/></a>
+                               <%--<a  href="StoryDetails.aspx?storyid=<%#Eval("storyid") %>">
+                                   <asp:Label ID="Label2" runat="server" Text='<%#Eval("imagePhoto") %>'></asp:Label></a>--%>
+						
+							</div>
+						
+						</div>
+					</div>
+				</div>
+				
+					</ItemTemplate>
+					<FooterTemplate>
+
+					</FooterTemplate>
+				</asp:Repeater>
+				  </div>
+		</div>
+	</section>
+         
 			<div class="row">
 				<div class="col-xs-12">
 					<div class="modal" id="quotemodal" >
@@ -67,7 +128,7 @@
 		
 				</div>
 			</div>
-		</div>
+		
 
     </form>
 </asp:Content>

@@ -220,5 +220,66 @@ namespace CleaningApplication
 
             cmd.ExecuteNonQuery();
         }
+
+        public void addClient(string logo, string name)
+        {
+            openConnection();
+
+            string query = "insert into tbclient(clientLogo, clientName) values ('" + logo + "','" + name + "')";
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            cmd.ExecuteNonQuery();
+        }
+
+        public int addStory(string name, string description)
+        {
+            openConnection();
+
+            string query = "insert into tbstory values ('" + name + "','" + description + "') select @@identity";
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            int storyid = Convert.ToInt32(cmd.ExecuteScalar());
+            return storyid;
+        }
+
+        public void addCategory(string name, string photo, string desc, int rank)
+        {
+            openConnection();
+
+            string query = "insert into tbcategory values ('" + name + "','" + photo + "','" + desc + "','" + rank + "')";
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            cmd.ExecuteNonQuery();
+        }
+
+        public int getMaxRank()
+        {
+            openConnection();
+
+            string query = "select max(rank) from tbcategory";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            int rank = Convert.ToInt32(cmd.ExecuteScalar());
+
+            return rank;
+        }
+
+        public void addBeforeImages(string path,  int storyid)
+        {
+            openConnection();
+
+            string query = "insert into tbimages(imagePhoto, imageType, storyid) values ('" + path + "','Before','" + storyid + "')";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.ExecuteNonQuery();
+        }
+
+        public void addAfterImages(string path, int storyid, string defaultValue)
+        {
+            openConnection();
+
+            string query = "insert into tbimages values ('" + path + "','After','" + storyid + "','" + defaultValue + "')";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.ExecuteNonQuery();
+        }
+        
     }
 }

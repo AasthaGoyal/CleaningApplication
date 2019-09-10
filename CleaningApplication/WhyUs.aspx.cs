@@ -117,15 +117,22 @@ namespace CleaningApplication
 
         public void loadReviews()
         {
+            conn = new SqlConnection(connectionString);
             conn.Open();
 
-            SqlCommand cmd2 = new SqlCommand("Select * from tbreviews", conn);
+            SqlCommand cmd = new SqlCommand("Select TOP 3 customerName, heading, review ,stars from tbreviews", conn);
             DataSet ds = new DataSet();
-            SqlDataAdapter da = new SqlDataAdapter(cmd2);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(ds);
+
             rpReviews.DataSource = ds;
             rpReviews.DataBind();
             conn.Close();
+        }
+
+        protected void btnShowReviews_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Reviews.aspx");
         }
     }
 }

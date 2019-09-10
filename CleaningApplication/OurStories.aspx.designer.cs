@@ -13,6 +13,15 @@ namespace CleaningApplication {
     public partial class WebForm9 {
         
         /// <summary>
+        /// RepterDetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater RepterDetails;
+        
+        /// <summary>
         /// nametxt control.
         /// </summary>
         /// <remarks>

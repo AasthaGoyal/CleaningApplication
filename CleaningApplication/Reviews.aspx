@@ -107,9 +107,8 @@
 
  <section class="testimonial-page-section">
 		<div class="auto-container">
-			<div class=" row clearfix">
-				<asp:ScriptManager ID="ScriptManager1" runat="server">
-		</asp:ScriptManager>
+		
+					<div class=" row clearfix">
 				
 
 			  
@@ -119,41 +118,43 @@
 
 							   </HeaderTemplate>
 							   <ItemTemplate>
+                                   
 				<!--Testimonial Block Three-->
 				<div class="testimonial-block-three masonry-item col-lg-4 col-md-6 col-sm-12">
 					<div class="inner-box">
 						<div class="quote-icon">
 							<span class="icon flaticon-two-quotes"></span>
 						</div>
-						<div style="align-content:center">
+						
 							
-							<%--<asp:UpdatePanel ID="UpdatePanel1" runat="server">
-								<ContentTemplate>--%>
+							
 									<cc1:Rating ID="Rating1" runat="server"
 					StarCssClass="starRating" 
 					FilledStarCssClass="FilledStars"
 					EmptyStarCssClass="EmptyStars"
 					WaitingStarCssClass="WaitingStars"
-					 CurrentRating="3"
+					 CurrentRating='<%# (int) Eval("stars")%>'
 				   ></cc1:Rating>
-
-								<%--</ContentTemplate>
-					
-								</asp:UpdatePanel>--%>
+                            <br />
+							
 		<br />
-						</div>
+						
 						<br />
-						<br />
+                        <br />
 						<h3>
 							<asp:Label ID="lblname" runat="server" Text='<%#Eval("heading")%>'></asp:Label></h3>
+                         
 						<div class="text">
 							 <asp:Label ID="lblreview" runat="server" Text='<%#Eval("review") %>'></asp:Label></div>
-						<br />
-                         <asp:Label ID="Label1" runat="server" Text='<%#Eval("stars") %>'></asp:Label></div>
+						
+                        <hr />
+                        <asp:Label ID="Label2" runat="server" style="color:red; font-weight:bold" Text="by -"></asp:Label>
+                         <asp:Label ID="Label1" runat="server" style="color:red; font-weight:bold" Text='<%#Eval("customerName") %>'></asp:Label>
+                    
 					
 					</div>
-					
-				</div>
+					 </div>
+				
 				
 			 </ItemTemplate>
 							   <FooterTemplate>
@@ -161,18 +162,10 @@
 							   </FooterTemplate>
 						   </asp:Repeater>
 
-				
-		   </div>
-		 </div>
-	</section>
-	<!--End Testimonial Page Section-->
-	<%--<section class="testimonial-page-section" visible="false">
-		<div class="auto-container">
-			<div class="masonry-items row clearfix">
-				
-			  
 				</div>
-		</div>
-	</section>--%>
+		   </div>
+		
+	</section>
+	
 	</form>
 </asp:Content>

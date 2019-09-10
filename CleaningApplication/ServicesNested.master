@@ -152,7 +152,7 @@
 								
 							</div>--%>
 							<!--End Title Section-->
-			
+                            <asp:Panel ID="pncustomize" runat="server">
 							<!--Buckets Section-->
 							<div class="buckets-section">
 								<div class="sec-title medium">
@@ -210,7 +210,7 @@
 								</div>
 							</div>
 							<!--End Buckets Section-->
-							
+							</asp:Panel>
 							<!--Services Pricing Section-->
 							<%--<div class="services-pricing-section">
 								<div class="sec-title medium">

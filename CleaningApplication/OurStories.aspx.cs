@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
@@ -11,9 +14,21 @@ namespace CleaningApplication
 {
     public partial class WebForm9 : System.Web.UI.Page
     {
+        public SqlConnection con = null;
+        String connectionString = null;
+        SqlCommand cmd;
+
+        SqlDataAdapter da;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             this.Master.stories = System.Drawing.Color.DeepSkyBlue;
+            connectionString = ConfigurationManager.ConnectionStrings["dbcleaningConnectionString"].ConnectionString;
+            con = new SqlConnection(connectionString);
+            if (!IsPostBack)
+            {
+                RepeterData();
+            }
         }
 
         protected void btnConfirm_Click(object sender, EventArgs e)
@@ -52,5 +67,19 @@ namespace CleaningApplication
             }
         }
 
-    }
+
+            public void RepeterData()
+            {
+                con.Open();
+
+                cmd = new SqlCommand("select * from tbstory s , tbimages m where s.storyid = m.storyid and m.defaultValue='Yes' and m.imageType ='After'", con);
+                DataSet ds = new DataSet();
+                da = new SqlDataAdapter(cmd);
+                da.Fill(ds);
+                RepterDetails.DataSource = ds;
+                RepterDetails.DataBind();
+                con.Close();
+            }
+
+        }
 }

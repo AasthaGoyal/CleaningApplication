@@ -2,6 +2,10 @@
 <%@ MasterType VirtualPath="~/ServicesNested.master" %> 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <header>
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    </header>
     <table class="form-control" style="width:100%">
 		<tr>
 			<td width="20%"> First Name *</td>
@@ -113,11 +117,58 @@
 		</asp:TableRow>
 	</asp:Table>
   <br />
+  <%--  <asp:Button ID="btnshow"  AutoPostBack="false" runat="server" Text="Button"  OnClientClick="returnAmount();"/>
+  --%>  <%--<asp:HiddenField runat="server" ID="hiddenTotal" />--%>
 	<br />
-	<asp:Button ID="btnfinish" runat="server" class="btn-success form-control" Text="Book service" OnClick="btnfinish_Click" />
+    <h3>Proceed to Payment</h3>
+    <br />
+     <div id="paypal-button-container"></div>
+     <asp:HiddenField id="hidden" Value="2" runat="server"> </asp:HiddenField>
+    <!-- Include the PayPal JavaScript SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=ARXG0L7C9sWQzfjZmRsRqzUQWede7HWhjYjK8mdXKDklZmwLZtuhhGGIOMGXaxOnb1noQuAYLPSW_Xrp&currency=NZD"></script>
+
+    <script>
+        <%--function returnAmount() {
+            var amount = document.getElementById('<%=lblTotal.ClientID%>').value;
+              document.getElementById('<%=lblmessage.ClientID %>').value = 'Done'+ amount;
+              
+        }--%>
+
+       // Render the PayPal button into #paypal-button-container
+        paypal.Buttons({
+
+            // Set up the transaction
+            createOrder: function (data, actions) {
+
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+
+                        value: '2.0'
+                        }
+                }]
+                });
+        },
+
+            // Finalize the transaction
+            onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+                // Show a success message to the buyer
+                alert('Transaction completed by ' + details.payer.name.given_name + '!');
+                document.getElementById('<%=hidden.ClientID %>').value = 'Done';
+                });
+            }
+
+
+        }).render('#paypal-button-container');
+    </script>
+    <br />
+	<asp:Button ID="btnfinish" runat="server" class="btn-success form-control" Text="Finish Booking" OnClick="btnfinish_Click" />
 	<br />
 	<asp:Label ID="lblmessage" runat="server" Font-Bold="True" ForeColor="#CC0000" ></asp:Label>
-
+    <br />
+   
+    <br />
     <div class="container">
 			<div class="row">
 				<div class="col-xs-12">
@@ -159,7 +210,7 @@
 					
 
 				</div>
-                
+                <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
                     <asp:UpdatePanel ID="UpdatePanel2" runat="server">
 		<ContentTemplate>
 				<div class="modal-footer">

@@ -334,6 +334,36 @@
     <Content Include="images\resource\video-img.jpg" />
     <Content Include="images\resource\welcome-1.jpg" />
     <Content Include="images\resource\welcome-2.jpg" />
+    <Content Include="themes\1\bullet.png" />
+    <Content Include="themes\1\js-image-slider.css" />
+    <Content Include="themes\1\js-image-slider.js" />
+    <Content Include="themes\2\js-image-slider.css" />
+    <Content Include="themes\2\js-image-slider.js" />
+    <Content Include="themes\3\active-bg.png" />
+    <Content Include="themes\3\js-image-slider.css" />
+    <Content Include="themes\3\js-image-slider.js" />
+    <Content Include="themes\3\thumbs-bar.gif" />
+    <Content Include="themes\4\active-bg.png" />
+    <Content Include="themes\4\bullet.png" />
+    <Content Include="themes\4\js-image-slider.css" />
+    <Content Include="themes\4\js-image-slider.js" />
+    <Content Include="themes\4\navbuttons.gif" />
+    <Content Include="themes\4\navbuttons2.gif" />
+    <Content Include="themes\4\thumbs-bar.gif" />
+    <Content Include="themes\5\js-image-slider.css" />
+    <Content Include="themes\5\js-image-slider.js" />
+    <Content Include="themes\6\bullet.png" />
+    <Content Include="themes\6\js-image-slider.css" />
+    <Content Include="themes\6\js-image-slider.js" />
+    <Content Include="themes\6\mcVideoPlugin.js" />
+    <Content Include="themes\6\video.png" />
+    <Content Include="themes\7\js-image-slider.css" />
+    <Content Include="themes\7\js-image-slider.js" />
+    <Content Include="themes\8\closeBtn.gif" />
+    <Content Include="themes\8\js-image-slider.css" />
+    <Content Include="themes\8\js-image-slider.js" />
+    <Content Include="themes\8\tooltip.css" />
+    <Content Include="themes\8\tooltip.js" />
     <Content Include="js\appear.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\gmaps.js" />
@@ -372,12 +402,17 @@
     <Content Include="PanelManagement.aspx" />
     <Content Include="ServicesManagement.aspx" />
     <Content Include="ServDetailsMang.aspx" />
-    <Content Include="registerUser.aspx" />
+    <Content Include="AddNewStaff.aspx" />
     <Content Include="StaffManagement.aspx" />
     <Content Include="BookServices.aspx" />
     <Content Include="ClientManagement.aspx" />
     <Content Include="OurStories.aspx" />
     <Content Include="AboutUsManagement.aspx" />
+    <Content Include="AddClientManagement.aspx" />
+    <Content Include="AddStory.aspx" />
+    <Content Include="StoryDetails.aspx" />
+    <Content Include="AddNewService.aspx" />
+    <Content Include="WebForm26.aspx" />
     <Content Include="WhyUs.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -509,12 +544,12 @@
     <Compile Include="ServDetailsMang.aspx.designer.cs">
       <DependentUpon>ServDetailsMang.aspx</DependentUpon>
     </Compile>
-    <Compile Include="registerUser.aspx.cs">
-      <DependentUpon>registerUser.aspx</DependentUpon>
+    <Compile Include="AddNewStaff.aspx.cs">
+      <DependentUpon>AddNewStaff.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="registerUser.aspx.designer.cs">
-      <DependentUpon>registerUser.aspx</DependentUpon>
+    <Compile Include="AddNewStaff.aspx.designer.cs">
+      <DependentUpon>AddNewStaff.aspx</DependentUpon>
     </Compile>
     <Compile Include="StaffManagement.aspx.cs">
       <DependentUpon>StaffManagement.aspx</DependentUpon>
@@ -550,6 +585,41 @@
     </Compile>
     <Compile Include="AboutUsManagement.aspx.designer.cs">
       <DependentUpon>AboutUsManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddClientManagement.aspx.cs">
+      <DependentUpon>AddClientManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddClientManagement.aspx.designer.cs">
+      <DependentUpon>AddClientManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddStory.aspx.cs">
+      <DependentUpon>AddStory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddStory.aspx.designer.cs">
+      <DependentUpon>AddStory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StoryDetails.aspx.cs">
+      <DependentUpon>StoryDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StoryDetails.aspx.designer.cs">
+      <DependentUpon>StoryDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddNewService.aspx.cs">
+      <DependentUpon>AddNewService.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddNewService.aspx.designer.cs">
+      <DependentUpon>AddNewService.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm26.aspx.cs">
+      <DependentUpon>WebForm26.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm26.aspx.designer.cs">
+      <DependentUpon>WebForm26.aspx</DependentUpon>
     </Compile>
     <Compile Include="WhyUs.aspx.cs">
       <DependentUpon>WhyUs.aspx</DependentUpon>
@@ -587,6 +657,7 @@
     <None Include="Properties\PublishProfiles\CleaningApplication20190730020037 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\SwaachCleaning - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\SwaachCleaning - Web Deploy1.pubxml" />
+    <None Include="Properties\PublishProfiles\SwaachCleaningServices - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -596,6 +667,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="images\resource\products\" />
+    <Folder Include="images\stories\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

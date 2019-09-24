@@ -413,6 +413,7 @@
     <Content Include="StoryDetails.aspx" />
     <Content Include="AddNewService.aspx" />
     <Content Include="WebForm26.aspx" />
+    <Content Include="StoryDeta.aspx" />
     <Content Include="WhyUs.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -620,6 +621,13 @@
     </Compile>
     <Compile Include="WebForm26.aspx.designer.cs">
       <DependentUpon>WebForm26.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StoryDeta.aspx.cs">
+      <DependentUpon>StoryDeta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StoryDeta.aspx.designer.cs">
+      <DependentUpon>StoryDeta.aspx</DependentUpon>
     </Compile>
     <Compile Include="WhyUs.aspx.cs">
       <DependentUpon>WhyUs.aspx</DependentUpon>

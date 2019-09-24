@@ -53,6 +53,14 @@ namespace CleaningApplication
             cmd.ExecuteNonQuery();
         }
 
+        public string getStoryName(int storyid)
+        {
+            openConnection();
+
+            string query = "select storyName from tbstory where storyid='" + storyid + "'";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            return cmd.ExecuteScalar().ToString();
+        }
         public string userLogin(string username, string password)
         {
             openConnection();

@@ -41,7 +41,7 @@
   </ol>--%>
   <!-- Carousel items -->
   <div class="carousel-inner" role="listbox">
-     <%-- <asp:Repeater ID="Repeater1" runat="server">
+      <asp:Repeater ID="Repeater1" runat="server">
           <ItemTemplate>
                <div class= 'item <%#Container.ItemIndex==0?"Active":""%>'>
                    <asp:Image ID="Image1" runat="server" src="<%# Eval("imagePhoto") %>" alt=""/>
@@ -50,7 +50,7 @@
 
 
           </ItemTemplate>
-      </asp:Repeater>--%>
+      </asp:Repeater>
    
   
   </div>

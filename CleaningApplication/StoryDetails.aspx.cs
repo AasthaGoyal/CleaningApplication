@@ -15,14 +15,16 @@ namespace CleaningApplication
         
         String connectionString =  ConfigurationManager.ConnectionStrings["dbcleaningConnectionString"].ConnectionString;
 
-        
+        DataAccessLayer dao = new DataAccessLayer();
 
         protected void Page_Load(object sender, EventArgs e)
         {
              int storyid = Convert.ToInt32(Request.QueryString["storyid"]);
+            string name = dao.getStoryName(storyid);
+            
 
             Session["id"] = storyid.ToString();
-            lblheading.Text = "Stories/" +  storyid.ToString();
+            lblheading.Text = "Stories/" + name;
 
             show_data();
         }
@@ -31,19 +33,19 @@ namespace CleaningApplication
         {
             int id = Convert.ToInt32(Session["id"]);
             txtbox.Text = id.ToString();
-            //SqlConnection conn = new SqlConnection(connectionString);
+            SqlConnection conn = new SqlConnection(connectionString);
 
-            //SqlCommand cmd = new SqlCommand("select imagePhoto from tbimages where storyid = " + id, conn);
-            //conn.Open();
+            SqlCommand cmd = new SqlCommand("select imagePhoto from tbimages where storyid = '" + id + "' and imageType='Before'", conn);
+            conn.Open();
 
-            //SqlDataReader dr = cmd.ExecuteReader();
-            //DataTable dt = new DataTable();
-            //dt.Load(dr);
-            //dr.Close();
-            //conn.Close();
+            SqlDataReader dr = cmd.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(dr);
+            dr.Close();
+            conn.Close();
 
-            //Repeater1.DataSource = dt;
-            //Repeater1.DataBind();
+            Repeater1.DataSource = dt;
+            Repeater1.DataBind();
 
 
         }

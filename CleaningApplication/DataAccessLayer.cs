@@ -250,14 +250,38 @@ namespace CleaningApplication
             return storyid;
         }
 
-        public void addCategory(string name, string photo, string desc, int rank)
+        public int addCategory(string name, string photo, string desc, int rank)
         {
             openConnection();
 
-            string query = "insert into tbcategory values ('" + name + "','" + photo + "','" + desc + "','" + rank + "')";
+            string query = "insert into tbcategory values ('" + name + "','" + photo + "','" + desc + "','" + rank + "') select @@identity";
             SqlCommand cmd = new SqlCommand(query, connection);
 
-            cmd.ExecuteNonQuery();
+            int id = Convert.ToInt32(cmd.ExecuteScalar());
+            return id;
+        }
+
+        public int addService(int categoryid, string service)
+        {
+            openConnection();
+
+            string query = "insert into tbservices values('" + categoryid + "','" + service + "') select @@identity";
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            int serviceid = Convert.ToInt32(cmd.ExecuteScalar());
+            return serviceid;
+
+        }
+
+        public string addOptions(string tablename, string option, int price, int serviceid )
+        {
+            openConnection();
+
+            string query = "insert into " + tablename + " values('" + option + "','" + price + "','" + serviceid + "')";
+            // SqlCommand cmd = new SqlCommand(query, connection);
+
+            //  cmd.ExecuteNonQuery();
+            return query;
         }
 
         public int getMaxRank()

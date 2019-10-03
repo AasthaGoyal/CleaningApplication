@@ -5,23 +5,12 @@
 <link href="css/responsive.css" rel="stylesheet"/>
     <form runat="server">
         <div class="container form-control">
+            
               <h3> Add a new Service:</h3>
+            
             <br />
-            Please choose one of the options:
-            <br />
-            <asp:RadioButtonList class="form-control" ID="rboptions" runat="server" AutoPostBack="True" OnSelectedIndexChanged="RadioButtonList1_SelectedIndexChanged">
-                <asp:ListItem Value="option1">Existing Category</asp:ListItem>
-                <asp:ListItem Value="option2">Create a new category</asp:ListItem>
-              </asp:RadioButtonList>
-            <br />
-            <asp:Panel ID="Panel1" runat="server" Visible="false">
-                <asp:DropDownList class="form-control" ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="categoryName" DataValueField="categoryName"></asp:DropDownList>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:dbcleaningConnectionString %>" SelectCommand="SELECT [categoryName] FROM [tbcategory]"></asp:SqlDataSource>
-            </asp:Panel>
-            <br />
-            <asp:Panel ID="Panel2" visible="false" runat="server">
-
-                <h5> <b>Add a new category:</b></h5>
+            
+              
                 <br />
                 Category Name:
                 <asp:TextBox ID="txtcname" CssClass="form-control" placeholder="Enter category name" runat="server"></asp:TextBox>
@@ -36,51 +25,67 @@
                  <asp:TextBox ID="txtcrank" width="100%" enabled="false" CssClass="form-control" placeholder="Enter category name" runat="server"></asp:TextBox>
                 <br />
                 <br />
-               
-            <asp:Label ID="lblmessage" runat="server"  Font-Bold="True" ForeColor="#CC0000"></asp:Label>
-          
+                   
+          <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                  
            
-            <br />
+            <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                <ContentTemplate>
+                    <asp:Panel runat="server" ID="choices" Visible="true">
             What kind of customize options you want to have with this service?
-            <asp:RadioButtonList class="form-control" ID="rbChoices" runat="server" OnSelectedIndexChanged="rbChoices_SelectedIndexChanged">
+            <asp:RadioButtonList class="form-control" ID="rbChoices" runat="server" OnSelectedIndexChanged="rbChoices_SelectedIndexChanged" AutoPostBack="True">
                 <asp:ListItem Value="choice1">Add multiple selection option (check list)</asp:ListItem>
                 <asp:ListItem Value="choice2">Add single selection option (dropdown list)</asp:ListItem>
                  <asp:ListItem Value="choice3">No customization needed</asp:ListItem>
               </asp:RadioButtonList>
-
+                    </asp:Panel>
               <br />
-              	<asp:Table ID="tbmultiple" runat="server" CssClass="form-control"  Font-Bold="True" >
-		            <asp:TableRow Width="100%">
-			                <asp:TableCell Width="50%"  style="text-align:left">
-				                Heading (Eg-Number of Bedrooms):
-			                </asp:TableCell>
-			        <asp:TableCell Width="50%"  style="text-align:right">
-				            Options (Eg - 2 Bedrooms - $134)<br /> (format: name - $amount):
-			        </asp:TableCell>
+              
+                    <div class="form-control container">
+                        <asp:Panel runat="server" ID="multiple" Visible="false">
 
-		         </asp:TableRow>
-                        <asp:TableRow Width="100%">
-			                <asp:TableCell Width="50%"  style="text-align:left">
-				               <asp:TextBox ID="txtheading" CssClass="form-control" placeholder="Enter the check list criteria (e.g - Window cleaning)" runat="server"></asp:TextBox>
-                 
-			                </asp:TableCell>
-			        <asp:TableCell Width="50%"  style="text-align:right">
-				              <asp:TextBox ID="txtc1" CssClass="form-control" placeholder="Enter the option" runat="server"></asp:TextBox>
-                 
-			        </asp:TableCell>
+                        
+                    <h2> Adding Multiple-selection option (Shown as Checklist)</h2>
+                    <br />
+                    <asp:TextBox ID="txtheading" CssClass="form-control" placeholder=" Heading (Eg-Number of Bedrooms):" runat="server"></asp:TextBox>
+                <br />
+            
+                        <b>Add Its option(Eg - 2 Bedrooms - $134):</b>
+                    <br />
+                         How many options do you want to add [format: name - $amount]:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:TextBox runat="server" width="206px"  ID="CounterTextBox" AutoPostBack="false" BorderStyle="Solid" BorderColor="#999999" BorderWidth="2px" />
+                        <asp:Button ID="btnAddOptions" runat="server" OnClick="btnAddOptions_Click" Text="Add" />
+                        <br/> 
 
-		         </asp:TableRow>
-	            </asp:Table>
-           
+                                <asp:PlaceHolder runat="server" ID="phOptions" />
+                                 <asp:Button class="btn-success"  width="200px" height="30px" AutoPostBack="false" ID="btnfinish" runat="server" Text="Finish"  OnClick="ConfirmButton_Click" /> 
+                     <asp:Label ID="lblmessage" runat="server"  Font-Bold="True" ForeColor="#CC0000"></asp:Label>
+        
+                        <asp:Literal ID="Literal1" runat="server"></asp:Literal>
+<br/>    <asp:Button ID="btnAdd" class="btn-danger"  width="200px" height="50px" runat="server" Text="Add" OnClick="btnAdd_Click"  />
+ 
+                       
+                     </asp:Panel>
+                    </div>
                    
-                    <asp:Button ID="btnaddnew" class="btn-success" width="163px" height="30px" runat="server" Text="Add another option" OnClick="btnaddnew_Click"    />
-                 <br />
-                    <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
+                   
+                  <br />
+               
+                   
+                    </ContentTemplate>
+
+                 <Triggers>
+			 <asp:AsyncPostBackTrigger ControlID="rbChoices" EventName="SelectedIndexChanged" />
+		 </Triggers>
+
+                </asp:UpdatePanel>
+                   
+               
                 
             <br />
-             </asp:Panel>
-            <asp:Button ID="btnAdd" class="btn-primary" width="200px" height="50px" runat="server" Text="Add" OnClick="btnAdd_Click"  />
-     
-   </div>
+            
+           <%-- <asp:Button ID="btnAdd" class="btn-danger"  width="200px" height="50px" runat="server" Text="Add" OnClick="btnAdd_Click"  />
+  --%>   </div>
+   
         </form>
 </asp:Content>

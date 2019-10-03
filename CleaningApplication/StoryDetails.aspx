@@ -1,68 +1,81 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="StoryDetails.aspx.cs" Inherits="CleaningApplication.WebForm24" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="StoryDetails.aspx.cs" Inherits="CleaningApplication.WebForm27" %>
+<%@ MasterType VirtualPath="~/Home.Master" %> 
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form runat="server">
-       
-             <header>
-        	<meta charset="utf-8">
-<link href="css/bootstrap.css" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet">
-<link href="css/responsive.css" rel="stylesheet">
 
-     <link href="themes/1/js-image-slider.css" rel="stylesheet" type="text/css" />
-    <script src="themes/1/js-image-slider.js" type="text/javascript"></script>
-    <link href="generic.css" rel="stylesheet" type="text/css" />
-<!--<link href="css/color.css" rel="stylesheet">-->
+	<form id="form1" runat="server">
+		<link href="themes/1/js-image-slider.css" rel="stylesheet" type="text/css" />
+	<script src="themes/1/js-image-slider.js" type="text/javascript"></script>
+	<link href="generic.css" rel="stylesheet" type="text/css" />
+	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-<link rel="icon" href="images/favicon.png" type="image/x-icon">
-
-<!-- Responsive -->
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	</header>
-           <section class="page-title" style="background-image:url(images/background/3.jpg)">
+	<meta name="viewport" content="width=device-width, initial-scale=1" /> 
+	<link href="Content/bootstrap.min.css" rel="stylesheet" /> 
+	<link href="Content/site.css" rel="stylesheet" /> 
+	<script src="Scripts/jquery-1.9.1.min.js"></script> 
+	<script src="Scripts/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+		<link rel="stylesheet" href="~/css/site.css" />
+		  <section class="page-title" style="background-image:url(images/background/3.jpg)">
 		<div class="auto-container">
 			<h2>
-                <asp:Label ID="lblheading" runat="server" ></asp:Label></h2>
+				<asp:Label ID="lblheading" runat="server" ></asp:Label></h2>
 		</div>
 	</section>
-        <asp:TextBox ID="txtbox" runat="server"></asp:TextBox>
-        <br />
-        <div id="sliderFrame">
-        <div id="slider">
-      
-           <div id="myCarousel" class="carousel slide">
-  <%--<ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-  </ol>--%>
-  <!-- Carousel items -->
-  <div class="carousel-inner" role="listbox">
-      <asp:Repeater ID="Repeater1" runat="server">
-          <ItemTemplate>
-               <div class= 'item <%#Container.ItemIndex==0?"Active":""%>'>
-                   <asp:Image ID="Image1" runat="server" src="<%# Eval("imagePhoto") %>" alt=""/>
-                   <div class="carousel-caption"></div>
-               </div>
-
-
-          </ItemTemplate>
-      </asp:Repeater>
+        
+<div class="container">
    
+   
+    <br />
+	 <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+   
+	<table class="form-control">
+		<tr>
+			<td> 
+				<h3 style="color: #000080; font-weight: bold; font-size: large; font-family: 'Comic Sans MS'; text-align: center"> Before </h3>
+			</td>
+			<td>
+				 <h3 style="color: #000080; font-weight: bold; font-size: large; font-family: 'Comic Sans MS'; text-align: center"> After </h3>
+		  
+			</td>
+		</tr>
+		<tr>
+			<td> 
+				<asp:UpdatePanel ID="UpdatePanel1" runat="server">
+		<ContentTemplate>
+			<div style="padding:10px">
+				   <asp:Timer ID="Timer1" runat="server" Interval="3000" OnTick="Timer1_Tick"></asp:Timer>
+			<asp:Image ID="Image1" Height="400px" Width="700px" runat="server" />
+		 
+
+			</div>
+		 
+	   
+		</ContentTemplate>
+  </asp:UpdatePanel> 
+
+			</td>
+			<td>
+				<asp:UpdatePanel ID="UpdatePanel2" runat="server">
+		<ContentTemplate>
+			<div style="padding:10px">
+			<asp:Timer ID="Timer2" runat="server" Interval="3000" OnTick="Timer2_Tick"></asp:Timer>
+			<asp:Image ID="Image2" Height="400px" Width="700px" runat="server" />
+		 </div>
+
+	   
+		</ContentTemplate>
+  </asp:UpdatePanel> 
+			</td>
+		</tr>
+	   
+	</table>
+	<br />
+
   
-  </div>
-  <!-- Carousel nav -->
-  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
-</div>
-         
-       
-     
-        </div>
-       
-    </div>
-    </form>
+    <br />
+    <h4>
+        <asp:Label ID="lbldesc"  Height="60px" runat="server" ></asp:Label>  </h4>
+	</div>
+	</form>
 </asp:Content>

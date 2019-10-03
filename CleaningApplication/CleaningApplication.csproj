@@ -334,6 +334,7 @@
     <Content Include="images\resource\video-img.jpg" />
     <Content Include="images\resource\welcome-1.jpg" />
     <Content Include="images\resource\welcome-2.jpg" />
+    <Content Include="placeholder.aspx" />
     <Content Include="themes\1\bullet.png" />
     <Content Include="themes\1\js-image-slider.css" />
     <Content Include="themes\1\js-image-slider.js" />
@@ -410,10 +411,10 @@
     <Content Include="AboutUsManagement.aspx" />
     <Content Include="AddClientManagement.aspx" />
     <Content Include="AddStory.aspx" />
-    <Content Include="StoryDetails.aspx" />
     <Content Include="AddNewService.aspx" />
+    <Content Include="AddService.aspx" />
     <Content Include="WebForm26.aspx" />
-    <Content Include="StoryDeta.aspx" />
+    <Content Include="StoryDetails.aspx" />
     <Content Include="WhyUs.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -438,6 +439,13 @@
     </Compile>
     <Compile Include="Home.Master.designer.cs">
       <DependentUpon>Home.Master</DependentUpon>
+    </Compile>
+    <Compile Include="placeholder.aspx.cs">
+      <DependentUpon>placeholder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="placeholder.aspx.designer.cs">
+      <DependentUpon>placeholder.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Default.aspx.cs">
@@ -601,19 +609,19 @@
     <Compile Include="AddStory.aspx.designer.cs">
       <DependentUpon>AddStory.aspx</DependentUpon>
     </Compile>
-    <Compile Include="StoryDetails.aspx.cs">
-      <DependentUpon>StoryDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="StoryDetails.aspx.designer.cs">
-      <DependentUpon>StoryDetails.aspx</DependentUpon>
-    </Compile>
     <Compile Include="AddNewService.aspx.cs">
       <DependentUpon>AddNewService.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AddNewService.aspx.designer.cs">
       <DependentUpon>AddNewService.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddService.aspx.cs">
+      <DependentUpon>AddService.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddService.aspx.designer.cs">
+      <DependentUpon>AddService.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForm26.aspx.cs">
       <DependentUpon>WebForm26.aspx</DependentUpon>
@@ -622,12 +630,12 @@
     <Compile Include="WebForm26.aspx.designer.cs">
       <DependentUpon>WebForm26.aspx</DependentUpon>
     </Compile>
-    <Compile Include="StoryDeta.aspx.cs">
-      <DependentUpon>StoryDeta.aspx</DependentUpon>
+    <Compile Include="StoryDetails.aspx.cs">
+      <DependentUpon>StoryDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="StoryDeta.aspx.designer.cs">
-      <DependentUpon>StoryDeta.aspx</DependentUpon>
+    <Compile Include="StoryDetails.aspx.designer.cs">
+      <DependentUpon>StoryDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="WhyUs.aspx.cs">
       <DependentUpon>WhyUs.aspx</DependentUpon>

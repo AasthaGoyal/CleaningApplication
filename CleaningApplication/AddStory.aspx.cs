@@ -26,7 +26,7 @@ namespace CleaningApplication
             int storyid = dao.addStory(txtheading.Text, txtdescription.Text);
             Session["storyid"] = storyid.ToString();
 
-     
+            lblmessage.Text = "the story has been added, add the images ";
 
             //addBeforeImages();
             
@@ -115,12 +115,13 @@ namespace CleaningApplication
         protected void btnbefore_Click(object sender, EventArgs e)
         {
             addBeforeImages();
+            lblmessage.Text = "The before images have been added";
         }
 
         protected void btnafter_Click(object sender, EventArgs e)
         {
             addAfterImages();
-            lblmessage.Text = "The story has been added successfully";
+            lblmessage.Text = "The after images have been added";
         }
     }
 }

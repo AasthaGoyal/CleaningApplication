@@ -149,7 +149,7 @@
 						<div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
 							<ul class="navigation clearfix">
 								<li><a href="Default.aspx">
-                                    <asp:Label ID="navhome" runat="server" Text="Home"></asp:Label></a>
+									<asp:Label ID="navhome" runat="server" Text="Home"></asp:Label></a>
 									
 								</li>
 								<li><a href="Services.aspx"> <asp:Label ID="navServices" runat="server" Text="Services"></asp:Label></a>
@@ -374,7 +374,7 @@
 									<ul class="footer-links">
 										<li><a href="ServiceDetails?categoryid=1">End of Tenancy Cleaning</a></li>
 										<li><a href="ServiceDetails?categoryid=2">House Cleaning</a></li>
-										<li><a href="ServiceDetails?categoryid=3">Garage Cleaning</a></li>
+										<li><a href="ServiceDetails?categoryid=3">Sofa Cleaning</a></li>
 										<li><a href="ServiceDetails?categoryid=4">Window Cleaning</a></li>
 										<li><a href="ServiceDetails?categoryid=5">Oven Cleaning</a></li>
 										<li><a href="ServiceDetails?categoryid=6">Commercial Cleaning</a></li>
@@ -416,11 +416,10 @@
 											<asp:Label ID="lblfaddress" runat="server" ></asp:Label></li>
 									</ul>
 									<ul class="social-icon-one">
-										<li><a href="#"><span class="fa fa-facebook-f"></span></a></li>
-										<li><a href="#"><span class="fa fa-twitter"></span></a></li>
-										<li><a href="#"><span class="fa fa-google-plus"></span></a></li>
-										<li><a href="#"><span class="fa fa-youtube"></span></a></li>
-									</ul>
+									<li><a href="https://www.facebook.com/swaach.shah.5"><span class="fa fa-facebook-f"></span></a></li>
+							<li><a href="https://instagram.com/swaachclean9?igshid=1axkv4h53820d"><span class="fa fa-instagram"></span></a></li>
+							<li><a href="https://twitter.com/CleaningSwaach"><span class="fa fa-twitter"></span></a></li>
+							</ul>
 								</div>
 							</div>
 							
@@ -445,9 +444,9 @@
 						<div class="copyright"> &copy; All rights reserved <br> Certified cleaning company.</div>
 					  <asp:Label ID="Label9" runat="server" Text="Developed By - Aastha Goyal" ForeColor="DeepSkyBlue" Font-Bold="True"></asp:Label>
 				
-                    </div>
+					</div>
 					<div class="pull-right">
-                       
+					   
 					
 						<!--Scroll to top-->
 			<div class="scroll-to-top scroll-to-target" data-target="html"><span class="flaticon-next-5"></span></div>

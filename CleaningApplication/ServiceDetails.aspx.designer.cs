@@ -148,6 +148,33 @@ namespace CleaningApplication {
         protected global::System.Web.UI.WebControls.CheckBoxList cbExtras;
         
         /// <summary>
+        /// dynamic control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel dynamic;
+        
+        /// <summary>
+        /// dpDynamic control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dpDynamic;
+        
+        /// <summary>
+        /// cbDynamic control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBoxList cbDynamic;
+        
+        /// <summary>
         /// btnclick control.
         /// </summary>
         /// <remarks>

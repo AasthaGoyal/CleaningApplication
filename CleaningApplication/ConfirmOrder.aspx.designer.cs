@@ -10,69 +10,51 @@
 namespace CleaningApplication {
     
     
-    public partial class WebForm25 {
+    public partial class WebForm30 {
         
         /// <summary>
-        /// txtcname control.
+        /// form control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtcname;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form;
         
         /// <summary>
-        /// fpPhoto control.
+        /// txtitemname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fpPhoto;
+        protected global::System.Web.UI.WebControls.TextBox txtitemname;
         
         /// <summary>
-        /// txtcdescription control.
+        /// txtamount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtcdescription;
+        protected global::System.Web.UI.WebControls.TextBox txtamount;
         
         /// <summary>
-        /// txtcrank control.
+        /// pnlPayPal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtcrank;
+        protected global::System.Web.UI.WebControls.Panel pnlPayPal;
         
         /// <summary>
-        /// lblmessage control.
+        /// ibPayPal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblmessage;
-        
-        /// <summary>
-        /// btnaddCategory control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnaddCategory;
-        
-        /// <summary>
-        /// btnaddOptions control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnaddOptions;
+        protected global::System.Web.UI.WebControls.ImageButton ibPayPal;
     }
 }

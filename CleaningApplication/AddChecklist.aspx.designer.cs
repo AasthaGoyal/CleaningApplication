@@ -10,43 +10,79 @@
 namespace CleaningApplication {
     
     
-    public partial class WebForm25 {
+    public partial class WebForm28 {
         
         /// <summary>
-        /// txtcname control.
+        /// dpOptiontype control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtcname;
+        protected global::System.Web.UI.WebControls.DropDownList dpOptiontype;
         
         /// <summary>
-        /// fpPhoto control.
+        /// multiple control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fpPhoto;
+        protected global::System.Web.UI.WebControls.Panel multiple;
         
         /// <summary>
-        /// txtcdescription control.
+        /// single control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtcdescription;
+        protected global::System.Web.UI.WebControls.Panel single;
         
         /// <summary>
-        /// txtcrank control.
+        /// maincontent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtcrank;
+        protected global::System.Web.UI.WebControls.Panel maincontent;
+        
+        /// <summary>
+        /// txtheading control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtheading;
+        
+        /// <summary>
+        /// CounterTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox CounterTextBox;
+        
+        /// <summary>
+        /// btnAddOptions control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddOptions;
+        
+        /// <summary>
+        /// phOptions control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder phOptions;
         
         /// <summary>
         /// lblmessage control.
@@ -58,21 +94,21 @@ namespace CleaningApplication {
         protected global::System.Web.UI.WebControls.Label lblmessage;
         
         /// <summary>
-        /// btnaddCategory control.
+        /// btnfinish control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnaddCategory;
+        protected global::System.Web.UI.WebControls.Button btnfinish;
         
         /// <summary>
-        /// btnaddOptions control.
+        /// btngoBack control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnaddOptions;
+        protected global::System.Web.UI.WebControls.Button btngoBack;
     }
 }

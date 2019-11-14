@@ -273,15 +273,81 @@ namespace CleaningApplication
 
         }
 
-        public string addOptions(string tablename, string option, int price, int serviceid )
+        public void addOptions(string tablename, string option, int price, int serviceid )
         {
             openConnection();
 
             string query = "insert into " + tablename + " values('" + option + "','" + price + "','" + serviceid + "')";
-            // SqlCommand cmd = new SqlCommand(query, connection);
+            SqlCommand cmd = new SqlCommand(query, connection);
 
-            //  cmd.ExecuteNonQuery();
-            return query;
+             cmd.ExecuteNonQuery();
+            
+        }
+
+        public int returnOptionCount(int categoryid)
+        {
+            openConnection();
+            int count;
+            try
+            {
+                string query = "select count(optionid) from tboptions where categoryid=" + categoryid;
+                SqlCommand cmd = new SqlCommand(query, connection);
+
+                 count = Convert.ToInt32(cmd.ExecuteScalar());
+                
+            }
+            catch(Exception)
+            {
+                count = 0;
+            }
+            return count;
+           
+        }
+
+    
+
+        public int insertGoods(string name, decimal price)
+        {
+            openConnection();
+
+            string query = "insert into tbgoods(name, totalPrice) values ('" + name + "','" + price + "') select @@identity";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            int goodid = Convert.ToInt32(cmd.ExecuteScalar());
+
+            return goodid;
+        }
+
+        public decimal returnTotalPrice(int goods_id)
+        {
+            openConnection();
+
+            string query = "select totalPrice from tbgoods where goodid =" + goods_id;
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            decimal price = Convert.ToDecimal(cmd.ExecuteScalar());
+
+            return price;
+        }
+
+        public int getRequestid(int goods_id)
+        {
+            openConnection();
+
+            string query = "select requestid from tbpaymentRequest where goodid=" + goods_id;
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            int id = Convert.ToInt32(cmd.ExecuteScalar());
+            return id;
+        }
+        public int createPaymentRequest(int goodsid, decimal price, DateTime requestDate)
+        {
+            openConnection();
+
+            string query = "insert into tbpaymentRequest values('" + goodsid + "','" + price + "','" + requestDate + "')";
+            SqlCommand cmd = new SqlCommand(query, connection);
+            int id = Convert.ToInt32(cmd.ExecuteScalar());
+
+            return id;
         }
 
         public int getMaxRank()

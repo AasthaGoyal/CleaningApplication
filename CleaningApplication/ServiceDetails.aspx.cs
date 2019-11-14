@@ -16,7 +16,7 @@ namespace CleaningApplication
     {
         DataAccessLayer dao = new DataAccessLayer();
         int subsubtotal = 0;
-        int id ;
+        int id;
         string connectionString = ConfigurationManager.ConnectionStrings["dbcleaningConnectionString"].ConnectionString;
         SqlConnection connection;
         StringBuilder column1, column2;
@@ -27,7 +27,7 @@ namespace CleaningApplication
         {
             
 
-            id = Convert.ToInt32(Request.QueryString["categoryid"]);
+             id = Convert.ToInt32(Request.QueryString["categoryid"]);
             if(id == 1)
             {
                 pnEndoftenancy.Visible = true;
@@ -79,8 +79,96 @@ namespace CleaningApplication
             }
             else
             {
-                this.Master.customize = false;
-                //remove the heading of customizing
+                //check if the table has any customizations
+                int optionid = dao.returnOptionCount(id);
+                if(optionid == 0)
+                {
+                    //remove the heading of customizing
+                    this.Master.customize = false;
+                }
+                else
+                {
+                    string query = "select optionid, optionType, relatedtablename from tboptions where categoryid =" + id;
+                    SqlCommand cmd = new SqlCommand(query, connection);
+
+                    connection.Open();
+                    int optionsid;
+                    string  type="", tablename="";
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    if(reader.HasRows)
+                    {
+                        while(reader.Read())
+                        {
+                            optionsid = Convert.ToInt32(reader.GetString(0));
+                            type = reader.GetString(1);
+                            tablename = reader.GetString(2);
+                        }
+                      
+                    }
+
+                    if(type=="Multiple")
+                    {
+                        addChecklist(tablename);
+
+                    }
+                    else if(type=="Single")
+                    {
+                        addDropDown(tablename);
+                    }
+                }
+                
+            }
+        }
+
+        public void addChecklist(string tablename)
+        {
+            connection.Open();
+            dynamic.Visible = true;
+            string query = "select count(*) from " + tablename;
+            SqlCommand cmd = new SqlCommand(query, connection);
+            int records = Convert.ToInt32(cmd.ExecuteScalar());
+
+            string query2 = "select * from " + tablename;
+            SqlCommand cmd2 = new SqlCommand(query2, connection);
+            SqlDataReader reader = cmd2.ExecuteReader();
+
+
+            for(int i=0;i<records;i++)
+            {
+                if(reader.HasRows)
+                {
+                    while(reader.Read())
+                    {
+                        CheckBox box = new CheckBox();
+                        box.Text = reader.GetString(1) + "-" + reader.GetDecimal(2).ToString();
+                        cbDynamic.Controls.Add(box);
+                    }
+                }
+               
+            }
+
+        }
+
+        public void addDropDown(string tablename)
+        {
+            List<string> items = new List<String>();
+            //List<ToolStripMenuItem> langset = new List<ToolStripMenuItem>();
+            //foreach(string item in items)
+            //{
+
+            //}
+
+            connection.Open();
+            string query = "select * from " + tablename;
+            SqlCommand cmd = new SqlCommand(query, connection);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            if(reader.HasRows)
+            {
+                while(reader.Read())
+                {
+
+                }
             }
         }
 

@@ -149,5 +149,18 @@ namespace CleaningApplication
                 lblcustomize.Text = value;
             }
         }
+
+        public string accessName
+        {
+            get
+            {
+                return lblname.Text;
+            }
+
+            set
+            {
+                lblname.Text = value;
+            }
+        }
     }
 }

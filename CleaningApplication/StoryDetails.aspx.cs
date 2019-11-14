@@ -14,8 +14,6 @@ namespace CleaningApplication
     {
         String connectionString = ConfigurationManager.ConnectionStrings["dbcleaningConnectionString"].ConnectionString;
 
-        int id;
-
         DataAccessLayer dao = new DataAccessLayer();
 
         protected void Page_Load(object sender, EventArgs e)

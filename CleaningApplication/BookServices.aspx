@@ -6,93 +6,21 @@
 		  <meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	</header>
-	<table class="form-control" style="width:100%">
-		<tr>
-			<td width="20%"> First Name *</td>
-			<td width="80%">        <asp:TextBox class="form-control"  placeholder="Your First name" ID="txtfirstname" runat="server"></asp:TextBox>
-			 </td>
-		</tr>
-			<tr>
-				<td>
-					Last Name *
 
-				</td>
-				<td> <asp:TextBox class="form-control" placeholder="Your Last name" ID="txtlastname" runat="server"></asp:TextBox>
-		   </td>
-			</tr>
-		<tr>
-			<td>
-				<br /><b>Street Address </b>
+				<br /><h4>Booking Details </h4>
 				<br />
-			</td>
+			Preferred date *
+			 <input type="date" id="txtdate" runat="server" class="form-control" />
+	<br />	
+	Preferred Time *
+			 <input type="time" id="txttime" runat="server" class="form-control" />
 		
-		</tr>
-		<tr>
-			<td>   House/ Street No *
-
-			  </td>
-			<td>
-				<asp:TextBox class="form-control" placeholder="House or Street No" ID="txtstreetno" runat="server"></asp:TextBox>
-				   
-			</td>
-		</tr>
-		<tr>
-			<td> Town/City *</td>
-		   
-			<td>    <asp:TextBox class="form-control" placeholder="Your Town/City" ID="txttown" runat="server"></asp:TextBox>
-			 </td>
-		   </tr>
-		<tr>
-			<td> Region (optional)</td>
-			<td>
-				   <asp:TextBox class="form-control" placeholder="Your Region (optional)" ID="txtregion" runat="server"></asp:TextBox>
 			 
-			</td>
-		</tr>
-		<tr>
-			<td> 
-			   
-				Postcode *</td>
-			<td>   
-			   <asp:TextBox class="form-control" placeholder="Your Postcode" ID="txtpostcode" runat="server"></asp:TextBox>
-			 </td>
-		</tr>
-		<tr>
-			<td> <br />Phone No *</td>
-			<td>   <br /> <asp:TextBox class="form-control" placeholder="Your Phone No" ID="txtphone" runat="server"></asp:TextBox>
-			 </td>
-		</tr>
-		<tr>
-			<td> Email address *</td>
-			<td>    <asp:TextBox class="form-control" placeholder="Your Email Id" ID="txtemail" runat="server"></asp:TextBox>
-			 </td>
-		</tr>
-		
-	   <tr>
-			<td>
-				<br /><b>Booking Details </b>
-				<br />
-			</td>
-	   </tr>
-		<tr>
-			<td> Preferred date *</td>
-			<td> <input type="date" id="txtdate" runat="server" class="form-control" /></td>
-		</tr>
-		<tr>
-			<td> Preferred Time *</td>
-			<td> <input type="time" id="txttime" runat="server" class="form-control" /></td>
-		</tr>
-		<tr>
-			 <td colspan="2">
 				<br /><b>Any additional information or notes </b>
 				<br />
-			</td>
-
-		</tr>
-		<tr>
-			<td colspan="2"> <asp:TextBox ID="txtnotes" placeholder="Notes" height="50px" CssClass="form-control" runat="server"></asp:TextBox></td>
-		</tr>
-			</table>
+			
+			 <asp:TextBox ID="txtnotes" placeholder="Notes" height="50px" CssClass="form-control" runat="server"></asp:TextBox>
+		
 	<br />
 	<h4> <asp:Label ID="Label1" runat="server" Text="Your Order" Font-Bold="True" Font-Size="Medium" ForeColor="#000066"></asp:Label></h4>
 	<br />
@@ -119,21 +47,22 @@
   <br />
   <%--  <asp:Button ID="btnshow"  AutoPostBack="false" runat="server" Text="Button"  OnClientClick="returnAmount();"/>
   --%>  <%--<asp:HiddenField runat="server" ID="hiddenTotal" />--%>
-	<br />
+<%--	<br />
 	<h3>Proceed to Payment</h3>
 	<br />
-	 <div id="paypal-button-container"></div>
+   
+	<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="FSJX49ZLMZ8WU">
+	<%-- <div id="paypal-button-container"></div>--%>
+	<asp:ImageButton width="120px" Height="50px" id="PayPalBtn" runat="server" ImageUrl="https://www.paypalobjects.com/en_GB/i/btn/btn_buynow_LG.gif" onClick="PayPalBtn_Click" />
 	 <asp:HiddenField id="hidden" Value="2" runat="server"> </asp:HiddenField>
+    <br />
+    <asp:Button ID="btnfinish" class="form-control btn-success" runat="server" Text="Confirm Booking" OnClick="btnfinish_Click1" />
 	<!-- Include the PayPal JavaScript SDK -->
-	<script src="https://www.paypal.com/sdk/js?client-id=ARXG0L7C9sWQzfjZmRsRqzUQWede7HWhjYjK8mdXKDklZmwLZtuhhGGIOMGXaxOnb1noQuAYLPSW_Xrp&currency=NZD"></script>
+	<%--<script src="https://www.paypal.com/sdk/js?client-id=ARXG0L7C9sWQzfjZmRsRqzUQWede7HWhjYjK8mdXKDklZmwLZtuhhGGIOMGXaxOnb1noQuAYLPSW_Xrp&currency=NZD"></script>
 
 	<script>
-		<%--function returnAmount() {
-			var amount = document.getElementById('<%=lblTotal.ClientID%>').value;
-			  document.getElementById('<%=lblmessage.ClientID %>').value = 'Done'+ amount;
-			  
-		}--%>
-
+	
 	   // Render the PayPal button into #paypal-button-container
 		paypal.Buttons({
 
@@ -161,13 +90,14 @@
 
 
 		}).render('#paypal-button-container');
-	</script>
+	</script>--%>
 	<br />
-	<asp:Button ID="btnfinish" runat="server" class="btn-success form-control" Text="Finish Booking" OnClick="btnfinish_Click" />
+	<%--<asp:Button ID="btnfinish" runat="server" class="btn-success form-control" Text="Finish Booking" OnClick="btnfinish_Click" />--%>
 	<br />
 	<asp:Label ID="lblmessage" runat="server" Font-Bold="True" ForeColor="#CC0000" ></asp:Label>
 	<br />
-   
+	  <%--<asp:Button ID="btnReview" CssClass="btn-success form-control" runat="server" Text="Review Order and Pay" OnClick="btnReview_Click" />--%>
+
 	<br />
 	<div class="container">
 			<div class="row">

@@ -50,6 +50,10 @@
 		<asp:CheckBoxList class="form-control" ID="cbExtras" runat="server" RepeatColumns="1"></asp:CheckBoxList>
 	</asp:Panel>
 	
+    <asp:Panel ID="dynamic" runat="server" Visible="false">
+        <asp:DropDownList ID="dpDynamic" runat="server"></asp:DropDownList>
+        <asp:CheckBoxList ID="cbDynamic" runat="server"></asp:CheckBoxList>
+    </asp:Panel>
 	<asp:Button ID="btnclick" class="btn-primary form-control" runat="server" Text="Check Price" OnClick="btnclick_Click"  />
 	 
 	<hr />

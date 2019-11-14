@@ -25,67 +25,17 @@
                  <asp:TextBox ID="txtcrank" width="100%" enabled="false" CssClass="form-control" placeholder="Enter category name" runat="server"></asp:TextBox>
                 <br />
                 <br />
+            <asp:Label ID="lblmessage" runat="server" ></asp:Label>
                    
-          <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-                  
-           
-            <asp:UpdatePanel ID="UpdatePanel2" runat="server">
-                <ContentTemplate>
-                    <asp:Panel runat="server" ID="choices" Visible="true">
-            What kind of customize options you want to have with this service?
-            <asp:RadioButtonList class="form-control" ID="rbChoices" runat="server" OnSelectedIndexChanged="rbChoices_SelectedIndexChanged" AutoPostBack="True">
-                <asp:ListItem Value="choice1">Add multiple selection option (check list)</asp:ListItem>
-                <asp:ListItem Value="choice2">Add single selection option (dropdown list)</asp:ListItem>
-                 <asp:ListItem Value="choice3">No customization needed</asp:ListItem>
-              </asp:RadioButtonList>
-                    </asp:Panel>
+            <asp:Button ID="btnaddCategory" CssClass="btn-primary form-control" runat="server" Text="Add the service" OnClick="btnaddCategory_Click" />
               <br />
               
-                    <div class="form-control container">
-                        <asp:Panel runat="server" ID="multiple" Visible="false">
-
-                        
-                    <h2> Adding Multiple-selection option (Shown as Checklist)</h2>
-                    <br />
-                    <asp:TextBox ID="txtheading" CssClass="form-control" placeholder=" Heading (Eg-Number of Bedrooms):" runat="server"></asp:TextBox>
-                <br />
-            
-                        <b>Add Its option(Eg - 2 Bedrooms - $134):</b>
-                    <br />
-                         How many options do you want to add [format: name - $amount]:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:TextBox runat="server" width="206px"  ID="CounterTextBox" AutoPostBack="false" BorderStyle="Solid" BorderColor="#999999" BorderWidth="2px" />
-                        <asp:Button ID="btnAddOptions" runat="server" OnClick="btnAddOptions_Click" Text="Add" />
-                        <br/> 
-
-                                <asp:PlaceHolder runat="server" ID="phOptions" />
-                                 <asp:Button class="btn-success"  width="200px" height="30px" AutoPostBack="false" ID="btnfinish" runat="server" Text="Finish"  OnClick="ConfirmButton_Click" /> 
-                     <asp:Label ID="lblmessage" runat="server"  Font-Bold="True" ForeColor="#CC0000"></asp:Label>
-        
-                        <asp:Literal ID="Literal1" runat="server"></asp:Literal>
-<br/>    <asp:Button ID="btnAdd" class="btn-danger"  width="200px" height="50px" runat="server" Text="Add" OnClick="btnAdd_Click"  />
- 
-                       
-                     </asp:Panel>
-                    </div>
-                   
-                   
-                  <br />
-               
-                   
-                    </ContentTemplate>
-
-                 <Triggers>
-			 <asp:AsyncPostBackTrigger ControlID="rbChoices" EventName="SelectedIndexChanged" />
-		 </Triggers>
-
-                </asp:UpdatePanel>
-                   
-               
-                
+                   Click the button to add further Multiple and single options:
             <br />
-            
-           <%-- <asp:Button ID="btnAdd" class="btn-danger"  width="200px" height="50px" runat="server" Text="Add" OnClick="btnAdd_Click"  />
-  --%>   </div>
-   
+            <b> Note: Multiple-choice options (including Extras) are shown as a checklit while single-choice options are shown as a drop-down list</b>
+                   <br />
+            <asp:Button ID="btnaddOptions" runat="server" CssClass="btn-block form-control" Text="Add a filter option" BackColor="#FF6600" OnClick="btnaddOptions_Click" />
+                   
+                </div>
         </form>
 </asp:Content>

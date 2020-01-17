@@ -9,6 +9,10 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Net.Mail;
 using System.Net;
+using System.Threading.Tasks;
+using SendGrid;
+using SendGrid.Helpers.Mail;
+using Newtonsoft.Json;
 
 namespace CleaningApplication
 {
@@ -26,6 +30,7 @@ namespace CleaningApplication
             {
 
                 FillStaffData();
+               
             }
 
 
@@ -33,44 +38,50 @@ namespace CleaningApplication
 
         protected void btnConfirm_Click(object sender, EventArgs e)
         {
-            string body = "<h1> Hello admin </h1> <br/>";
-            body += "<br/>You have received a new message regarding 'Swaach Cleaning Services'. The details are as follows: <br/>";
-            body += "<br/> Customer Name: " + txtname2.Text + "<br/>";
-            body += "<br/> Email Id: " + txtemailid.Text + "<br/>";
-            body += "<br/> Phone No: " + txtPhone.Text + "<br/>";
-            body += "<br/> Message: " + txtmessage2.Text + ".";
+            /*  string body = "<h1> Hello admin </h1> <br/>";
+              body += "<br/>You have received a new message regarding 'Swaach Cleaning Services'. The details are as follows: <br/>";
+              body += "<br/> Customer Name: " + txtname2.Text + "<br/>";
+              body += "<br/> Email Id: " + txtemailid.Text + "<br/>";
+              body += "<br/> Phone No: " + txtPhone.Text + "<br/>";
+              body += "<br/> Message: " + txtmessage2.Text + ".";
 
 
-            
 
-            try
-            {
-                MailMessage message = new MailMessage();
-                message.To.Add("swaachclean@gmail.com");
-                message.From = new MailAddress("aastha2150@gmail.com");
-                message.Subject = "A new 'Request for Quote' received!";
-                message.Body = body;
-                message.IsBodyHtml = true;
-                SmtpClient smtp = new SmtpClient();
-                smtp.Host = "smtp.gmail.com";
-                smtp.EnableSsl = true;
-                NetworkCredential nc = new NetworkCredential();
-                nc.UserName = "aastha2150@gmail.com";
-                nc.Password = "Goyal0412aastha";
-                smtp.UseDefaultCredentials = true;
-                smtp.Credentials = nc;
-                smtp.Port = 587;
-                smtp.Send(message);
 
-                lblmessage2.Text = "* We have received your query and would be in contact shortly";
-            }
-            catch (Exception ex)
-            {
-                lblmessage2.Text = "* Error! " + ex.Message;
-            }
+              try
+              {
+                  MailMessage message = new MailMessage();
+                  message.To.Add("swaachclean@gmail.com");
+                  message.From = new MailAddress("aastha2150@gmail.com");
+                  message.Subject = "A new 'Request for Quote' received!";
+                  message.Body = body;
+                  message.IsBodyHtml = true;
+                  SmtpClient smtp = new SmtpClient();
+                  smtp.Host = "smtp.gmail.com";
+                  smtp.EnableSsl = true;
+                  NetworkCredential nc = new NetworkCredential();
+                  nc.UserName = "aastha2150@gmail.com";
+                  nc.Password = "Goyal0412aastha";
+                  smtp.UseDefaultCredentials = true;
+                  smtp.Credentials = nc;
+                  smtp.Port = 587;
+                  smtp.Send(message);
+
+                  lblmessage2.Text = "* We have received your query and would be in contact shortly";
+              }
+              catch (Exception ex)
+              {
+                  lblmessage2.Text = "* Error! " + ex.Message;
+              }*/
+           
         }
 
-        public void FillContactData()
+     
+       
+      
+          
+
+         public void FillContactData()
         {
 
             conn = new SqlConnection(connectionString);
@@ -116,41 +127,38 @@ namespace CleaningApplication
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
+           
+           Execute(Environment.GetEnvironmentVariable("MyApikey"), txtname2.Text, txtemailid.Text, txtPhone.Text, txtmessage2.Text).Wait();
+
+        }
+
+        public async Task Execute(string apikey, string name, string email,string phoneno, string message )
+        {
+            // Retrieve the API key from the environment variables. See the project README for more info about setting this up.
+            //   var apiKey = Environment.GetEnvironmentVariable("MyApikey");
+
+            var client = new SendGridClient(apikey);
             string body = "<h1> Hello admin </h1> <br/>";
             body += "<br/>You have received a new message regarding 'Swaach Cleaning Services'. The details are as follows: <br/>";
-            body += "<br/> Customer Name: " + txtName.Text + "<br/>";
-            body += "<br/> Email Id: " + txtEmail.Text + "<br/>";
-            body += "<br/> Phone No: " + txtPhoneNo.Text + "<br/>";
-            body += "<br/> Message: " + txtMessage.Text + ".";
+            body += "<br/> Customer Name: " + name + "<br/>";
+            body += "<br/> Email Id: " +email + "<br/>";
+            body += "<br/> Phone No: " + phoneno + "<br/>";
+            body += "<br/> Message: " + message + ".";
+                
 
 
-           
+            // Send a Single Email using the     Mail Helper
+            var from = new EmailAddress("aastha2150@gmail.com", "Swaach Cleaning");
+            var subject = "A new query received for Swaach Cleaning services!";
+            var to = new EmailAddress("swaachclean@gmail.com", "Swaach Cleaning ");
+            var plainTextContent = body;
+            var htmlContent = body;
 
-            try
-            {
-                MailMessage message = new MailMessage();
-                message.To.Add("swaachclean@gmail.com");
-                message.From = new MailAddress("aastha2150@gmail.com");
-                message.Subject = "A new 'Request for quote' received!";
-                message.Body = body;
-                message.IsBodyHtml = true;
-                SmtpClient smtp = new SmtpClient();
-                smtp.Host = "smtp.gmail.com";
-                smtp.EnableSsl = true;
-                NetworkCredential nc = new NetworkCredential();
-                nc.UserName = "aastha2150@gmail.com";
-                nc.Password = "Goyal0412Aa$h1";
-                smtp.UseDefaultCredentials = true;
-                smtp.Credentials = nc;
-                smtp.Port = 587;
-                smtp.Send(message);
+            var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
 
-                lblMessage.Text = "* We have received your query and would be in contact shortly";
-            }
-            catch (Exception ex)
-            {
-                lblMessage.Text = "* Error! " + ex.Message;
-            }
+            var response = await client.SendEmailAsync(msg);
+
+
         }
     }
 }

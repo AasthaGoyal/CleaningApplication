@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Home.master.cs" Inherits="CleaningApplication.Home" %>
+﻿<%@ Master Language="C#"  AutoEventWireup="true" CodeBehind="Home.master.cs" Inherits="CleaningApplication.Home" %>
 
 <!DOCTYPE html>
 
@@ -442,7 +442,7 @@
 					
 					<div class="pull-left">
 						<div class="copyright"> &copy; All rights reserved <br> Certified cleaning company.</div>
-					  <asp:Label ID="Label9" runat="server" Text="Developed By - Aastha Goyal" ForeColor="DeepSkyBlue" Font-Bold="True"></asp:Label>
+					 <a href="https://github.com/AasthaGoyal"> <asp:Label ID="Label9" runat="server" Text="Developed By - Aastha Goyal" ForeColor="DeepSkyBlue" Font-Bold="True"></asp:Label></a>
 				
 					</div>
 					<div class="pull-right">

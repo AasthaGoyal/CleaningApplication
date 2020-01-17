@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ServicesNested.master" AutoEventWireup="true" CodeBehind="BookServices.aspx.cs" Inherits="CleaningApplication.WebForm21" %>
+﻿<%@ Page Title="" Async ="true" Language="C#" MasterPageFile="~/ServicesNested.master" AutoEventWireup="true" CodeBehind="BookServices.aspx.cs" Inherits="CleaningApplication.WebForm21" %>
 <%@ MasterType VirtualPath="~/ServicesNested.master" %> 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
@@ -14,7 +14,10 @@
 	<br />	
 	Preferred Time *
 			 <input type="time" id="txttime" runat="server" class="form-control" />
-		
+		<br />
+    Email Id:
+    <asp:TextBox type="email" id="txtemail" runat="server" class="form-control " />
+
 			 
 				<br /><b>Any additional information or notes </b>
 				<br />
@@ -94,8 +97,13 @@
 	<br />
 	<%--<asp:Button ID="btnfinish" runat="server" class="btn-success form-control" Text="Finish Booking" OnClick="btnfinish_Click" />--%>
 	<br />
-	<asp:Label ID="lblmessage" runat="server" Font-Bold="True" ForeColor="#CC0000" ></asp:Label>
-	<br />
+    
+   
+    <asp:Label ID="lblmessage" runat="server" Font-Bold="True" ForeColor="#CC0000" ></asp:Label>
+	
+        
+    
+<br />
 	  <%--<asp:Button ID="btnReview" CssClass="btn-success form-control" runat="server" Text="Review Order and Pay" OnClick="btnReview_Click" />--%>
 
 	<br />
@@ -140,9 +148,8 @@
 					
 
 				</div>
-				<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-					<asp:UpdatePanel ID="UpdatePanel2" runat="server">
-		<ContentTemplate>
+			
+					
 				<div class="modal-footer">
 					<asp:Label ID="lblmessage2" runat="server" Font-Bold="True" ForeColor="#CC0000" ></asp:Label>
 					
@@ -151,12 +158,7 @@
 					<%--<button id="btnConfirm" class="btn btn-primary" AutoPostBack="true" onclick="btnConfirm_onClick" >Submit</button>--%>
 					<button class="btn btn-primary" data-dismiss ="modal"> Close</button>
 				</div>
-			 </ContentTemplate>
-
-		 <Triggers>
-			 <asp:AsyncPostBackTrigger ControlID="btnConfirm" EventName="Click" />
-		 </Triggers>
-	</asp:UpdatePanel>
+			
 			</div>
 		</div>
 			</div>

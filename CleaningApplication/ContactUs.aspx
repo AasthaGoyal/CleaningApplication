@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="ContactUs.aspx.cs" Inherits="CleaningApplication.WebForm4" %>
+﻿<%@ Page Title="" Async="true" Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="ContactUs.aspx.cs" Inherits="CleaningApplication.WebForm4" %>
 <%@ MasterType VirtualPath="~/Home.Master" %> 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-	<form runat="server">
+	<form  id="form1" runat="server">
 
    
 	 
@@ -136,7 +136,7 @@
 					<div class="inner-column">
 						<!--Contact Form-->
 						<div class="contact-form">
-							<form method="post" action="sendemail.php" id="contact-form">
+							
 								<div class="row clearfix">
 									<div class="form-group col-lg-12 col-md-12 col-sm-12">
 
@@ -168,7 +168,7 @@
 									<asp:Label ID="lblMessage" runat="server" ForeColor="#CC0000" Font-Bold="True" ></asp:Label>
 										</div>  
 								</div>
-							</form>
+							
 						</div>
 						<!--End Contact Form-->
 					</div>

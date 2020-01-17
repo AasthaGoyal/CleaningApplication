@@ -21,8 +21,7 @@ namespace CleaningApplication
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Environment.SetEnvironmentVariable("SwaachKey", "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");
-      
+          
             if (!IsPostBack)
             {
                 string t = Session["total"].ToString();

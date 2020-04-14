@@ -22,8 +22,8 @@ namespace CleaningApplication
         {
             int rank = dao.getMaxRank();
             txtcrank.Text = (rank + 1).ToString();
+            this.Master.services = System.Drawing.Color.DeepSkyBlue;
 
-            
         }
 
 

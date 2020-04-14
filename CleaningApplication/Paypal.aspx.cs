@@ -75,17 +75,15 @@ namespace CleaningApplication
 
         protected void PayPalBtn_Click(object sender, ImageClickEventArgs e)
         {
-            //string business = "Swaach Cleaning Services";
-            //string itemName = "Carpet Cleaning";
-            //double itemAmount = 20.00;
-            //string currencyCode = "NZD";
+            string business = "Swaach Cleaning Services";
+            string itemName = "Complete house Cleaning";
             string totalPrice = "20.00";
             string request_id = Session["request_id"].ToString();
             StringBuilder ppHref = new StringBuilder();
 
             ppHref.Append("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick");
             ppHref.Append("&business=" + business);
-            ppHref.Append("&item_name=" + item_name);
+            ppHref.Append("&item_name=" + itemName);
             ppHref.Append("&amount=" + totalPrice);
             ppHref.Append("&currency_code=" + currency_code);
             ppHref.Append("&no_shipping=" + "1");

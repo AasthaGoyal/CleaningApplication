@@ -21,7 +21,8 @@ namespace CleaningApplication
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-          
+            Environment.SetEnvironmentVariable("SwaachKey", "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");
+
             if (!IsPostBack)
             {
                 string t = Session["total"].ToString();
@@ -56,45 +57,40 @@ namespace CleaningApplication
 
         }
 
-        protected void btnConfirm_Click(object sender, EventArgs e)
+        protected async void btnConfirm_Click(object sender, EventArgs e)
         {
-            //string body = "<h1> Hello admin </h1> <br/>";
-            //body += "<br/>You have received a new message regarding 'Swaach Cleaning Services'. The details are as follows: <br/>";
-            //body += "<br/> Customer Name: " + txtname2.Text + "<br/>";
-            //body += "<br/> Email Id: " + txtemailid.Text + "<br/>";
-            //body += "<br/> Phone No: " + txtphone2.Text + "<br/>";
-            //body += "<br/> Message: " + txtmessage.Text + ".";
-
-
-           
-
-            //try
-            //{
-            //    MailMessage message = new MailMessage();
-            //    message.To.Add("swaachclean@gmail.com");
-            //    message.From = new MailAddress("aastha2150@gmail.com");
-            //    message.Subject = "A new 'Request for Quote' received!";
-            //    message.Body = body;
-            //    message.IsBodyHtml = true;
-            //    SmtpClient smtp = new SmtpClient();
-            //    smtp.Host = "smtp.gmail.com";
-            //    smtp.EnableSsl = true;
-            //    NetworkCredential nc = new NetworkCredential();
-            //    nc.UserName = "aastha2150@gmail.com";
-            //    nc.Password = "Goyal0412aastha";
-            //    smtp.UseDefaultCredentials = true;
-            //    smtp.Credentials = nc;
-            //    smtp.Port = 587;
-            //    smtp.Send(message);
-
-            //    lblmessage2.Text = "* We have received your query and would be in contact shortly";
-            //}
-            //catch (Exception ex)
-            //{
-            //    lblmessage2.Text = "* Error! " + ex.Message;
-            //}
+            await GetResponse(Environment.GetEnvironmentVariable("MyApikey"), txtname2.Text, txtemailid.Text, txtphone2.Text, txtmessage.Text);
+            lblmessage2.Text = "The message has been successfully sent";
         }
 
+        public static async Task GetResponse(string apikey, string name, string email, string phoneno, string message)
+        {
+            // Retrieve the API key from the environment variables. See the project README for more info about setting this up.
+            //   var apiKey = Environment.GetEnvironmentVariable("MyApikey");
+
+            var client = new SendGridClient(apikey);
+            string body = "<h1> Hello admin </h1> <br/>";
+            body += "<br/>You have received a new message regarding 'Swaach Cleaning Services'. The details are as follows: <br/>";
+            body += "<br/> Customer Name: " + name + "<br/>";
+            body += "<br/> Email Id: " + email + "<br/>";
+            body += "<br/> Phone No: " + phoneno + "<br/>";
+            body += "<br/> Message: " + message + ".";
+
+
+
+            // Send a Single Email using the     Mail Helper
+            var from = new EmailAddress("aastha2150@gmail.com", "Swaach Cleaning");
+            var subject = "A new query received for Swaach Cleaning services!";
+            var to = new EmailAddress("swaachclean@gmail.com", "Swaach Cleaning ");
+            var plainTextContent = body;
+            var htmlContent = body;
+
+            var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
+            Console.WriteLine("the msg is", msg);
+            var response = await client.SendEmailAsync(msg);
+            Console.WriteLine("the response is", response);
+
+        }
         protected void btnfinish_Click(object sender, EventArgs e)
         {
             //string body = "<h1> Hello admin </h1> <br/>";
@@ -146,7 +142,7 @@ namespace CleaningApplication
             string t = Session["total"].ToString();
             int id = dao.insertGoods("Carpet cleaning", Convert.ToDecimal(t.Substring(1)));
            
-            lblmessage.Text = "The good has been  added successfully" + id;
+            // lblmessage.Text = "The good has been  added successfully" + id;
             //Response.Redirect("IPNHandler.aspx?goodsid=" + request_id);
             Response.Redirect("ConfirmOrder.aspx?goods_id=" + id);
         }
@@ -191,103 +187,8 @@ namespace CleaningApplication
         }
 
        
-        protected  void btnfinish_Click1(object sender, EventArgs e)
-        {
-            Execute().Wait();
-            lblmessage.Text = "the message has been sent successfully";
-            //var mimeMessage = new MimeMessage();
-            //mimeMessage.From.Add(new MailboxAddress("aastha2150@gmail.com", "aastha2150@gmail.com"));
-            //mimeMessage.To.Add(new MailboxAddress("aastha2150@gmail.com", "aastha2150@gmail.com"));
-            //mimeMessage.Subject = "subject";
-            //mimeMessage.Body = new TextPart("plain")
-            //{
-            //    Text = " BodyContent"
-            //};
-            //    var apikey = System.Environment.GetEnvironmentVariable("SENDGRID_APIKEY");
-            //    var client = new SendGridClient(apikey);
-            //    var msg = new SendGridMessage();
-            //    msg.SetFrom(new EmailAddress("aastha2150@gmail.com", "Swaach cleaning team"));
-
-            //    var recipients = new List<EmailAddress>
-            //    {
-            //        new EmailAddress("aastha2150@gmail.com", "Aastha goyal")
-            //};
-            //    msg.AddTos(recipients);
-            //    msg.SetSubject("Testing of email");
-            //    msg.AddContent(MimeType.Text, "Hello world plain text");
-            //    msg.AddContent(MimeType.Html, "<p> Hello world</p>");
-
-            //    var response = await client.SendEmailAsync(msg);
-            //    lblmessage.Text = response.ToString();
-            //this is the MAIlKIT method
-            //try
-            //{
-            //    string FromAddress = "aastha_goyal@outlook.com";
-            //    string FromAddressTitle = "Aastha Goyal";
-            //    string ToAddress = "aastha2150@gmail.com";
-            //    string ToAddressTitle = "A service has been booked";
-
-            //    string subject = "A new Booking request has been received";
-            //    string BodyContent = "The booking details are:";
-            //    BodyContent += "Email id: " + txtemail.Text;
-            //    BodyContent += "Preferred Date: " + txtdate.Value;
-            //    BodyContent += "Preferred Time: " + txttime.Value;
-            //    BodyContent += "Additional Notes: " + txtnotes.Text;
-            //    string SmtpServer = "smtp.office365.com";
-            //    int SmtpPortNumber = 587;
-
-            //    var mimeMessage = new MimeMessage();
-            //    mimeMessage.From.Add(new MailboxAddress(FromAddressTitle, FromAddress));
-            //    mimeMessage.To.Add(new MailboxAddress(ToAddressTitle, ToAddress));
-            //    mimeMessage.Subject = subject;
-            //    mimeMessage.Body = new TextPart("plain")
-            //    {
-            //        Text = BodyContent
-            //    };
-
-            //    using (var client = new SmtpClient())
-            //    {
-            //        client.Connect(SmtpServer, SmtpPortNumber,
-            //                           false);
-            //        client.Authenticate("aastha_goyal@outlook.com", "Aa$h10412");
-            //        await client.SendAsync(mimeMessage);
-            //        lblmessage.Text = "The message has been sent successfully";
-            //        await client.DisconnectAsync(true);
-
-
-            //    }
-            //}
-            //catch(Exception ex)
-            //{
-            //    lblmessage.Text = "Exception occured:" + ex.Message;
-            //}
-
-
-        }
-
-        static async Task Execute()
-        {
-            var apiKey = Environment.GetEnvironmentVariable("MyApikey");
-
-            var client = new SendGridClient(apiKey);
-
-            // Send a Single Email using the Mail Helper
-            var from = new EmailAddress("swaachclean@gmail.com", "Swaach Cleaning Services");
-            var subject = "A new booking request has been received";
-            var to = new EmailAddress("swaachclean@gmail.com", "Swaach Cleaning Services");
-            var plainTextContent = "Plain text content";
-            var htmlContent = "html content";
-            var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
-
-            var response = await client.SendEmailAsync(msg);
-            Console.WriteLine(msg.Serialize());
-            Console.WriteLine(response.StatusCode);
-            Console.WriteLine(response.Headers);
-            Console.WriteLine("\n\nPress <Enter> to continue.");
-            Console.ReadLine();
-
-
-        }
+       
+       
 
 
     }

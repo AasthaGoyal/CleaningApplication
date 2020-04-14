@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CleaningApplication {
-    
-    
-    public partial class WebForm19 {
-        
+namespace CleaningApplication
+{
+
+
+    public partial class WebForm19
+    {
+
         /// <summary>
         /// RequiredFieldValidator1 control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace CleaningApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
-        
+
         /// <summary>
         /// txtname control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace CleaningApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtname;
-        
+
         /// <summary>
         /// txtaddress control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace CleaningApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtaddress;
-        
+
         /// <summary>
         /// txtphone control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace CleaningApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtphone;
-        
+
         /// <summary>
         /// RequiredFieldValidator4 control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace CleaningApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
-        
+
         /// <summary>
         /// txtemail control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace CleaningApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtemail;
-        
+
         /// <summary>
         /// RequiredFieldValidator5 control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace CleaningApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
-        
+
         /// <summary>
         /// txtposition control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace CleaningApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtposition;
-        
+
         /// <summary>
         /// fpImage control.
         /// </summary>
@@ -92,7 +94,7 @@ namespace CleaningApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload fpImage;
-        
+
         /// <summary>
         /// RequiredFieldValidator6 control.
         /// </summary>
@@ -101,7 +103,7 @@ namespace CleaningApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator6;
-        
+
         /// <summary>
         /// txtusername control.
         /// </summary>
@@ -110,7 +112,7 @@ namespace CleaningApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtusername;
-        
+
         /// <summary>
         /// RequiredFieldValidator7 control.
         /// </summary>
@@ -119,7 +121,7 @@ namespace CleaningApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator7;
-        
+
         /// <summary>
         /// txtpassword control.
         /// </summary>
@@ -128,7 +130,7 @@ namespace CleaningApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtpassword;
-        
+
         /// <summary>
         /// btnSubmit control.
         /// </summary>
@@ -137,7 +139,7 @@ namespace CleaningApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSubmit;
-        
+
         /// <summary>
         /// lblmessage control.
         /// </summary>
@@ -146,5 +148,19 @@ namespace CleaningApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblmessage;
+
+        /// <summary>
+        /// Master property.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated property.
+        /// </remarks>
+        public new CleaningApplication.Admin Master
+        {
+            get
+            {
+                return ((CleaningApplication.Admin)(base.Master));
+            }
+        }
     }
 }

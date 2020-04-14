@@ -13,7 +13,7 @@ namespace CleaningApplication
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            this.Master.client = System.Drawing.Color.DeepSkyBlue;
         }
 
         protected void btnadd_Click(object sender, EventArgs e)

@@ -104,6 +104,19 @@ namespace CleaningApplication
             cmd.ExecuteNonQuery();
         }
 
+        public void deleteStory(int id)
+        {
+            openConnection();
+            string query1 = "delete from tbimages where storyid =" + id;
+            SqlCommand cmd1 = new SqlCommand(query1, connection);
+            cmd1.ExecuteNonQuery();
+
+            string query = "delete from tbstory where storyid=" + id;
+            SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.ExecuteNonQuery();
+        }
+
+
         public int getserviceid(string name, int categoryid)
         {
             openConnection();

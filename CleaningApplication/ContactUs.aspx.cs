@@ -36,44 +36,10 @@ namespace CleaningApplication
 
         }
 
-        protected void btnConfirm_Click(object sender, EventArgs e)
+        protected async void btnConfirm_Click(object sender, EventArgs e)
         {
-            /*  string body = "<h1> Hello admin </h1> <br/>";
-              body += "<br/>You have received a new message regarding 'Swaach Cleaning Services'. The details are as follows: <br/>";
-              body += "<br/> Customer Name: " + txtname2.Text + "<br/>";
-              body += "<br/> Email Id: " + txtemailid.Text + "<br/>";
-              body += "<br/> Phone No: " + txtPhone.Text + "<br/>";
-              body += "<br/> Message: " + txtmessage2.Text + ".";
-
-
-
-
-              try
-              {
-                  MailMessage message = new MailMessage();
-                  message.To.Add("swaachclean@gmail.com");
-                  message.From = new MailAddress("aastha2150@gmail.com");
-                  message.Subject = "A new 'Request for Quote' received!";
-                  message.Body = body;
-                  message.IsBodyHtml = true;
-                  SmtpClient smtp = new SmtpClient();
-                  smtp.Host = "smtp.gmail.com";
-                  smtp.EnableSsl = true;
-                  NetworkCredential nc = new NetworkCredential();
-                  nc.UserName = "aastha2150@gmail.com";
-                  nc.Password = "Goyal0412aastha";
-                  smtp.UseDefaultCredentials = true;
-                  smtp.Credentials = nc;
-                  smtp.Port = 587;
-                  smtp.Send(message);
-
-                  lblmessage2.Text = "* We have received your query and would be in contact shortly";
-              }
-              catch (Exception ex)
-              {
-                  lblmessage2.Text = "* Error! " + ex.Message;
-              }*/
-           
+            await GetResponse(Environment.GetEnvironmentVariable("MyApikey"), txtname2.Text, txtemailid.Text, txtPhone.Text, txtmessage2.Text);
+            lblmsg.Text = "The message has been successfully sent";
         }
 
      
@@ -125,14 +91,14 @@ namespace CleaningApplication
 
 
 
-        protected void btnSubmit_Click(object sender, EventArgs e)
+        protected async void btnSubmit_Click(object sender, EventArgs e)
         {
-           
-           Execute(Environment.GetEnvironmentVariable("MyApikey"), txtname2.Text, txtemailid.Text, txtPhone.Text, txtmessage2.Text).Wait();
-
+            //  Execute(Environment.GetEnvironmentVariable("MyApiKey"), ).Wait();
+           await GetResponse(Environment.GetEnvironmentVariable("MyApikey"), txtName.Text, txtEmail.Text, txtPhoneNo.Text, txtMessage.Text);
+           lblMessage.Text = "The message has been successfully sent";
         }
 
-        public async Task Execute(string apikey, string name, string email,string phoneno, string message )
+        public static async Task GetResponse(string apikey, string name, string email,string phoneno, string message )
         {
             // Retrieve the API key from the environment variables. See the project README for more info about setting this up.
             //   var apiKey = Environment.GetEnvironmentVariable("MyApikey");
@@ -155,9 +121,9 @@ namespace CleaningApplication
             var htmlContent = body;
 
             var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
-
+            Console.WriteLine("the msg is", msg);
             var response = await client.SendEmailAsync(msg);
-
+            Console.WriteLine("the response is", response);
 
         }
     }

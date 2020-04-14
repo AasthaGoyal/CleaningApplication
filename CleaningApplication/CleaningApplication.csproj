@@ -77,14 +77,17 @@
     <Reference Include="MimeKit, Version=2.4.0.0, Culture=neutral, PublicKeyToken=bede1c8a46c66814, processorArchitecture=MSIL">
       <HintPath>..\packages\MimeKit.2.4.1\lib\net46\MimeKit.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="RestSharp, Version=105.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\RestSharp.105.0.1\lib\net4\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="SendGrid, Version=9.12.0.0, Culture=neutral, PublicKeyToken=4f047e93159395ca, processorArchitecture=MSIL">
       <HintPath>..\packages\Sendgrid.9.12.0\lib\net452\SendGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="SmartFormat, Version=2.5.0.0, Culture=neutral, PublicKeyToken=568866805651201f, processorArchitecture=MSIL">
+      <HintPath>..\packages\SmartFormat.NET.2.5.0\lib\net45\SmartFormat.dll</HintPath>
     </Reference>
     <Reference Include="Stripe.net, Version=28.8.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Stripe.net.28.8.0\lib\net45\Stripe.net.dll</HintPath>
@@ -107,6 +110,9 @@
     </Reference>
     <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -376,36 +382,6 @@
     <Content Include="images\resource\welcome-1.jpg" />
     <Content Include="images\resource\welcome-2.jpg" />
     <Content Include="placeholder.aspx" />
-    <Content Include="themes\1\bullet.png" />
-    <Content Include="themes\1\js-image-slider.css" />
-    <Content Include="themes\1\js-image-slider.js" />
-    <Content Include="themes\2\js-image-slider.css" />
-    <Content Include="themes\2\js-image-slider.js" />
-    <Content Include="themes\3\active-bg.png" />
-    <Content Include="themes\3\js-image-slider.css" />
-    <Content Include="themes\3\js-image-slider.js" />
-    <Content Include="themes\3\thumbs-bar.gif" />
-    <Content Include="themes\4\active-bg.png" />
-    <Content Include="themes\4\bullet.png" />
-    <Content Include="themes\4\js-image-slider.css" />
-    <Content Include="themes\4\js-image-slider.js" />
-    <Content Include="themes\4\navbuttons.gif" />
-    <Content Include="themes\4\navbuttons2.gif" />
-    <Content Include="themes\4\thumbs-bar.gif" />
-    <Content Include="themes\5\js-image-slider.css" />
-    <Content Include="themes\5\js-image-slider.js" />
-    <Content Include="themes\6\bullet.png" />
-    <Content Include="themes\6\js-image-slider.css" />
-    <Content Include="themes\6\js-image-slider.js" />
-    <Content Include="themes\6\mcVideoPlugin.js" />
-    <Content Include="themes\6\video.png" />
-    <Content Include="themes\7\js-image-slider.css" />
-    <Content Include="themes\7\js-image-slider.js" />
-    <Content Include="themes\8\closeBtn.gif" />
-    <Content Include="themes\8\js-image-slider.css" />
-    <Content Include="themes\8\js-image-slider.js" />
-    <Content Include="themes\8\tooltip.css" />
-    <Content Include="themes\8\tooltip.js" />
     <Content Include="js\appear.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\gmaps.js" />
@@ -459,6 +435,8 @@
     <Content Include="IPNHandler.aspx" />
     <Content Include="ConfirmOrder.aspx" />
     <Content Include="Paypal.aspx" />
+    <Content Include="StoryManagement.aspx" />
+    <Content Include="thankyou.aspx" />
     <Content Include="WhyUs.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -709,6 +687,20 @@
     <Compile Include="Paypal.aspx.designer.cs">
       <DependentUpon>Paypal.aspx</DependentUpon>
     </Compile>
+    <Compile Include="StoryManagement.aspx.cs">
+      <DependentUpon>StoryManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StoryManagement.aspx.designer.cs">
+      <DependentUpon>StoryManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="thankyou.aspx.cs">
+      <DependentUpon>thankyou.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="thankyou.aspx.designer.cs">
+      <DependentUpon>thankyou.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WhyUs.aspx.cs">
       <DependentUpon>WhyUs.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -743,9 +735,11 @@
     <None Include="packages.config" />
     <Content Include="ServicesNested.master" />
     <None Include="Properties\PublishProfiles\CleaningApplication20190730020037 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\CleaningApplicationTwo - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\SwaachCleaning - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\SwaachCleaning - Web Deploy1.pubxml" />
     <None Include="Properties\PublishProfiles\SwaachCleaning - Web Deploy2.pubxml" />
+    <None Include="Properties\PublishProfiles\SwaachCleaning - Web Deploy3.pubxml" />
     <None Include="Properties\PublishProfiles\SwaachCleaningServices - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

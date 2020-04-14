@@ -16,7 +16,9 @@ namespace CleaningApplication
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            this.Master.stories = System.Drawing.Color.DeepSkyBlue;
+
+
         }
 
         protected void btnAdd_Click(object sender, EventArgs e)

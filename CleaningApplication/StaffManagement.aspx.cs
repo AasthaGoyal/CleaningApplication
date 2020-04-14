@@ -66,6 +66,7 @@ namespace CleaningApplication
                 path = txtphoto.Text;
             }
             dao.updateStaff(Convert.ToInt32(txtid.Text), txtname.Text, txtaddress.Text, Convert.ToInt32(txtphone.Text), txtemail.Text, txtPosition.Text, path, txtusername.Text);
+            populateData();      
             lblmessage.Text = "The staff information has been updated successfully";
 
         }
@@ -73,6 +74,9 @@ namespace CleaningApplication
         protected void btnDelete_Click(object sender, EventArgs e)
         {
             dao.deleteStaff(Convert.ToInt32(txtid.Text));
+           
+                populateData();
+            
             lblmessage.Text = "The staff has been successfully deleted";
         }
     }

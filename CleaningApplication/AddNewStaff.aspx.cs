@@ -15,7 +15,7 @@ namespace CleaningApplication
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            this.Master.staff = System.Drawing.Color.DeepSkyBlue;
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)

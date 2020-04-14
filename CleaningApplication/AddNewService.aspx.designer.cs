@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CleaningApplication {
-    
-    
-    public partial class WebForm25 {
-        
+namespace CleaningApplication
+{
+
+
+    public partial class WebForm25
+    {
+
         /// <summary>
         /// txtcname control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace CleaningApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtcname;
-        
+
         /// <summary>
         /// fpPhoto control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace CleaningApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload fpPhoto;
-        
+
         /// <summary>
         /// txtcdescription control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace CleaningApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtcdescription;
-        
+
         /// <summary>
         /// txtcrank control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace CleaningApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtcrank;
-        
+
         /// <summary>
         /// lblmessage control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace CleaningApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblmessage;
-        
+
         /// <summary>
         /// btnaddCategory control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace CleaningApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnaddCategory;
-        
+
         /// <summary>
         /// btnaddOptions control.
         /// </summary>
@@ -74,5 +76,19 @@ namespace CleaningApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnaddOptions;
+
+        /// <summary>
+        /// Master property.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated property.
+        /// </remarks>
+        public new CleaningApplication.Admin Master
+        {
+            get
+            {
+                return ((CleaningApplication.Admin)(base.Master));
+            }
+        }
     }
 }

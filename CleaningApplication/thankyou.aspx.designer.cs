@@ -11,71 +11,53 @@ namespace CleaningApplication
 {
 
 
-    public partial class WebForm23
+    public partial class WebForm32
     {
 
         /// <summary>
-        /// txtheading control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtheading;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// txtdescription control.
+        /// lblservicename control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtdescription;
+        protected global::System.Web.UI.WebControls.Label lblservicename;
 
         /// <summary>
-        /// btnAdd control.
+        /// lbldatetime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAdd;
+        protected global::System.Web.UI.WebControls.Label lbldatetime;
 
         /// <summary>
-        /// fpBefore control.
+        /// lblprice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fpBefore;
+        protected global::System.Web.UI.WebControls.Label lblprice;
 
         /// <summary>
-        /// btnbefore control.
+        /// btnfinish control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnbefore;
-
-        /// <summary>
-        /// fpAfter control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fpAfter;
-
-        /// <summary>
-        /// btnafter control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnafter;
+        protected global::System.Web.UI.WebControls.Button btnfinish;
 
         /// <summary>
         /// lblmessage control.
@@ -85,19 +67,5 @@ namespace CleaningApplication
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblmessage;
-
-        /// <summary>
-        /// Master property.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated property.
-        /// </remarks>
-        public new CleaningApplication.Admin Master
-        {
-            get
-            {
-                return ((CleaningApplication.Admin)(base.Master));
-            }
-        }
     }
 }

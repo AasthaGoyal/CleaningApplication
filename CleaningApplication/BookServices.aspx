@@ -60,7 +60,6 @@
 	<asp:ImageButton width="120px" Height="50px" id="PayPalBtn" runat="server" ImageUrl="https://www.paypalobjects.com/en_GB/i/btn/btn_buynow_LG.gif" onClick="PayPalBtn_Click" />
 	 <asp:HiddenField id="hidden" Value="2" runat="server"> </asp:HiddenField>
     <br />
-    <asp:Button ID="btnfinish" class="form-control btn-success" runat="server" Text="Confirm Booking" OnClick="btnfinish_Click1" />
 	<!-- Include the PayPal JavaScript SDK -->
 	<%--<script src="https://www.paypal.com/sdk/js?client-id=ARXG0L7C9sWQzfjZmRsRqzUQWede7HWhjYjK8mdXKDklZmwLZtuhhGGIOMGXaxOnb1noQuAYLPSW_Xrp&currency=NZD"></script>
 
@@ -94,17 +93,7 @@
 
 		}).render('#paypal-button-container');
 	</script>--%>
-	<br />
-	<%--<asp:Button ID="btnfinish" runat="server" class="btn-success form-control" Text="Finish Booking" OnClick="btnfinish_Click" />--%>
-	<br />
-    
-   
-    <asp:Label ID="lblmessage" runat="server" Font-Bold="True" ForeColor="#CC0000" ></asp:Label>
 	
-        
-    
-<br />
-	  <%--<asp:Button ID="btnReview" CssClass="btn-success form-control" runat="server" Text="Review Order and Pay" OnClick="btnReview_Click" />--%>
 
 	<br />
 	<div class="container">

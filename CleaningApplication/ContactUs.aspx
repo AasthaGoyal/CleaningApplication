@@ -105,7 +105,7 @@
                     <asp:UpdatePanel ID="UpdatePanel2" runat="server">
 		<ContentTemplate>
 				<div class="modal-footer">
-					<asp:Label ID="lblmessage2" runat="server" Font-Bold="True" ForeColor="#CC0000" ></asp:Label>
+					<asp:Label ID="lblmsg" runat="server" Font-Bold="True" ForeColor="#CC0000" ></asp:Label>
                     
 	
 					<asp:Button ID="btnConfirm" runat="server" ValidationGroup="requestQuote" Text="Confirm" class="btn btn-primary" OnClick="btnConfirm_Click"/>
@@ -160,13 +160,21 @@
 									   
 										<asp:TextBox runat="server" ID="txtMessage" placeholder="Your message.." Height="112px"/>
 									</div>
-									
+								<asp:UpdatePanel ID="UpdatePanel1" runat="server">
+		                            <ContentTemplate>
+	
 								<div class="form-group col-md-12 col-sm-12">
 									<asp:Button ID="btnSubmit" type="submit" class="theme-btn message-btn" runat="server" Text="Submit"  OnClick="btnSubmit_Click"  />
 								
 									   
 									<asp:Label ID="lblMessage" runat="server" ForeColor="#CC0000" Font-Bold="True" ></asp:Label>
 										</div>  
+                                         </ContentTemplate>
+
+		                         <Triggers>
+			                         <asp:AsyncPostBackTrigger ControlID="btnSubmit" EventName="Click" />
+		                         </Triggers>
+	                        </asp:UpdatePanel>
 								</div>
 							
 						</div>

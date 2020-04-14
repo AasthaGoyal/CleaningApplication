@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="AddNewStaff.aspx.cs" Inherits="CleaningApplication.WebForm19" %>
+<%@ MasterType VirtualPath="~/Admin.Master" %> 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form runat="server">
          <link href="css/bootstrap.css" rel="stylesheet" />

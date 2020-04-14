@@ -1,10 +1,13 @@
-﻿using System;
+﻿using SendGrid;
+using SendGrid.Helpers.Mail;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -23,40 +26,39 @@ namespace CleaningApplication
             getProcess();
         }
 
-        protected void btnConfirm_Click(object sender, EventArgs e)
+        public async void btnConfirm_Click(object sender, EventArgs e)
         {
+            await GetResponse(Environment.GetEnvironmentVariable("MyApikey"), nametxt.Text, emailidtxt.Text, phonetxt.Text, messagetxt.Text);
+            messagelbl.Text = "The message has been successfully sent";
+        }
+
+        public static async Task GetResponse(string apikey, string name, string email, string phoneno, string message)
+        {
+            // Retrieve the API key from the environment variables. See the project README for more info about setting this up.
+            //   var apiKey = Environment.GetEnvironmentVariable("MyApikey");
+
+            var client = new SendGridClient(apikey);
             string body = "<h1> Hello admin </h1> <br/>";
             body += "<br/>You have received a new message regarding 'Swaach Cleaning Services'. The details are as follows: <br/>";
-            body += "<br/> Customer Name: " + nametxt.Text + "<br/>";
-            body += "<br/> Email Id: " + emailidtxt.Text + "<br/>";
-            body += "<br/> Phone No: " + phonetxt.Text + "<br/>";
-            body += "<br/> Message: " + messagetxt.Text + ".";
+            body += "<br/> Customer Name: " + name + "<br/>";
+            body += "<br/> Email Id: " + email + "<br/>";
+            body += "<br/> Phone No: " + phoneno + "<br/>";
+            body += "<br/> Message: " + message + ".";
 
-            try
-            {
-                MailMessage message = new MailMessage();
-                message.To.Add("swaachclean@gmail.com");
-                message.From = new MailAddress("aastha2150@gmail.com");
-                message.Subject = "A new 'Request for Quote' received!";
-                message.Body = body;
-                message.IsBodyHtml = true;
-                SmtpClient smtp = new SmtpClient();
-                smtp.Host = "smtp.gmail.com";
-                smtp.EnableSsl = true;
-                NetworkCredential nc = new NetworkCredential();
-                nc.UserName = "aastha2150@gmail.com";
-                nc.Password = "Goyal0412aastha";
-                smtp.UseDefaultCredentials = true;
-                smtp.Credentials = nc;
-                smtp.Port = 587;
-                smtp.Send(message);
 
-                messagelbl.Text = "* We have received your query and would be in contact shortly";
-            }
-            catch (Exception ex)
-            {
-                messagelbl.Text = "* Error! " + ex.Message;
-            }
+
+            // Send a Single Email using the     Mail Helper
+            var from = new EmailAddress("aastha2150@gmail.com", "Swaach Cleaning");
+            var subject = "A new query received for Swaach Cleaning services!";
+            var to = new EmailAddress("swaachclean@gmail.com", "Swaach Cleaning ");
+            var plainTextContent = body;
+            var htmlContent = body;
+
+            var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
+            Console.WriteLine("the msg is", msg);
+            var response = await client.SendEmailAsync(msg);
+            Console.WriteLine("the response is", response);
+
         }
 
         public void getProcess()

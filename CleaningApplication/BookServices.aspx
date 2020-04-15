@@ -57,7 +57,7 @@
 	<input type="hidden" name="cmd" value="_s-xclick">
 <input type="hidden" name="hosted_button_id" value="FSJX49ZLMZ8WU">
 	<%-- <div id="paypal-button-container"></div>--%>
-	<asp:ImageButton width="120px" Height="50px" id="PayPalBtn" runat="server" ImageUrl="https://www.paypalobjects.com/en_GB/i/btn/btn_buynow_LG.gif" onClick="PayPalBtn_Click" />
+	<asp:ImageButton width="120px" Height="50px" id="P  ayPalBtn" runat="server" ImageUrl="https://www.paypalobjects.com/en_GB/i/btn/btn_buynow_LG.gif" onClick="PayPalBtn_Click" />
 	 <asp:HiddenField id="hidden" Value="2" runat="server"> </asp:HiddenField>
     <br />
 	<!-- Include the PayPal JavaScript SDK -->

@@ -6,6 +6,7 @@
 <head runat="server">
 
 	<meta charset="utf-8">
+   
 <title>Swaach Cleaning Services</title>
 <!-- Stylesheets -->
 <link href="css/bootstrap.css" rel="stylesheet" />
@@ -30,6 +31,7 @@
 	</asp:ContentPlaceHolder>--%>
 </head>
 <body>
+     <h1 style="visibility: hidden" > Cleaning Companies in Auckland</h1>
 	<div class="page-wrapper">
 	
 	<!-- Preloader -->
@@ -110,7 +112,7 @@
 						
 						<!--Info Box-->
 						<div class="upper-column info-box">
-							<div class="icon-box"><a href="tel: 02040050006"><span class="icon fa fa-phone"></span></a></div>
+							<div class="icon-box"><a href="tel: 0223899398"><span class="icon fa fa-phone"></span></a></div>
 							<%--<ul>
 								<li><span>Email us</span><br /> info@swaach.co.nz </li>
 							</ul>--%>

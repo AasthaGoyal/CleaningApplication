@@ -9,6 +9,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Net.Mail;
 using System.Net;
+using System.Net.Mime;
 
 namespace CleaningApplication
 {
@@ -32,37 +33,36 @@ namespace CleaningApplication
 
         protected void btnConfirm_Click(object sender, EventArgs e)
         {
-            string body = "<h1> Hello admin </h1> <br/>";
-            body += "<br/>You have received a new message regarding 'Swaach Cleaning Services'. The details are as follows: <br/>";
-            body += "<br/> Customer Name: " + nametxt.Text + "<br/>";
-            body += "<br/> Email Id: " + emailidtxt.Text + "<br/>";
-            body += "<br/> Phone No: " + phonetxt.Text + "<br/>";
-            body += "<br/> Message: " + messagetxt.Text + ".";
-
             try
             {
-                MailMessage message = new MailMessage();
-                message.To.Add("swaachclean@gmail.com");
-                message.From = new MailAddress("aastha2150@gmail.com");
-                message.Subject = "A new 'Request for Quote' received!";
-                message.Body = body;
-                message.IsBodyHtml = true;
-                SmtpClient smtp = new SmtpClient();
-                smtp.Host = "smtp.gmail.com";
-                smtp.EnableSsl = true;
-                NetworkCredential nc = new NetworkCredential();
-                nc.UserName = "aastha2150@gmail.com";
-                nc.Password = "Goyal0412aastha";
-                smtp.UseDefaultCredentials = true;
-                smtp.Credentials = nc;
-                smtp.Port = 587;
-                smtp.Send(message);
+                messagelbl.Text = "Sending message....please wait";
+                MailMessage mailMsg = new MailMessage();
 
-                messagelbl.Text = "* We have received your query and would be in contact shortly";
+                mailMsg.To.Add(new MailAddress("swaachclean@gmail.com", "The Recipient"));
+
+                mailMsg.From = new MailAddress("swaachclean@gmail.com", "The Sender");
+
+                mailMsg.Subject = "A new query received from REQUEST QUOTE section";
+                string text = "You have received a new query regarding swaach cleaning services.";
+                string html = @"<strong> Name: </strong>" + nametxt.Text + " <br/>";
+                html += @"<strong> Email Id: </strong>" + emailidtxt.Text + "<br/>";
+                html += @"<strong>Phone no: </strong>" + phonetxt.Text + "<br/>";
+                html += @"<strong>Message: </strong>" + messagetxt.Text + "<br/>";
+                mailMsg.AlternateViews.Add(AlternateView.CreateAlternateViewFromString(text, null, MediaTypeNames.Text.Plain));
+                mailMsg.AlternateViews.Add(AlternateView.CreateAlternateViewFromString(html, null, MediaTypeNames.Text.Html));
+
+                System.Net.Mail.SmtpClient smtpClient = new System.Net.Mail.SmtpClient("smtp.sendgrid.net",
+                                                       Convert.ToInt32(587));
+                System.Net.NetworkCredential credentials = new System.Net.NetworkCredential("swaachclean", "Yajatshah@9");
+                smtpClient.Credentials = credentials;
+
+                smtpClient.Send(mailMsg);
+                messagelbl.Text = "The message has been send";
             }
             catch (Exception ex)
             {
-                messagelbl.Text = "* Error! " + ex.Message;
+                Console.WriteLine(ex.Message);
+                messagelbl.Text = "the error is" + ex.Message;
             }
         }
 

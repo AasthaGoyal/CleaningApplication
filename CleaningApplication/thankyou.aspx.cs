@@ -100,9 +100,9 @@ namespace CleaningApplication
             var client = new SendGridClient(apiKey);
 
             // Send a Single Email using the Mail Helper
-            var from = new EmailAddress("swaachclean@gmail.com", "Swaach Cleaning Services");
+            var from = new SendGrid.Helpers.Mail.EmailAddress("swaachclean@gmail.com", "Swaach Cleaning Services");
             var subject = "A new booking request has been received";
-            var to = new EmailAddress("swaachclean@gmail.com", "Swaach Cleaning Services");
+            var to = new SendGrid.Helpers.Mail.EmailAddress("swaachclean@gmail.com", "Swaach Cleaning Services");
             var plainTextContent = "Plain text content";
             var htmlContent = "html content";
             var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);

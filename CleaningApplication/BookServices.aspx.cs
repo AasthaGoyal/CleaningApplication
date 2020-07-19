@@ -14,20 +14,22 @@ using MailKit.Security;
 using SendGrid.Helpers.Mail;
 using SendGrid;
 using System.Threading.Tasks;
+using System.Net.Mail;
+using System.Net.Mime;
 
 namespace CleaningApplication
 {
     public partial class WebForm21 : System.Web.UI.Page
     {
+        public string col1, col2,t;
         protected void Page_Load(object sender, EventArgs e)
         {
-            Environment.SetEnvironmentVariable("SwaachKey", "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");
-
+           
             if (!IsPostBack)
             {
-                string t = Session["total"].ToString();
-                string col1 = Session["column1"].ToString();
-                string col2 = Session["column22"].ToString();
+                 t = Session["total"].ToString();
+                 col1 = Session["column1"].ToString();
+                 col2 = Session["column22"].ToString();
 
                 int price = Convert.ToInt32(t.Substring(1));
              
@@ -35,6 +37,7 @@ namespace CleaningApplication
                 var col1values = col1.Split(',');
                 var col2values = col2.Split(',');
 
+                lblhidden.Text = col1;
                 for(int i=0;i<col1values.Length;i++)
                 {
                     TableRow row1 = new TableRow();
@@ -57,109 +60,45 @@ namespace CleaningApplication
 
         }
 
-        protected async void btnConfirm_Click(object sender, EventArgs e)
+        protected  void btnConfirm_Click(object sender, EventArgs e)
         {
-            await GetResponse(Environment.GetEnvironmentVariable("MyApikey"), txtname2.Text, txtemailid.Text, txtphone2.Text, txtmessage.Text);
-            lblmessage2.Text = "The message has been successfully sent";
-        }
-
-        public static async Task GetResponse(string apikey, string name, string email, string phoneno, string message)
-        {
-            // Retrieve the API key from the environment variables. See the project README for more info about setting this up.
-            //   var apiKey = Environment.GetEnvironmentVariable("MyApikey");
-
-            var client = new SendGridClient(apikey);
-            string body = "<h1> Hello admin </h1> <br/>";
-            body += "<br/>You have received a new message regarding 'Swaach Cleaning Services'. The details are as follows: <br/>";
-            body += "<br/> Customer Name: " + name + "<br/>";
-            body += "<br/> Email Id: " + email + "<br/>";
-            body += "<br/> Phone No: " + phoneno + "<br/>";
-            body += "<br/> Message: " + message + ".";
-
-
-
-            // Send a Single Email using the     Mail Helper
-            var from = new EmailAddress("aastha2150@gmail.com", "Swaach Cleaning");
-            var subject = "A new query received for Swaach Cleaning services!";
-            var to = new EmailAddress("swaachclean@gmail.com", "Swaach Cleaning ");
-            var plainTextContent = body;
-            var htmlContent = body;
-
-            var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
-            Console.WriteLine("the msg is", msg);
-            var response = await client.SendEmailAsync(msg);
-            Console.WriteLine("the response is", response);
-
-        }
-        protected void btnfinish_Click(object sender, EventArgs e)
-        {
-            //string body = "<h1> Hello admin </h1> <br/>";
-            //body += "<br/>You have received a new 'Book service' request regarding 'Swaach Cleaning Services'. The details are as follows: <br/>";
-            //body += "<br/> First Name: " + txtfirstname.Text + "<br/>";
-            //body += "<br/> Last Name: " + txtlastname.Text + "<br/>";
-            //body += "<br/> Email Id: " + txtemail.Text + "<br/>";
-            //body += "<br/> Phone No: " + txtphone.Text + "<br/>";
-            //body += "<br/> Street No: " + txtstreetno.Text + "<br/>";
-            //body += "<br/> Region: " + txtregion.Text + "<br/>";
-            //body += "<br/> City: " + txttown.Text + "<br/>";
-            //body += "<br/> Post Code: " + txtpostcode.Text + "<br/>";
-            //body += "<br/> The preferred date and time for the booking are:<br/>";
-            //body += "<br/> Date: " + txtdate.Value + "<br/>";
-            //body += "<br/> Time: " + txttime.Value + "<br/>";
-
-
-
-
-            //try
-            //{
-            //    MailMessage message = new MailMessage();
-            //    message.To.Add("swaachclean@gmail.com");
-            //    message.From = new MailAddress("aastha2150@gmail.com");
-            //    message.Subject = "A new 'Request for Book service' received!";
-            //    message.Body = body;
-            //    message.IsBodyHtml = true;
-            //    SmtpClient smtp = new SmtpClient();
-            //    smtp.Host = "smtp.gmail.com";
-            //    smtp.EnableSsl = true;
-            //    NetworkCredential nc = new NetworkCredential();
-            //    nc.UserName = "aastha2150@gmail.com";
-            //    nc.Password = "Goyal0412Aa$h1";
-            //    smtp.UseDefaultCredentials = true;
-            //    smtp.Credentials = nc;
-            //    smtp.Port = 587;
-            //    smtp.Send(message);
-
-            //    lblmessage.Text = "* We have received your request and would be in contact shortly";
-            //}
-            //catch (Exception ex)
-            //{
-            //    lblmessage.Text = "* Error! " + ex.Message;
-            //}
-            DataAccessLayer dao = new DataAccessLayer();
-            //Label label1 = new Label();
-            //label1 = (Label)Page.Master.FindControl("lblname");
-            //string name = label1.Text.ToString();
-            string t = Session["total"].ToString();
-            int id = dao.insertGoods("Carpet cleaning", Convert.ToDecimal(t.Substring(1)));
            
-            // lblmessage.Text = "The good has been  added successfully" + id;
-            //Response.Redirect("IPNHandler.aspx?goodsid=" + request_id);
-            Response.Redirect("ConfirmOrder.aspx?goods_id=" + id);
+            
+            try
+            {
+                lblmessage2.Text = "Sending message....please wait";
+                MailMessage mailMsg = new MailMessage();
+
+                mailMsg.To.Add(new MailAddress("swaachclean@gmail.com", "The Recipient"));
+
+                mailMsg.From = new MailAddress("swaachclean@gmail.com", "The Sender");
+
+                mailMsg.Subject = "A new query received from REQUEST QUOTE section";
+                string text = "You have received a new query regarding swaach cleaning services.";
+                string html = @"<strong> Name: </strong>" + txtname2.Text + " <br/>";
+                html += @"<strong> Email Id: </strong>" + txtemailid.Text + "<br/>";
+                html += @"<strong>Phone no: </strong>" + txtphone2.Text + "<br/>";
+                html += @"<strong>Message: </strong>" + txtmessage.Text + "<br/>";
+                mailMsg.AlternateViews.Add(AlternateView.CreateAlternateViewFromString(text, null, MediaTypeNames.Text.Plain));
+                mailMsg.AlternateViews.Add(AlternateView.CreateAlternateViewFromString(html, null, MediaTypeNames.Text.Html));
+
+                System.Net.Mail.SmtpClient smtpClient = new System.Net.Mail.SmtpClient("smtp.sendgrid.net",
+                                                       Convert.ToInt32(587));
+                System.Net.NetworkCredential credentials = new System.Net.NetworkCredential("swaachclean", "Yajatshah@9");
+                smtpClient.Credentials = credentials;
+
+                smtpClient.Send(mailMsg);
+                lblmessage2.Text = "The message has been send";
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                lblmessage2.Text = "the error is" + ex.Message;
+            }
         }
 
-        protected string labelProperty
-        {
-            get
-            {
-                return hidden.Value;
-            }
-
-            set
-            {
-                hidden.Value = value;
-            }
-        }
-
+       
+      
 
         protected void PayPalBtn_Click(object sender, ImageClickEventArgs e)
         {
@@ -186,10 +125,54 @@ namespace CleaningApplication
             Response.Redirect(ppHref.ToString(), true);
         }
 
-       
-       
-       
+        protected void btnBook_Click(object sender, EventArgs e)
+        {
+            btnBook.BackColor = System.Drawing.Color.Gray;
+
+            try
+            {
+                
+               
+                MailMessage mailMsg = new MailMessage();
+                string serviceName = this.Master.accessName;
 
 
+                mailMsg.To.Add(new MailAddress("swaachclean@gmail.com", "The Recipient"));
+
+                mailMsg.From = new MailAddress("swaachclean@gmail.com", "The Sender");
+
+                mailMsg.Subject = "A new query received from BOOK SERVICE section";
+                string text = "A Booking request for the service <h3> " + this.Master.statusheading + "</h3> has been received";
+                string html = @"<strong> Name: </strong>" + txtname.Text + " <br/>";
+                html += @"<strong> Email Id: </strong>" + txtemail.Text + "<br/>";
+                html += @"<strong> Preferred Date: </strong>" + txtdate.Value + "<br/>";
+                html += @"<strong>Preferred Time: </strong>" + txttime.Value + "<br/>";
+                html += @"<strong> Address: </strong>" + txtaddress.Text + "<br/>";
+                html += @"<strong> Extra Notes: </strong>" + txtnotes.Text + "<br/>";
+                html += @"<strong> Email Id: </strong>" + txtemail.Text + "<br/><br/>";
+                html += @"<h3> SERVICE DETAILS: </h3>";
+                html += @"<strong>Name:</strong>" + serviceName + "<br/>" ;
+                html += @"<strong>Details:</strong> " + lblhidden.Text + "<br/>";
+                html += @" And the total price for all the services is <strong> " + lblTotal.Text + "</strong>";
+               
+               
+              
+                mailMsg.AlternateViews.Add(AlternateView.CreateAlternateViewFromString(text, null, MediaTypeNames.Text.Plain));
+                mailMsg.AlternateViews.Add(AlternateView.CreateAlternateViewFromString(html, null, MediaTypeNames.Text.Html));
+
+                System.Net.Mail.SmtpClient smtpClient = new System.Net.Mail.SmtpClient("smtp.sendgrid.net",
+                                                       Convert.ToInt32(587));
+                System.Net.NetworkCredential credentials = new System.Net.NetworkCredential("swaachclean", "Yajatshah@9");
+                smtpClient.Credentials = credentials;
+
+                smtpClient.Send(mailMsg);
+                lblmessage.Text = "The message has been successfully send";
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                lblmessage.Text = "the error is" + ex.Message;
+            }
+        }
     }
 }

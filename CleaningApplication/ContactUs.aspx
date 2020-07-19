@@ -4,7 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 	<form  id="form1" runat="server">
 
-   
+  
 	 
 
 	<section class="in-touch-section" style="background-image:url(images/background/5.jpg)">
@@ -108,7 +108,7 @@
 					<asp:Label ID="lblmsg" runat="server" Font-Bold="True" ForeColor="#CC0000" ></asp:Label>
                     
 	
-					<asp:Button ID="btnConfirm" runat="server" ValidationGroup="requestQuote" Text="Confirm" class="btn btn-primary" OnClick="btnConfirm_Click"/>
+					<asp:Button ID="btnConfirm" runat="server" AutoPostBack="true" ValidationGroup="requestQuote" Text="Confirm" class="btn btn-primary" OnClick="btnConfirm_Click"/>
 					<%--<button id="btnConfirm" class="btn btn-primary" AutoPostBack="true" onclick="btnConfirm_onClick" >Submit</button>--%>
 					<button class="btn btn-primary" data-dismiss ="modal"> Close</button>
 				</div>
@@ -125,7 +125,18 @@
 				</div>
 			</div>
 		</div>
-							
+						
+          <script type="text/javascript">
+
+
+        $(function () {
+            $('#<%= btnConfirm.ClientID %>').click(function () {
+                $.blockUI({ message: '<h1>Sumitting your request..</h1>' });
+            });
+        });
+
+
+    </script>
 	<!--Contact Page Section-->
 	<section class="contact-page-section">
 		<div class="auto-container">
@@ -160,6 +171,15 @@
 									   
 										<asp:TextBox runat="server" ID="txtMessage" placeholder="Your message.." Height="112px"/>
 									</div>
+                                    <asp:UpdateProgress ID="UpdateProgress1" runat="server" AssociatedUpdatePanelID="UpdatePanel1">
+<ProgressTemplate>
+    <div class="modal">
+        <div class="center">
+            <img alt="" src="images/background/loading.gif" />
+        </div>
+    </div>
+</ProgressTemplate>
+</asp:UpdateProgress>
 								<asp:UpdatePanel ID="UpdatePanel1" runat="server">
 		                            <ContentTemplate>
 	
@@ -168,14 +188,15 @@
 								
 									   
 									<asp:Label ID="lblMessage" runat="server" ForeColor="#CC0000" Font-Bold="True" ></asp:Label>
-										</div>  
+								
+                                    &nbsp;</div>  
                                          </ContentTemplate>
 
 		                         <Triggers>
 			                         <asp:AsyncPostBackTrigger ControlID="btnSubmit" EventName="Click" />
 		                         </Triggers>
 	                        </asp:UpdatePanel>
-								</div>
+								</div>  
 							
 						</div>
 						<!--End Contact Form-->

@@ -12,6 +12,7 @@ using System.Net;
 using System.Threading.Tasks;
 using SendGrid;
 using SendGrid.Helpers.Mail;
+using System.Net.Mime;
 
 namespace CleaningApplication
 {
@@ -29,7 +30,7 @@ namespace CleaningApplication
         protected void Page_Load(object sender, EventArgs e)
         {
             this.Master.home = System.Drawing.Color.DeepSkyBlue;
-           
+
             if (!IsPostBack)
             {
 
@@ -38,9 +39,9 @@ namespace CleaningApplication
 
                 loadProcess();
             }
-            
+         
 
-          
+
         }
 
       
@@ -48,6 +49,7 @@ namespace CleaningApplication
         public void RepeterData()
         {
             SqlConnection con = new SqlConnection(connectionString);
+            Console.WriteLine("the connection is", con);
             con.Open();
 
             cmd = new SqlCommand("Select * from tbcategory order by rank asc", con);
@@ -62,40 +64,43 @@ namespace CleaningApplication
             con.Close();
         }
 
-        protected async void btnConfirm_Click(object sender, EventArgs e)
+        protected  void btnConfirm_Click(object sender, EventArgs e)
         {
-            await GetResponse(Environment.GetEnvironmentVariable("MyApikey"), txtname.Text, txtemailid.Text, txtPhone.Text, txtmessage.Text);
-            lblMessage.Text = "The message has been successfully sent";
+           
+            try
+            {
+                lblMessage.Text = "Sending message....please wait";
+                MailMessage mailMsg = new MailMessage();
+
+                mailMsg.To.Add(new MailAddress("swaachclean@gmail.com", "The Recipient"));
+
+                mailMsg.From = new MailAddress("swaachclean@gmail.com", "The Sender");
+
+                mailMsg.Subject = "A new query received from REQUEST QUOTE section";
+                string text = "You have received a new query regarding swaach cleaning services.";
+                string html = @"<strong> Name: </strong>" + txtname.Text + " <br/>";
+                html += @"<strong> Email Id: </strong>" + txtemailid.Text + "<br/>";
+                html += @"<strong>Phone no: </strong>" + txtPhone.Text + "<br/>";
+                html += @"<strong>Message: </strong>" + txtmessage.Text + "<br/>";
+                mailMsg.AlternateViews.Add(AlternateView.CreateAlternateViewFromString(text, null, MediaTypeNames.Text.Plain));
+                mailMsg.AlternateViews.Add(AlternateView.CreateAlternateViewFromString(html, null, MediaTypeNames.Text.Html));
+
+                System.Net.Mail.SmtpClient smtpClient = new System.Net.Mail.SmtpClient("smtp.sendgrid.net",
+                                                       Convert.ToInt32(587));
+                System.Net.NetworkCredential credentials = new System.Net.NetworkCredential("swaachclean", "Yajatshah@9");
+                smtpClient.Credentials = credentials;
+
+                smtpClient.Send(mailMsg);
+                lblMessage.Text = "The message has been send";
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                lblMessage.Text = "the error is" + ex.Message;
+            }
         }
 
-        public static async Task GetResponse(string apikey, string name, string email, string phoneno, string message)
-        {
-            // Retrieve the API key from the environment variables. See the project README for more info about setting this up.
-            //   var apiKey = Environment.GetEnvironmentVariable("MyApikey");
-
-            var client = new SendGridClient(apikey);
-            string body = "<h1> Hello admin </h1> <br/>";
-            body += "<br/>You have received a new message regarding 'Swaach Cleaning Services'. The details are as follows: <br/>";
-            body += "<br/> Customer Name: " + name + "<br/>";
-            body += "<br/> Email Id: " + email + "<br/>";
-            body += "<br/> Phone No: " + phoneno + "<br/>";
-            body += "<br/> Message: " + message + ".";
-
-
-
-            // Send a Single Email using the     Mail Helper
-            var from = new EmailAddress("aastha2150@gmail.com", "Swaach Cleaning");
-            var subject = "A new query received for Swaach Cleaning services!";
-            var to = new EmailAddress("swaachclean@gmail.com", "Swaach Cleaning ");
-            var plainTextContent = body;
-            var htmlContent = body;
-
-            var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
-            Console.WriteLine("the msg is", msg);
-            var response = await client.SendEmailAsync(msg);
-            Console.WriteLine("the response is", response);
-
-        }
+       
         public void loadProcess()
         {
             SqlConnection connection = new SqlConnection(connectionString);

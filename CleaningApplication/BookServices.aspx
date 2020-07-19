@@ -1,12 +1,12 @@
 ﻿<%@ Page Title="" Async ="true" Language="C#" MasterPageFile="~/ServicesNested.master" AutoEventWireup="true" CodeBehind="BookServices.aspx.cs" Inherits="CleaningApplication.WebForm21" %>
 <%@ MasterType VirtualPath="~/ServicesNested.master" %> 
 
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="Content4" ContentPlaceHolderID="MainContent" runat="server">
 	<header>
 		  <meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	</header>
-
+    <asp:Panel ID="pnEndoftenancy"  runat="server">
 				<br /><h4>Booking Details </h4>
 				<br />
 			Preferred date *
@@ -15,8 +15,13 @@
 	Preferred Time *
 			 <input type="time" id="txttime" runat="server" class="form-control" />
 		<br />
+    Full Name: <asp:TextBox type="text" id="txtname" runat="server" class="form-control " />
+    <br />
     Email Id:
     <asp:TextBox type="email" id="txtemail" runat="server" class="form-control " />
+    <br />
+    Street Address
+     <asp:TextBox type="text" id="txtaddress" runat="server" class="form-control " />
 
 			 
 				<br /><b>Any additional information or notes </b>
@@ -47,53 +52,23 @@
 
 		</asp:TableRow>
 	</asp:Table>
+        <asp:Label ID="lblhidden" Visible="false" runat="server"></asp:Label>
   <br />
-  <%--  <asp:Button ID="btnshow"  AutoPostBack="false" runat="server" Text="Button"  OnClientClick="returnAmount();"/>
-  --%>  <%--<asp:HiddenField runat="server" ID="hiddenTotal" />--%>
-<%--	<br />
-	<h3>Proceed to Payment</h3>
-	<br />
-   
-	<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="FSJX49ZLMZ8WU">
-	<%-- <div id="paypal-button-container"></div>--%>
-	<asp:ImageButton width="120px" Height="50px" id="P  ayPalBtn" runat="server" ImageUrl="https://www.paypalobjects.com/en_GB/i/btn/btn_buynow_LG.gif" onClick="PayPalBtn_Click" />
-	 <asp:HiddenField id="hidden" Value="2" runat="server"> </asp:HiddenField>
-    <br />
-	<!-- Include the PayPal JavaScript SDK -->
-	<%--<script src="https://www.paypal.com/sdk/js?client-id=ARXG0L7C9sWQzfjZmRsRqzUQWede7HWhjYjK8mdXKDklZmwLZtuhhGGIOMGXaxOnb1noQuAYLPSW_Xrp&currency=NZD"></script>
+      <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+		<ContentTemplate>
+			
+				  <asp:Button class="btn-primary " AutoPostBack="true" width="120px" id="btnBook" runat="server" Text="Book Service" OnClick="btnBook_Click" />
+ 	<asp:Label ID="lblmessage" runat="server" Font-Bold="True" ForeColor="#CC0000" ></asp:Label>
+				</div>
+             </ContentTemplate>
 
-	<script>
-	
-	   // Render the PayPal button into #paypal-button-container
-		paypal.Buttons({
-
-			// Set up the transaction
-			createOrder: function (data, actions) {
-
-			return actions.order.create({
-				purchase_units: [{
-					amount: {
-
-						value: '2.00'
-						}
-				}]
-				});
-		},
-
-			// Finalize the transaction
-			onApprove: function(data, actions) {
-			return actions.order.capture().then(function(details) {
-				// Show a success message to the buyer
-				alert('Transaction completed by ' + details.payer.name.given_name + '!');
-				document.getElementById('<%=hidden.ClientID %>').value = 'Done';
-				});
-			}
-
-
-		}).render('#paypal-button-container');
-	</script>--%>
-	
+		 <Triggers>
+			 <asp:AsyncPostBackTrigger ControlID="btnBook" EventName="Click" />
+		 </Triggers>
+	</asp:UpdatePanel>
+  		</asp:Panel>
+ 
 
 	<br />
 	<div class="container">

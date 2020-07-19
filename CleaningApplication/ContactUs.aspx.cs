@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 using Newtonsoft.Json;
+using System.Net.Mime;
 
 namespace CleaningApplication
 {
@@ -36,17 +37,42 @@ namespace CleaningApplication
 
         }
 
-        protected async void btnConfirm_Click(object sender, EventArgs e)
+        protected void btnConfirm_Click(object sender, EventArgs e)
         {
-            await GetResponse(Environment.GetEnvironmentVariable("MyApikey"), txtname2.Text, txtemailid.Text, txtPhone.Text, txtmessage2.Text);
-            lblmsg.Text = "The message has been successfully sent";
-        }
 
-     
-       
-      
-          
+            try
+            {
+                lblmsg.Text = "Sending message....please wait";
+                MailMessage mailMsg = new MailMessage();
 
+                mailMsg.To.Add(new MailAddress("swaachclean@gmail.com", "The Recipient"));
+
+                mailMsg.From = new MailAddress("swaachclean@gmail.com", "The Sender");
+
+                mailMsg.Subject = "A new query received from REQUEST QUOTE section";
+                string text = "You have received a new query regarding swaach cleaning services.";
+                string html = @"<strong> Name: </strong>" + txtname2.Text + " <br/>";
+                html += @"<strong> Email Id: </strong>" + txtemailid.Text + "<br/>";
+                html += @"<strong>Phone no: </strong>" + txtPhone.Text + "<br/>";
+                html += @"<strong>Message: </strong>" + txtmessage2.Text + "<br/>";
+                mailMsg.AlternateViews.Add(AlternateView.CreateAlternateViewFromString(text, null, MediaTypeNames.Text.Plain));
+                mailMsg.AlternateViews.Add(AlternateView.CreateAlternateViewFromString(html, null, MediaTypeNames.Text.Html));
+
+                SmtpClient smtpClient = new SmtpClient("smtp.sendgrid.net", Convert.ToInt32(587));
+                System.Net.NetworkCredential credentials = new System.Net.NetworkCredential("swaachclean", "Yajatshah@9");
+                smtpClient.Credentials = credentials;
+
+                smtpClient.Send(mailMsg);
+                lblmsg.Text = "The message has been send";
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                lblmsg.Text = "the error is" + ex.Message;
+            }
+
+        }  
+            
          public void FillContactData()
         {
 
@@ -91,40 +117,43 @@ namespace CleaningApplication
 
 
 
-        protected async void btnSubmit_Click(object sender, EventArgs e)
+        protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            //  Execute(Environment.GetEnvironmentVariable("MyApiKey"), ).Wait();
-           await GetResponse(Environment.GetEnvironmentVariable("MyApikey"), txtName.Text, txtEmail.Text, txtPhoneNo.Text, txtMessage.Text);
-           lblMessage.Text = "The message has been successfully sent";
+            btnSubmit.BackColor = System.Drawing.Color.Gray;
+        
+
+            try
+            {
+                lblMessage.Text = "Sending message....please wait";
+                MailMessage mailMsg = new MailMessage();
+
+                mailMsg.To.Add(new MailAddress("swaachclean@gmail.com", "The Recipient"));
+
+                mailMsg.From = new MailAddress("swaachclean@gmail.com", "The Sender");
+
+                mailMsg.Subject = "A new query received from CONTACT US page";
+                string text = "You have received a new query regarding swaach cleaning services.";
+                string html = @"<strong> Name: </strong>" + txtName.Text + " <br/>";
+                html += @"<strong> Email Id: </strong>" + txtEmail.Text + "<br/>";
+                html += @"<strong>Phone no: </strong>" + txtPhoneNo.Text + "<br/>";
+                html += @"<strong>Message: </strong>" + txtMessage.Text + "<br/>";
+                mailMsg.AlternateViews.Add(AlternateView.CreateAlternateViewFromString(text, null, MediaTypeNames.Text.Plain));
+                mailMsg.AlternateViews.Add(AlternateView.CreateAlternateViewFromString(html, null, MediaTypeNames.Text.Html));
+
+                SmtpClient smtpClient = new SmtpClient("smtp.sendgrid.net", Convert.ToInt32(587));
+                System.Net.NetworkCredential credentials = new System.Net.NetworkCredential("swaachclean", "Yajatshah@9");
+                smtpClient.Credentials = credentials;
+
+                smtpClient.Send(mailMsg);
+                lblMessage.Text = "The message has been send";
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                lblMessage.Text = "the error is" + ex.Message;
+            }
         }
 
-        public static async Task GetResponse(string apikey, string name, string email,string phoneno, string message )
-        {
-            // Retrieve the API key from the environment variables. See the project README for more info about setting this up.
-            //   var apiKey = Environment.GetEnvironmentVariable("MyApikey");
-
-            var client = new SendGridClient(apikey);
-            string body = "<h1> Hello admin </h1> <br/>";
-            body += "<br/>You have received a new message regarding 'Swaach Cleaning Services'. The details are as follows: <br/>";
-            body += "<br/> Customer Name: " + name + "<br/>";
-            body += "<br/> Email Id: " +email + "<br/>";
-            body += "<br/> Phone No: " + phoneno + "<br/>";
-            body += "<br/> Message: " + message + ".";
-                
-
-
-            // Send a Single Email using the     Mail Helper
-            var from = new EmailAddress("aastha2150@gmail.com", "Swaach Cleaning");
-            var subject = "A new query received for Swaach Cleaning services!";
-            var to = new EmailAddress("swaachclean@gmail.com", "Swaach Cleaning ");
-            var plainTextContent = body;
-            var htmlContent = body;
-
-            var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
-            Console.WriteLine("the msg is", msg);
-            var response = await client.SendEmailAsync(msg);
-            Console.WriteLine("the response is", response);
-
-        }
+      
     }
 }

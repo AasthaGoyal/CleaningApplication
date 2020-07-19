@@ -82,6 +82,7 @@
 							<span class="icon flaticon-broom"></span>
 						</div>
 						<h2>Welcome to Swaach Cleaning</h2>
+                 
 						<div class="separator"></div>
 					</div>
 					<div class="pull-right">
